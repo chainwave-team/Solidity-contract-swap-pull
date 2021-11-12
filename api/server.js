@@ -87,9 +87,29 @@ app.get('/token/:tokenId', async (req, res) => {
 
 // Returns am SVG image
 app.get('/svg', (req, res) => {
+    const { bg, dick } = req.query
+    const options = { bg: 0, dick: 0, attributes: [] }
+
+    // Required fields
+    if (!isNumeric(bg) || !isNumeric(dick)) {
+        return res.status(500).json({ error: "bg or dick index is missing" })
+    }
+
+    let attributes
+    if (req.query?.attributes) {
+        attributes = req.query.attributes
+            .split(",")
+            .map(x => x.trim())
+            .filter(x => !!x)
+            .map(x => Number(x))
+    }
     try {
         res.setHeader('Content-Type', 'image/svg+xml');
-        res.send(generateSVG())
+        res.send(generateSVG({
+            bg: Number(bg),
+            dick: Number(dick),
+            attributes: attributes || []
+        }))
     }
     catch {
         res.sendStatus(404)
@@ -103,3 +123,9 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Example app listening at ${BASE_URI} 🎉`)
 })
+
+
+// Ensure is a string numerical
+function isNumeric(str) {
+    return typeof str === "string" && !isNaN(str) && !isNaN(parseFloat(str))
+}
