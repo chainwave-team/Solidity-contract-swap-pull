@@ -1,7 +1,7 @@
 const assert = require("chai").assert;
 const truffleAssert = require('truffle-assertions');
 
-const Collectible = artifacts.require("Collectible.sol");
+const Collectible = artifacts.require("CryptoDicks.sol");
 
 // Test helpers - https://docs.openzeppelin.com/test-helpers/0.5/api
 const { expectRevert } = require('@openzeppelin/test-helpers');
@@ -20,12 +20,12 @@ contract('Collectible', accounts => {
 
         it("has a name", async () => {
             let name = await collectible.name()
-            expect(name).to.equal("Collectible")
+            expect(name).to.equal("CryptoDicks")
         })
 
         it("has a symbol", async () => {
             let symbol = await collectible.symbol()
-            expect(symbol).to.equal("COLL")
+            expect(symbol).to.equal("DICK")
         })
 
         it("has correct tokenURI", async () => {

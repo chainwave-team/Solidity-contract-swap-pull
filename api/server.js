@@ -4,7 +4,7 @@ const express = require('express')
 const Web3 = require('web3')
 // const path = require('path')
 
-const token = require('../build/contracts/Collectible.json')
+const token = require('../abis/CryptoDicks.json')
 const generateSVG = require('./svg')
 
 const app = express()

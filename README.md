@@ -1,4 +1,4 @@
-# NFT Collectible
+# NFT Collectible CryptoDicks (DICK)
 
 > 🚧 This is a WIP learning project, you can fork it but keep in mind that isn't production ready.
 

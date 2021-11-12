@@ -3,7 +3,7 @@ pragma solidity >=0.8.3 <0.9.0;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-contract Collectible is Ownable, ERC721 {
+contract CryptoDicks is Ownable, ERC721 {
     // Collection options
     uint256 public totalSupply;
     uint256 public nextCollectibleId;
@@ -18,7 +18,7 @@ contract Collectible is Ownable, ERC721 {
     }
     mapping(uint256 => NFTProperties) idToProperties;
 
-    constructor() ERC721("Collectible", "COLL") {
+    constructor() ERC721("CryptoDicks", "DICK") {
         totalSupply = 10_000;
         nextCollectibleId = 0;
 
