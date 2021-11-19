@@ -1,19 +1,23 @@
 /// https://docs.opensea.io/docs/metadata-standards
 
-export interface OpenSeaNFTAttributes {
+export type AttributesName =  "bgColor" | "dickColor" | "hat" | "clothe" | "skin"
+export type AttributesObject = { [key in AttributesName]: number }
+ 
+
+interface TokenAttributes {
     trait_type: string
-    value: string
+    value: string | number
 }
 
-export interface OpenSeaNFTProperties {
-    /**
-     * Name of the item.
-     */
-    name: string,
+interface extendedTokenAttributes extends TokenAttributes {
+    display_type: "boost_number" | "boost_percentage" | "number"
+    value: number
+}
 
-    /**
-     * A human readable description of the item. Markdown is supported.
-     */
+export type OpenSeaTokenAttributes = TokenAttributes | extendedTokenAttributes
+
+export interface OpenSeaMetadata {
+    name: string,
     description: string
 
     /**
@@ -30,11 +34,11 @@ export interface OpenSeaNFTProperties {
      * on OpenSea and will allow users to leave OpenSea 
      * and view the item on your site.
      */
-    external_url: string
+    external_url?: string
 
     /**
      * These are the attributes for the item, 
      * which will show up on the OpenSea page for the item.
      */
-    attributes: OpenSeaNFTAttributes[]
+    attributes: OpenSeaTokenAttributes[]
 }

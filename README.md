@@ -28,3 +28,14 @@ truffle console
 > compile
 > migrate --reset
 ```
+
+## Collection attributes
+
+To begin, we start with only one kind of penis.
+Then with have attributes:
+- Background color
+- Special effect
+- Hat
+- Clothes
+- Dick color
+- Balls color
