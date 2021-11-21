@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 import express from 'express'
+import path from 'path'
 import Web3 from 'web3'
 import { AbiItem } from 'web3-utils';
 
@@ -23,6 +24,9 @@ const web3 = new Web3(web3Provider)
 const contract = new web3.eth.Contract(token.abi as AbiItem | AbiItem[], CONTRACT_ADDRESS)
 
 // console.log(contract);
+
+// Serve static files
+app.use(express.static(path.resolve('api', 'public')))
 
 // Returns OpenSea NFT Properties
 app.get('/token/:tokenId', async (req, res) => {
@@ -86,7 +90,6 @@ app.get('/token/:tokenId', async (req, res) => {
 
 // Returns am SVG image
 app.get('/svg/:bgColor/:dickColor/:hat/:clothe/:skin', (req, res) => {
-
     try {
         const { bgColor, dickColor, hat, clothe, skin } = req.params
 
@@ -109,8 +112,6 @@ app.get('/svg/:bgColor/:dickColor/:hat/:clothe/:skin', (req, res) => {
             skin: Number(skin)
         }
 
-        console.log(options);
-        
         res.setHeader('Content-Type', 'image/svg+xml');
         res.send(generateSVG(options))
     }
@@ -120,13 +121,12 @@ app.get('/svg/:bgColor/:dickColor/:hat/:clothe/:skin', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.sendFile(path.resolve('api', 'public', 'index.html'));
 })
 
 app.listen(PORT, () => {
-    console.log(`Example app listening at ${BASE_URI} 🎉`)
+    console.log(`App listening at ${BASE_URI} 🎉`)
 })
-
 
 // Ensure is a string numerical
 function isNumeric(str: unknown): boolean {
