@@ -1,10 +1,12 @@
-import { AttributesObject } from "../types";
-import { linearGradients } from "./colors";
-import { getBackground } from "./background";
-import { buildSize, displaySize } from "./config";
-import { getAccessory } from "./utils";
-import { cycloid, hats } from "./layers";
-import { getDick } from "./dick";
+import { linearGradients } from "./colors"
+import { getBackground } from "./background"
+import { buildSize, displaySize } from "../config"
+import { getAccessory } from "./utils"
+import { cycloid, hats } from "./layers"
+import { getDick } from "./dick"
+
+type AttributesName =  "bgColor" | "dickColor" | "hat"
+export type AttributesObject = { [key in AttributesName]: number }
 
 function Layout (children: string): string {
 	let defs = ""
@@ -24,6 +26,8 @@ function Layout (children: string): string {
 		</svg>`
 	)
 }
+
+
 
 export default function generateSVG (options: AttributesObject): string {
 	const hat = getAccessory(options.hat, hats, "Hat")

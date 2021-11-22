@@ -1,6 +1,6 @@
 import { backgrounds } from './colors'
-import { buildSize } from './config';
-import { getAccessory } from './utils';
+import { buildSize } from '../config'
+import { getAccessory } from './utils'
 
 const stars = (
     `<g>
