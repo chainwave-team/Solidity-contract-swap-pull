@@ -1,6 +1,6 @@
 /// https://docs.opensea.io/docs/metadata-standards
 
-export type AttributesName =  "bgColor" | "dickColor" | "hat" | "clothe" | "skin"
+export type AttributesName =  "bgColor" | "dickColor" | "hat"
 export type AttributesObject = { [key in AttributesName]: number }
  
 

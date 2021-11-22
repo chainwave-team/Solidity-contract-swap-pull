@@ -31,7 +31,7 @@ function getCombinations(quantities) {
 
 window.addEventListener('load', function () {
     const results = getCombinations([
-        14, // Background colors
+        9, // Background colors
         8, // Dicks colors
         4, // Hats
         // 1, // Clothes

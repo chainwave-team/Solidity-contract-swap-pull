@@ -7,6 +7,8 @@ import { AbiItem } from 'web3-utils';
 
 import token from '../../abis/CryptoDicksNFT.json'
 import generateSVG from './generateSVG';
+import { backgrounds, dickColors } from './generateSVG/colors';
+import { hats } from './generateSVG/layers';
 import { AttributesObject, OpenSeaMetadata } from './types';
 
 const app = express()
@@ -89,17 +91,15 @@ app.get('/token/:tokenId', async (req, res) => {
 })
 
 // Returns am SVG image
-app.get('/svg/:bgColor/:dickColor/:hat/:clothe/:skin', (req, res) => {
+app.get('/svg/:bgColor/:dickColor/:hat', (req, res) => {
     try {
-        const { bgColor, dickColor, hat, clothe, skin } = req.params
+        const { bgColor, dickColor, hat } = req.params
 
         // Required fields
         if (
             !isNumeric(bgColor) || 
             !isNumeric(dickColor) || 
-            !isNumeric(hat)|| 
-            !isNumeric(clothe)|| 
-            !isNumeric(skin)
+            !isNumeric(hat)
         ) {
             return res.status(500).json({ error: "Wrong properties" })
         }
@@ -107,9 +107,7 @@ app.get('/svg/:bgColor/:dickColor/:hat/:clothe/:skin', (req, res) => {
         const options: AttributesObject = {
             bgColor: Number(bgColor), 
             dickColor: Number(dickColor), 
-            hat: Number(hat),
-            clothe: Number(clothe), 
-            skin: Number(skin)
+            hat: Number(hat)
         }
 
         res.setHeader('Content-Type', 'image/svg+xml');
@@ -118,6 +116,33 @@ app.get('/svg/:bgColor/:dickColor/:hat/:clothe/:skin', (req, res) => {
     catch {
         res.sendStatus(404)
     }
+})
+
+app.get('/stats', (req, res) => {
+    const quantities = {
+        target: 10_000,
+        // TODO: Dynamist this value without copy/paste frontend #DRY
+        current: 448,
+    }
+    const calcProgress = quantities.current * 100 / quantities.target
+    const progress = `${calcProgress.toFixed(2)}%`
+
+    res.json({
+        quantities: {...quantities, progress },
+        metadata: {
+            backgroundColors: backgrounds.length,
+            dickColors: dickColors.length,
+            hats: hats.length,
+        },
+        // See svg/types
+        specialEffects: [
+            "dick waves skin", 
+            "bg stars", 
+            "Prepuce", 
+            "pink balls", 
+            "Balls hair",
+        ]
+    });
 })
 
 app.get('/', (req, res) => {
