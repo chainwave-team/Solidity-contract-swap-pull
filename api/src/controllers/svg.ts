@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 
-import generateSVG, { AttributesObject } from '../generateSVG'
+import generateSVG, { AttributesObject } from '../svg'
 
 export function getSVG(req: Request, res: Response) {
     try {
