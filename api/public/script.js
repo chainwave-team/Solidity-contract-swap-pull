@@ -31,24 +31,29 @@ function getCombinations(quantities) {
 
 window.addEventListener('load', function () {
     const results = getCombinations([
-        12, // Background colors
-        7, // Dicks colors
-        3, // Hats
-        1, // Clothes
-        1, // Skins
+        14, // Background colors
+        8, // Dicks colors
+        4, // Hats
+        // 1, // Clothes
+        // 1, // Skins
     ])
 
     const baseUrl = "http://localhost:3000/svg"
     const urls = results.map(pathname => baseUrl + pathname)
     const resultsElement = document.getElementById("results")
     const qtyElement = document.getElementById("quantity")
+    const qtyElementPercent = document.getElementById("quantity_percent")
 
     qtyElement.innerText = urls.length.toString()
+    qtyElementPercent.innerText = ((urls.length * 100 / 10_000).toFixed(2)).toString()
 
     for (const url of urls) {
         const image = document.createElement('img')
+        const link = document.createElement('a')
+        link.setAttribute('href', url)
         image.setAttribute("src", url)
-        image.classList = "p-1 w-1/2 sm:w-1/3 md:w-1/6"
-        resultsElement.appendChild(image)
+        link.classList = "p-1 block pointer w-1/2 sm:w-1/3 md:w-1/6"
+        link.appendChild(image)
+        resultsElement.appendChild(link)
     }
 })
