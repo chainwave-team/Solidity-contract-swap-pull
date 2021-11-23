@@ -1,6 +1,7 @@
 import { backgrounds } from './colors'
 import { buildSize } from '../config'
 import { getAccessory } from './utils'
+import { Accessory } from './types'
 
 const stars = (
     `<g>
@@ -16,10 +17,13 @@ const stars = (
     </g>`
 )
 
-export const getBackground = (index: number) => {
-    const background = getAccessory(index, backgrounds, "Background")
-	const color = background.value
+export const getBackground = (index: number): Accessory => {
+    return getAccessory(index, backgrounds, "Background")
+}
 
+export const createBackground = (background: Accessory) => {
+	const color = background.value
+    
 	let result = `<rect width="${buildSize}" height="${buildSize}" fill="${color}"/>`
 
 	// Last is special, it's black with stars

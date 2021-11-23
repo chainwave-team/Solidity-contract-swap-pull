@@ -1,19 +1,21 @@
 import { dickColors } from "./colors";
 import { ballsHairs, dickSkin, prepuce } from "./layers";
+import { Accessory } from "./types";
 import { getAccessory } from "./utils";
 
-interface DickOptions {
-	mainColor: number
-	ballsHairs?: boolean
+export const getDickSkin = (index: number): Accessory => {
+	return getAccessory(index, dickColors, "Dick color")
 }
 
-export const getDick = (options: DickOptions) => {
-	const dick = getAccessory(options.mainColor, dickColors, "Dick color")
+export function createDick(dick: Accessory): string {
 	const dickColor = dick.value
 	let ballsColor = dickColor
 
 	if (dick?.attr?.includes("pink-balls")) {
 		ballsColor = "#ff83bc"
+	}
+	if (dick?.attr?.includes("red-balls")) {
+		ballsColor = "#fc6471"
 	}
 
 	let dickSVG = (
@@ -32,7 +34,7 @@ export const getDick = (options: DickOptions) => {
 		dickSVG += prepuce.value
 	}
 	
-	if (options.ballsHairs) {
+	if (dick?.attr?.includes("green-balls-hairs")) {
 		dickSVG += ballsHairs.value
 	}
 
