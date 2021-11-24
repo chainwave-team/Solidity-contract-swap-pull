@@ -7,3 +7,13 @@ export function getAccessory(index: number, list: Accessory[], name: string): Ac
 
     return list[index];
 }
+
+export function deduplicateByName(accessories: Accessory[]): Accessory[] {
+    return accessories.reduce<Accessory[]>((acc, curr) => {
+        const found = acc.find(a => a.name === curr.name)
+        if (!found) {
+            acc.push(curr)
+        }
+        return acc
+    }, [])
+}

@@ -64,4 +64,13 @@ export const defs: Record<string, string> = {
             <feComposite in="SourceGraphic"/>
         </filter>`
     ),
+	"url(#small-male-cycloid-filter)": (
+        `<filter id="small-male-cycloid-filter" x="34.643" y="20.586" width="26.284" height="24.26" filterUnits="userSpaceOnUse">
+            <feOffset dy="3" input="SourceAlpha"/>
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feFlood flood-opacity="0.161"/>
+            <feComposite operator="in" in2="blur"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>`
+    ),
 }

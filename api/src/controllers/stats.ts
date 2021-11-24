@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 
 import { backgrounds, dickColors } from '../svg/colors'
-import { hats } from '../svg/layers'
+import { hats } from '../svg/layers/hats'
 
 export function getStats(req: Request, res: Response) {
     const quantities = {

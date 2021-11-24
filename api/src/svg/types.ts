@@ -11,4 +11,5 @@ export interface Accessory {
     value: string | ((props?: any) => string) // like #HEX or <svg/>
     attr?: AccessoryAttr[] // like z-index
     defs?: string[] // For linear gradients
+    children?: Accessory[]
 }

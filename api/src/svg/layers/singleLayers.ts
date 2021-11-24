@@ -1,62 +1,4 @@
-import { Accessory } from './types'
-
-export const hats: Accessory[] = [
-	{
-		name: "Empty",
-		value: ""
-	},
-	{
-		name: "Angel ring",
-		value: (
-			`<g id="angel-circle" transform="translate(38 18)" fill="none" stroke="#f4ffa0" stroke-width="1">
-				<ellipse cx="9.5" cy="2" rx="9.5" ry="2" stroke="none"/>
-				<ellipse cx="9.5" cy="2" rx="9" ry="1.5" fill="none"/>
-			</g>`
-		)
-	},
-	{
-		name: "Red hat",
-		value: `<path id="red-hat" d="M0,0C23.894,2.091,28.557,6.126,20.5,12.406s-9.1,11.968-14.353,2.487S0,0,0,0Z" transform="matrix(0.53, -0.848, 0.848, 0.53, 36.862, 30.661)" fill="#f83d61"/>`,
-		attr: ["below-dick", "male-cycloid"]
-	},
-	{
-		name: "Alien eyes",
-		value: (
-			`<g id="alien-eyes">
-				<line id="right-antenna" y1="7" x2="7" transform="translate(52.5 19.5)" fill="none" stroke="#8e94f2" stroke-width="1"/>
-				<line id="left-antenna" x1="11" y1="5" transform="translate(32.5 22.5)" fill="none" stroke="#8e94f2" stroke-width="1"/>
-				<g id="left-eyes" transform="translate(32 20)" fill="#9fa0ff" stroke="#8e94f2" stroke-width="1">
-					<ellipse cx="1.5" cy="2" rx="1.5" ry="2" stroke="none"/>
-					<ellipse cx="1.5" cy="2" rx="1" ry="1.5" fill="none"/>
-				</g>
-				<g id="right-eyes" transform="translate(59 17)" fill="#9fa0ff" stroke="#8e94f2" stroke-width="1">
-					<ellipse cx="1.5" cy="2" rx="1.5" ry="2" stroke="none"/>
-					<ellipse cx="1.5" cy="2" rx="1" ry="1.5" fill="none"/>
-				</g>
-				<g id="left-pupil" transform="translate(33 21)" fill="#fff" stroke="#000" stroke-width="1">
-					<circle cx="0.5" cy="0.5" r="0.5" stroke="none"/>
-					<circle cx="0.5" cy="0.5" fill="none"/>
-				</g>
-				<g id="right-pupil" transform="translate(60 19)" fill="#fff" stroke="#000" stroke-width="1">
-					<circle cx="0.5" cy="0.5" r="0.5" stroke="none"/>
-					<circle cx="0.5" cy="0.5" fill="none"/>
-				</g>
-			</g>`
-		)
-	},
-	{
-		name: "Monster ears",
-		value: (color: string) => (
-			`<g id="monster-ears">
-				<path d="M765.923,385.147l-1.453-4.612,4.448,2.243Z" transform="translate(-724 -358)" fill="${color}"/>
-				<path d="M765.923,385.147l-1.453-4.612,4.448,2.243Z" transform="matrix(0.259, 0.966, -0.966, 0.259, 224.634, -814.815)" fill="${color}"/>
-				<path d="M765.446,383.847l-.976-3.312,2.988,1.611Z" transform="translate(-723 -356.961)" fill="#5ebabe"/>
-				<path d="M765.474,383.812l-1-3.277,3.073,1.594Z" transform="matrix(0.259, 0.966, -0.966, 0.259, 223.89, -813.58)" fill="#5ebabe"/>
-			</g>`
-		),
-		attr: ["male-cycloid"]
-	}
-]
+import { Accessory } from '../types'
 
 export const dickSkin: Accessory = {
 	name: "Black waves",
@@ -175,8 +117,72 @@ export const maleCycloid: Accessory = {
 	 defs: ["male-cycloid-filter"]
 }
 
+export const smallMaleCycloid: Accessory = {
+	name: "Small Male Cycloid",
+	value: (
+		`<g id="small-male-cycloid" transform="translate(25.921 7.697)">
+			<g transform="matrix(1, 0, 0, 1, -25.92, -7.7)" filter="url(#small-male-cycloid-filter)">
+				<path d="M-138.23-1098.856a4.734,4.734,0,0,1,6.484,0C-134.945-1096.041-138.23-1098.856-138.23-1098.856Z" transform="translate(182.92 1127.15)" fill="rgba(255,255,255,0.9)" stroke="#000" stroke-width="0.2"/>
+			</g>
+			<circle cx="0.5" cy="0.5" r="0.5" transform="translate(21.554 20)"/>
+		</g>`
+ 	),
+	 defs: ["small-male-cycloid-filter"]
+}
+
 export const rainbowCape: Accessory = {
 	name: 'Rainbow blanket',
 	value: `<path id="rainbow-cape" d="M10.291,24.311c10.656-4.044,15.528-2.187,15.528-2.187s12.481-2.431,14.852-5.1S46.5,21.819,46.5,21.819h0l1.042,11.014s5.537,6.139,3.488,7.39c-.825.506-8.452-3.925-10.163-3.428-3,.872-8.931.443-11.067,1.487a13.037,13.037,0,0,1-10.41.068l-.667-6.343s-4.912-5.041-1.269-7.519-.917.481-.917.481Z" transform="matrix(-0.105, 0.995, -0.995, -0.105, 80.859, 24.679)" fill="url(#rainbow-vertical)"/>`,
 	defs: ["rainbow-vertical"]
+}
+
+export const vampireTeeth: Accessory = {
+	name: "Vampire teeth",
+	value: (
+		`<g id="vampire-teeth">
+			<path d="M.5,0,1,2H0Z" transform="translate(47 37) rotate(180)" fill="#fff"/>
+			<path d="M.5,0,1,2H0Z" transform="translate(50 37) rotate(180)" fill="#fff"/>
+		</g>`
+	),
+}
+
+export const catMustache: Accessory = {
+	name: "Vampire teeth",
+	value: (
+		`<g id="cat-mustache">
+			<path d="M.006,5.488A5.778,5.778,0,0,1,1.587.914,2.759,2.759,0,0,1,4.3.073" transform="translate(36.745 33.207) rotate(-88)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M.006,5.488A5.778,5.778,0,0,1,1.587.914,2.759,2.759,0,0,1,4.3.073" transform="translate(37.745 31.207) rotate(-88)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M.006,0a5.778,5.778,0,0,0,1.58,4.574,2.759,2.759,0,0,0,2.71.841" transform="translate(53.818 33.304) rotate(-90)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M.006,0a5.778,5.778,0,0,0,1.58,4.574,2.759,2.759,0,0,0,2.71.841" transform="translate(51.085 32.916) rotate(-48)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M.006,5.488A5.778,5.778,0,0,1,1.587.914,2.759,2.759,0,0,1,4.3.073" transform="matrix(-0.695, -0.719, 0.719, -0.695, 41.08, 36.607)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M.006,0a5.778,5.778,0,0,0,1.58,4.574,2.759,2.759,0,0,0,2.71.841" transform="translate(52.818 31.304) rotate(-90)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
+		</g>`
+	),
+}
+
+// TODO: Stars are not well aligned
+export const starsAroundTheHead: Accessory = {
+	name: "starsAroundTheHead",
+	value: (
+		`<g id="starsAroundTheHead">
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(48.172 11.708)" fill="#ff0"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(44.172 10.708)" fill="#ff0"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(40.172 10.708)" fill="#ff0"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(36.172 12.708)" fill="#ff0"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(33.172 15.708)" fill="#ff0"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(32.172 18.708)" fill="#ff0"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(31.172 22.708)" fill="#ff0"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(32.172 28.708)" fill="#ff0"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(36.172 31.708)" fill="#ff0"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(39.172 33.708)" fill="#ff0"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(43.172 34.708)" fill="#ff0"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(48.172 33.708)" fill="#ff0"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(52.172 31.708)" fill="#ff0"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(54.172 27.708)" fill="#ff0"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(55.172 23.708)" fill="#ff0"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(55.172 19.708)" fill="#ff0"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(54.172 16.708)" fill="#ff0"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(52.172 13.708)" fill="#ff0"/>
+		</g>`
+	),
 }

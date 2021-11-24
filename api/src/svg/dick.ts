@@ -1,5 +1,5 @@
 import { dickColors } from "./colors";
-import { ballsHairs, dickSkin, prepuce } from "./layers";
+import { ballsHairs, dickSkin, prepuce } from "./layers/singleLayers";
 import { Accessory } from "./types";
 import { getAccessory } from "./utils";
 

@@ -33,7 +33,7 @@ window.addEventListener('load', function () {
     const results = getCombinations([
         10, // Background colors
         9, // Dicks colors
-        5, // Hats
+        6, // Hats
         // 1, // Clothes
         // 1, // Skins
     ])
