@@ -1,60 +1,60 @@
 import { Accessory } from '../types'
 
-export const dickSkin: Accessory = {
+export const dickWavesSkin: Accessory = {
 	name: "Black waves",
-	value: (
+	value: (color?: string) => (
 		`<g id="black-waves-dick-skin">
-			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(161 1.257)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(160 -0.743)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(160 -3.743)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(160 -5.743)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(160 -8.743)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(166 -4.743)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(166 -0.743)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(163 5.257)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(161 9.257)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(159 15.257)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(157 17.257)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(154 20.257)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(153 21.257)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(165 16.257)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(170 17.257)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(169 19.257)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(164 21.257)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(158 21.257)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(158 23.257)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(165 -8.531)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(164 -11.531)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(161 -14.531)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(160 -12.531)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(168 -13.531)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(168 -17.531)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(160 -18.531)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(169 -9.531)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(169 -6.531)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(169 -1.531)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(169 2.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(169 4.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(168 7.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(159 3.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(167 11.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(165 14.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(171 25.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(170 23.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(175 20.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(175 24.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(174 30.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(165 25.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(157 26.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(152 25.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(155 29.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(160 29.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(162 27.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(165 27.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(169 30.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(172 28.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(177 27.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
-			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(163 17.469)" fill="none" stroke="#070707" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(161 1.257)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(160 -0.743)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(160 -3.743)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(160 -5.743)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(160 -8.743)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(166 -4.743)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(166 -0.743)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(163 5.257)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(161 9.257)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(159 15.257)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(157 17.257)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(154 20.257)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(153 21.257)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(165 16.257)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(170 17.257)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(169 19.257)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(164 21.257)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(158 21.257)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.818.424,1.619-.424" transform="translate(158 23.257)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(165 -8.531)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(164 -11.531)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(161 -14.531)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(160 -12.531)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(168 -13.531)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(168 -17.531)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(160 -18.531)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(169 -9.531)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(169 -6.531)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(169 -1.531)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(169 2.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(169 4.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(168 7.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(159 3.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(167 11.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(165 14.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(171 25.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(170 23.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(175 20.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(175 24.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(174 30.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(165 25.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(157 26.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(152 25.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(155 29.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(160 29.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(162 27.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(165 27.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(169 30.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(172 28.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(177 27.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
+			<path d="M-117.437,46.383l1.337.212,1.191-.212" transform="translate(163 17.469)" fill="none" stroke="${color || '#070707'}" stroke-width="0.2"/>
 		</g>`
 	)
 }
@@ -66,24 +66,24 @@ export const prepuce: Accessory = {
 
 export const ballsHairs: Accessory = {
 	name: "Green balls hairs",
-	value: (
+	value: (color?: string) => (
 		`<g id="green-balls-hairs">
-			<path d="M4.116,4.082A3.8,3.8,0,0,0,2.6.68,3.206,3.206,0,0,0,0,.054" transform="matrix(-0.995, -0.105, 0.105, -0.995, 60.221, 83.894)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
-			<path d="M4.116,4.082A3.8,3.8,0,0,0,2.6.68,3.206,3.206,0,0,0,0,.054" transform="matrix(-0.995, -0.105, 0.105, -0.995, 58.221, 80.894)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
-			<path d="M.005,3.5A3.275,3.275,0,0,1,1.292.583,2.7,2.7,0,0,1,3.5.047" transform="matrix(-0.995, -0.105, 0.105, -0.995, 44.58, 82.196)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
-			<path d="M.005,3.5A3.275,3.275,0,0,1,1.292.583,2.7,2.7,0,0,1,3.5.047" transform="matrix(-0.995, -0.105, 0.105, -0.995, 42.58, 79.196)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
-			<path d="M.005,3.5A3.275,3.275,0,0,1,1.292.583,2.7,2.7,0,0,1,3.5.047" transform="matrix(-0.995, -0.105, 0.105, -0.995, 40.098, 82.513)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
-			<path d="M.005,3.5A3.275,3.275,0,0,1,1.292.583,2.7,2.7,0,0,1,3.5.047" transform="matrix(-0.995, -0.105, 0.105, -0.995, 38.098, 79.513)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
-			<path d="M-.207,1.48C-.181.825.476.5,1.249.168A6.165,6.165,0,0,1,3.474-.193" transform="matrix(-0.995, -0.105, 0.105, -0.995, 36.541, 81.069)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
-			<path d="M-.207,1.48C-.181.825.476.5,1.249.168A6.165,6.165,0,0,1,3.474-.193" transform="matrix(-0.995, -0.105, 0.105, -0.995, 34.541, 78.069)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
-			<path d="M.005,3.5A3.275,3.275,0,0,1,1.292.583,2.7,2.7,0,0,1,3.5.047" transform="matrix(-0.995, -0.105, 0.105, -0.995, 33.662, 82.006)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
-			<path d="M.005,3.5A3.275,3.275,0,0,1,1.292.583,2.7,2.7,0,0,1,3.5.047" transform="matrix(-0.995, -0.105, 0.105, -0.995, 31.662, 79.006)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
-			<path d="M0,.054A3.206,3.206,0,0,1,2.6.68a3.8,3.8,0,0,1,1.516,3.4" transform="matrix(-0.995, -0.105, 0.105, -0.995, 63.957, 83.213)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
-			<path d="M0,.054A3.206,3.206,0,0,1,2.6.68a3.8,3.8,0,0,1,1.516,3.4" transform="matrix(-0.995, -0.105, 0.105, -0.995, 61.957, 80.213)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
-			<path d="M3.881,1.849C4.057.927,3.372.563,2.55.208A5.6,5.6,0,0,0,0,.028" transform="matrix(-0.995, -0.105, 0.105, -0.995, 66.155, 81.433)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
-			<path d="M3.881,1.849C4.057.927,3.372.563,2.55.208A5.6,5.6,0,0,0,0,.028" transform="matrix(-0.995, -0.105, 0.105, -0.995, 64.155, 78.433)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
-			<path d="M4.116,4.082A3.8,3.8,0,0,0,2.6.68,3.206,3.206,0,0,0,0,.054" transform="matrix(-0.995, -0.105, 0.105, -0.995, 67.359, 81.794)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
-			<path d="M4.116,4.082A3.8,3.8,0,0,0,2.6.68,3.206,3.206,0,0,0,0,.054" transform="matrix(-0.995, -0.105, 0.105, -0.995, 65.359, 78.794)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M4.116,4.082A3.8,3.8,0,0,0,2.6.68,3.206,3.206,0,0,0,0,.054" transform="matrix(-0.995, -0.105, 0.105, -0.995, 60.221, 83.894)" fill="none" stroke="${color || '#5fdd9d'}" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M4.116,4.082A3.8,3.8,0,0,0,2.6.68,3.206,3.206,0,0,0,0,.054" transform="matrix(-0.995, -0.105, 0.105, -0.995, 58.221, 80.894)" fill="none" stroke="${color || '#5fdd9d'}" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M.005,3.5A3.275,3.275,0,0,1,1.292.583,2.7,2.7,0,0,1,3.5.047" transform="matrix(-0.995, -0.105, 0.105, -0.995, 44.58, 82.196)" fill="none" stroke="${color || '#5fdd9d'}" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M.005,3.5A3.275,3.275,0,0,1,1.292.583,2.7,2.7,0,0,1,3.5.047" transform="matrix(-0.995, -0.105, 0.105, -0.995, 42.58, 79.196)" fill="none" stroke="${color || '#5fdd9d'}" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M.005,3.5A3.275,3.275,0,0,1,1.292.583,2.7,2.7,0,0,1,3.5.047" transform="matrix(-0.995, -0.105, 0.105, -0.995, 40.098, 82.513)" fill="none" stroke="${color || '#5fdd9d'}" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M.005,3.5A3.275,3.275,0,0,1,1.292.583,2.7,2.7,0,0,1,3.5.047" transform="matrix(-0.995, -0.105, 0.105, -0.995, 38.098, 79.513)" fill="none" stroke="${color || '#5fdd9d'}" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M-.207,1.48C-.181.825.476.5,1.249.168A6.165,6.165,0,0,1,3.474-.193" transform="matrix(-0.995, -0.105, 0.105, -0.995, 36.541, 81.069)" fill="none" stroke="${color || '#5fdd9d'}" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M-.207,1.48C-.181.825.476.5,1.249.168A6.165,6.165,0,0,1,3.474-.193" transform="matrix(-0.995, -0.105, 0.105, -0.995, 34.541, 78.069)" fill="none" stroke="${color || '#5fdd9d'}" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M.005,3.5A3.275,3.275,0,0,1,1.292.583,2.7,2.7,0,0,1,3.5.047" transform="matrix(-0.995, -0.105, 0.105, -0.995, 33.662, 82.006)" fill="none" stroke="${color || '#5fdd9d'}" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M.005,3.5A3.275,3.275,0,0,1,1.292.583,2.7,2.7,0,0,1,3.5.047" transform="matrix(-0.995, -0.105, 0.105, -0.995, 31.662, 79.006)" fill="none" stroke="${color || '#5fdd9d'}" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M0,.054A3.206,3.206,0,0,1,2.6.68a3.8,3.8,0,0,1,1.516,3.4" transform="matrix(-0.995, -0.105, 0.105, -0.995, 63.957, 83.213)" fill="none" stroke="${color || '#5fdd9d'}" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M0,.054A3.206,3.206,0,0,1,2.6.68a3.8,3.8,0,0,1,1.516,3.4" transform="matrix(-0.995, -0.105, 0.105, -0.995, 61.957, 80.213)" fill="none" stroke="${color || '#5fdd9d'}" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M3.881,1.849C4.057.927,3.372.563,2.55.208A5.6,5.6,0,0,0,0,.028" transform="matrix(-0.995, -0.105, 0.105, -0.995, 66.155, 81.433)" fill="none" stroke="${color || '#5fdd9d'}" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M3.881,1.849C4.057.927,3.372.563,2.55.208A5.6,5.6,0,0,0,0,.028" transform="matrix(-0.995, -0.105, 0.105, -0.995, 64.155, 78.433)" fill="none" stroke="${color || '#5fdd9d'}" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M4.116,4.082A3.8,3.8,0,0,0,2.6.68,3.206,3.206,0,0,0,0,.054" transform="matrix(-0.995, -0.105, 0.105, -0.995, 67.359, 81.794)" fill="none" stroke="${color || '#5fdd9d'}" stroke-linecap="round" stroke-width="0.5"/>
+			<path d="M4.116,4.082A3.8,3.8,0,0,0,2.6.68,3.206,3.206,0,0,0,0,.054" transform="matrix(-0.995, -0.105, 0.105, -0.995, 65.359, 78.794)" fill="none" stroke="${color || '#5fdd9d'}" stroke-linecap="round" stroke-width="0.5"/>
 		</g>`
 	)
 }
@@ -186,3 +186,22 @@ export const starsAroundTheHead: Accessory = {
 		</g>`
 	),
 }
+
+export const backgroundStars: Accessory = {
+	name: "Background stars",
+	value: (
+		`<g id="background-stars">
+			<path d="M1.29.914.919.7,1.29.485a.044.044,0,0,0,.016-.06L1.219.274a.044.044,0,0,0-.06-.016L.788.473V.044A.044.044,0,0,0,.744,0H.569A.044.044,0,0,0,.525.044V.473L.153.258a.044.044,0,0,0-.06.016L.006.426a.044.044,0,0,0,.016.06L.394.7.022.914a.044.044,0,0,0-.016.06l.088.152a.044.044,0,0,0,.06.016L.525.927v.429A.044.044,0,0,0,.569,1.4H.744a.044.044,0,0,0,.044-.044V.927l.372.214a.044.044,0,0,0,.06-.016L1.306.974A.044.044,0,0,0,1.29.914Z" transform="translate(77.226 42.419)" fill="#ff43f1"/>
+			<path d="M1.29.914.919.7,1.29.485a.044.044,0,0,0,.016-.06L1.219.274a.044.044,0,0,0-.06-.016L.788.473V.044A.044.044,0,0,0,.744,0H.569A.044.044,0,0,0,.525.044V.473L.153.258a.044.044,0,0,0-.06.016L.006.426a.044.044,0,0,0,.016.06L.394.7.022.914a.044.044,0,0,0-.016.06l.088.152a.044.044,0,0,0,.06.016L.525.927v.429A.044.044,0,0,0,.569,1.4H.744a.044.044,0,0,0,.044-.044V.927l.372.214a.044.044,0,0,0,.06-.016L1.306.974A.044.044,0,0,0,1.29.914Z" transform="translate(47.132 81.36)" fill="#ff43f1"/>
+			<path d="M1.29.914.919.7,1.29.485a.044.044,0,0,0,.016-.06L1.219.274a.044.044,0,0,0-.06-.016L.788.473V.044A.044.044,0,0,0,.744,0H.569A.044.044,0,0,0,.525.044V.473L.153.258a.044.044,0,0,0-.06.016L.006.426a.044.044,0,0,0,.016.06L.394.7.022.914a.044.044,0,0,0-.016.06l.088.152a.044.044,0,0,0,.06.016L.525.927v.429A.044.044,0,0,0,.569,1.4H.744a.044.044,0,0,0,.044-.044V.927l.372.214a.044.044,0,0,0,.06-.016L1.306.974A.044.044,0,0,0,1.29.914Z" transform="translate(36.526 52.547)" fill="#ff43f1"/>
+			<path d="M1.29.914.919.7,1.29.485a.044.044,0,0,0,.016-.06L1.219.274a.044.044,0,0,0-.06-.016L.788.473V.044A.044.044,0,0,0,.744,0H.569A.044.044,0,0,0,.525.044V.473L.153.258a.044.044,0,0,0-.06.016L.006.426a.044.044,0,0,0,.016.06L.394.7.022.914a.044.044,0,0,0-.016.06l.088.152a.044.044,0,0,0,.06.016L.525.927v.429A.044.044,0,0,0,.569,1.4H.744a.044.044,0,0,0,.044-.044V.927l.372.214a.044.044,0,0,0,.06-.016L1.306.974A.044.044,0,0,0,1.29.914Z" transform="translate(56.108 17.408)" fill="#ff43f1"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(20.923 74.253)" fill="#53b0ff"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(3.035 43.827)" fill="#53b0ff"/>
+			<path d="M4.3,5.264l.309.186L4.524,5.1,4.8,4.862l-.36-.031L4.3,4.5l-.14.332-.36.031L4.07,5.1l-.082.352Z" transform="translate(19.629 29.188)" fill="#53b0ff"/>
+			<path d="M4.3,5.264l.309.186L4.524,5.1,4.8,4.862l-.36-.031L4.3,4.5l-.14.332-.36.031L4.07,5.1l-.082.352Z" transform="translate(64.504 65.271)" fill="#53b0ff"/>
+			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(79.942 26.585)" fill="#ff0"/>
+		</g>`
+ 	),
+	 attr: ["below-dick"]
+}
+

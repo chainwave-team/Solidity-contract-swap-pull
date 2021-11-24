@@ -1,3 +1,4 @@
+import { backgroundStars, ballsHairs, dickWavesSkin, prepuce } from "./layers/singleLayers"
 import { Accessory } from "./types"
 
 export const backgrounds: Accessory[] = [
@@ -12,17 +13,17 @@ export const backgrounds: Accessory[] = [
 	{ name: "green", value: "#136F63" },
 	{ name: "purple", value: "rgba(117,42,219,0.89)" },
 	{ name: "linear-gradient-4", value: "url(#rainbow-vertical)" },
-	{ name: "black", value: "#000000", attr: ["bg-stars"] },
+	{ name: "black", value: "#000000", children: [backgroundStars] },
 ]
 
 export const dickColors: Accessory[] = [
-	{ name: "pink", value: "#C78AD9", attr: ["pink-balls", "prepuce", "green-balls-hairs"] },
-	{ name: "green", value: "#55D6BE", attr: ["red-balls", "prepuce"] },
+	{ name: "pink", value: "#C78AD9", attr: ["pink-balls"], children: [prepuce, ballsHairs] },
+	{ name: "green", value: "#55D6BE", attr: ["red-balls"], children: [prepuce] },
 	{ name: "red", value: "#FC6471" },
-	{ name: "light-purple", value: "#ADA7FF", attr: ["prepuce"] },
+	{ name: "light-purple", value: "#ADA7FF", children: [prepuce] },
 	{ name: "cyan-to-green-vertical", value: "url(#cyan-to-green-vertical)" },
 	{ name: "purple-to-green-45", value: "url(#purple-to-green-45)" },
 	{ name: "yellow-to-pink-45", value: "url(#yellow-to-pink-45)" },
 	{ name: "blue-to-pink-vertical", value: "url(#blue-to-pink-vertical)" },
-	{ name: "blue-green", value: "#40B5C1", attr: ["prepuce", "dick-waves"] },
+	{ name: "blue-green", value: "#40B5C1", children: [prepuce, dickWavesSkin] },
 ]

@@ -16,6 +16,14 @@ export const hats: Accessory[] = [
 		)
 	},
 	{
+		name: "Angel halo",
+		value: (
+			`<circle id="angle-halo" cx="13" cy="13" r="13" transform="translate(35 17)" fill="#f4ffa0"/>`
+		),
+		attr: ["below-dick"],
+		children: [smallMaleCycloid],
+	},
+	{
 		name: "Red hat",
 		value: `<path id="red-hat" d="M0,0C23.894,2.091,28.557,6.126,20.5,12.406s-9.1,11.968-14.353,2.487S0,0,0,0Z" transform="matrix(0.53, -0.848, 0.848, 0.53, 36.862, 30.661)" fill="#f83d61"/>`,
 		attr: ["below-dick"],

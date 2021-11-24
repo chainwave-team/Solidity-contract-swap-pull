@@ -1,10 +1,8 @@
 // Special effect
 type ZIndexAttr = "below-dick"
-type BgAttr = "bg-stars"
-type DickSkin = "dick-waves" | "pink-balls" | "red-balls" | "prepuce" | "green-balls-hairs"
-type HatAttr = "female-cycloid" | "male-cycloid"
+type DickSkin = "pink-balls" | "red-balls"
 
-export type AccessoryAttr = ZIndexAttr | BgAttr | DickSkin | HatAttr
+export type AccessoryAttr = ZIndexAttr | DickSkin
 
 export interface Accessory {
     name: string // Used as an id
