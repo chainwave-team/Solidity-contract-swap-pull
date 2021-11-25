@@ -1,4 +1,4 @@
-import { backgroundStars, ballsHairs, dickWavesSkin, prepuce } from "./layers/singleLayers"
+import { backgroundStars, ballsHairs, dickWavesSkin, iceSkin, prepuce } from "./layers/singleLayers"
 import { Accessory } from "./types"
 
 export const backgrounds: Accessory[] = [
@@ -7,9 +7,9 @@ export const backgrounds: Accessory[] = [
 	{ name: "light-blue", value: "#a0c4ff" },
 	{ name: "light-cyan", value: "#9bf6ff" },
 	{ name: "light-green", value: "#caffbf" },
-	// { name: "light-yellow", value: "#fdffb6" },
+	{ name: "light-yellow", value: "#fdffb6" },
 	{ name: "light-orange", value: "#ffd6a5" },
-	// { name: "light-orange-red", value: "#ffadad" },
+	{ name: "light-orange-red", value: "#ffadad" },
 	{ name: "green", value: "#136F63" },
 	{ name: "purple", value: "rgba(117,42,219,0.89)" },
 	{ name: "linear-gradient-4", value: "url(#rainbow-vertical)" },
@@ -23,7 +23,12 @@ export const dickColors: Accessory[] = [
 	{ name: "light-purple", value: "#ADA7FF", children: [prepuce] },
 	{ name: "cyan-to-green-vertical", value: "url(#cyan-to-green-vertical)" },
 	{ name: "purple-to-green-45", value: "url(#purple-to-green-45)" },
+	{ name: "red-to-pink-vertical", value: "url(#red-to-pink-vertical)" },
 	{ name: "yellow-to-pink-45", value: "url(#yellow-to-pink-45)" },
 	{ name: "blue-to-pink-vertical", value: "url(#blue-to-pink-vertical)" },
+	{ name: "fade-pink-to-green-vertical", value: "url(#fade-pink-to-green-vertical)" },
+	{ name: "blue-purple-red-vertical", value: "url(#blue-purple-red-vertical)" },
+	{ name: "blue-to-blue-45", value: "url(#blue-to-blue-45)" },
+	{ name: "purple-to-salmon-45", value: "url(#purple-to-salmon-45)", children: [iceSkin] },
 	{ name: "blue-green", value: "#40B5C1", children: [prepuce, dickWavesSkin] },
 ]

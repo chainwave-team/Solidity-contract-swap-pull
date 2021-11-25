@@ -73,4 +73,80 @@ export const defs: Record<string, string> = {
             <feComposite in="SourceGraphic"/>
         </filter>`
     ),
+	"url(#blue-pink-purple-45)": (
+        `<linearGradient id="blue-pink-purple-45" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#7089f9"/>
+			<stop offset="0.483" stop-color="#e588d0"/>
+			<stop offset="1" stop-color="#9c65fa"/>
+		</linearGradient>`
+    ),
+	"url(#green-pink-purple-45)": (
+        `<linearGradient id="green-pink-purple-45" x1="0.024" y1="0.045" x2="0.98" y2="0.976" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#68fced"/>
+			<stop offset="0.474" stop-color="#eeb7fe"/>
+			<stop offset="1" stop-color="#9c65fa"/>
+		</linearGradient>`
+    ),
+	"url(#red-to-pink-vertical)": (
+        `<linearGradient id="red-to-pink-vertical" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#ff5ba2"/>
+			<stop offset="1" stop-color="#ed45f6"/>
+		</linearGradient>`
+    ),
+	"url(#fade-pink-to-green-vertical)": (
+        `<linearGradient id="fade-pink-to-green-vertical" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#dcc6ff"/>
+			<stop offset="1" stop-color="#63f6b4"/>
+		</linearGradient>`
+    ),
+	"url(#small-eyes-filter)": (
+        `<filter id="small-eyes-filter" x="33.642" y="27.524" width="21.683" height="20.087" filterUnits="userSpaceOnUse">
+			<feOffset dy="3" input="SourceAlpha"/>
+			<feGaussianBlur stdDeviation="3" result="blur"/>
+			<feFlood flood-opacity="0.161"/>
+			<feComposite operator="in" in2="blur"/>
+			<feComposite in="SourceGraphic"/>
+		</filter>`
+    ),
+	"url(#small-eyes-makeup-filter)": (
+        `<filter id="small-eyes-makeup-filter" x="33.642" y="27.524" width="21.683" height="20.087" filterUnits="userSpaceOnUse">
+			<feOffset dy="3" input="SourceAlpha"/>
+			<feGaussianBlur stdDeviation="3" result="blur"/>
+			<feFlood flood-opacity="0.161"/>
+			<feComposite operator="in" in2="blur"/>
+			<feComposite in="SourceGraphic"/>
+		</filter>`
+    ),
+	"url(#green-yellow-orange-vertical)": (
+        `<linearGradient id="green-yellow-orange-vertical" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#c6ffdd"/>
+			<stop offset="0.498" stop-color="#fbd786"/>
+			<stop offset="1" stop-color="#f7797d"/>
+		</linearGradient>`
+    ),
+	"url(#blue-purple-red-vertical)": (
+        `<linearGradient id="blue-purple-red-vertical" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#12c2e9"/>
+			<stop offset="0.488" stop-color="#c471ed"/>
+			<stop offset="1" stop-color="#f64f69"/>
+		</linearGradient>`
+    ),
+	"url(#blue-to-blue-45)": (
+        `<linearGradient id="blue-to-blue-45" x1="1.015" y1="-0.888" x2="-0.045" y2="1.333" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#6f73d2"/>
+			<stop offset="1" stop-color="#83c9f4"/>
+		</linearGradient>`
+    ),
+	"url(#purple-to-salmon-45)": (
+        `<linearGradient id="purple-to-salmon-45" x1="1.015" y1="-0.888" x2="-0.045" y2="1.333" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#6f73d2"/>
+			<stop offset="1" stop-color="#ffafbd"/>
+		</linearGradient>`
+    ),
+	"url(#pink-to-purple-rounded)": (
+        `<radialGradient id="pink-to-purple-rounded" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#eeaeca" stop-opacity="0.451"/>
+			<stop offset="1" stop-color="#94bbe9" stop-opacity="0.451"/>
+		</radialGradient>`
+    ),
 }

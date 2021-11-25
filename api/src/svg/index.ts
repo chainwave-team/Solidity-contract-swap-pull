@@ -2,7 +2,7 @@ import { createBackground, getBackground } from "./background"
 import { buildSize, displaySize } from "../config"
 import { deduplicateByName, getAccessory } from "./utils"
 import { hats } from "./layers/hats"
-import { rainbowCape } from "./layers/singleLayers"
+import { egyptianArms, indianGodArms, rainbowBlanket, rainbowCape } from "./layers/singleLayers"
 import { createDick, getDickSkin } from "./dick"
 import { defs as defList } from "./defs"
 import { Accessory } from "./types"
@@ -61,15 +61,19 @@ export default function generateSVG (options: AttributesObject): string {
 	)
 
 	// From accessories, fill the deps (filters, linear-gradients...)
+	// TODO: Regex the value help us to remove redundant defs[] property
 	const defs = extractDefsAsSVG({
 		fromRegex: [bgAccessory, dickAccessory],
-		fromDefs: [rainbowCape, hatAccessory, ...extraAccessories]
+		fromDefs: [rainbowBlanket, hatAccessory, ...extraAccessories]
 	})
 
 	// Create hat with optional params
 	let hat: string = typeof hatAccessory.value === "function"
 		? hatAccessory.value(dickAccessory.value)
 		: hatAccessory.value
+	let arms: string = typeof egyptianArms.value === "function"
+		? egyptianArms.value(dickAccessory.value)
+		: egyptianArms.value
 
 	// Filter extraAccessories by position
 	const belowDick = extraAccessories.filter(a => a.attr?.includes("below-dick"))
@@ -88,6 +92,7 @@ export default function generateSVG (options: AttributesObject): string {
 
 				${hatAccessory?.attr?.includes("below-dick") ? hat : ""}
 
+				${arms}
 				${createDick(dickAccessory)}
 
 				${!hatAccessory?.attr?.includes("below-dick") ? hat : ""}
@@ -99,5 +104,6 @@ export default function generateSVG (options: AttributesObject): string {
 }
 
 // ${rainbowCape.value}
+// ${rainbowBlanket.value}
 // ${vampireTeeth.value}
 // ${catMustache.value}
