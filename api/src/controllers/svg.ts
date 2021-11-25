@@ -4,21 +4,23 @@ import generateSVG, { AttributesObject } from '../svg'
 
 export function getSVG(req: Request, res: Response) {
     try {
-        const { bgColor, dickColor, hat } = req.params
+        const { background, skin, hat, eye } = req.params
 
         // Required fields
         if (
-            !isNumeric(bgColor) || 
-            !isNumeric(dickColor) || 
-            !isNumeric(hat)
+            !isNumeric(background) ||
+            !isNumeric(skin) ||
+            !isNumeric(hat) ||
+            !isNumeric(eye)
         ) {
             return res.status(500).json({ error: "Wrong properties" })
         }
 
         const options: AttributesObject = {
-            bgColor: Number(bgColor), 
-            dickColor: Number(dickColor), 
-            hat: Number(hat)
+            background: Number(background), 
+            skin: Number(skin), 
+            hat: Number(hat),
+            eye: Number(eye)
         }
 
         res.setHeader('Content-Type', 'image/svg+xml')

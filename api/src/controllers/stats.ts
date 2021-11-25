@@ -1,7 +1,9 @@
 import { Request, Response } from 'express'
 
-import { backgrounds, dickColors } from '../svg/colors'
+import { skins } from '../svg/layers/skins'
+import { eyes } from '../svg/layers/eyes'
 import { hats } from '../svg/layers/hats'
+import { backgrounds } from '../svg/layers/backgrounds'
 
 export function getStats(req: Request, res: Response) {
     const quantities = {
@@ -16,8 +18,9 @@ export function getStats(req: Request, res: Response) {
         quantities: {...quantities, progress },
         metadata: {
             backgroundColors: backgrounds.length,
-            dickColors: dickColors.length,
+            dickColors: skins.length,
             hats: hats.length,
+            eyes: eyes.length,
         },
         // See svg/types
         specialEffects: [

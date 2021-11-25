@@ -31,10 +31,10 @@ function getCombinations(quantities) {
 
 window.addEventListener('load', function () {
     const results = getCombinations([
-        10, // Background colors
-        14, // Dicks colors
-        12, // Hats
-        // 1, // Clothes
+        12, // Backgrounds
+        14, // Skins
+        11, // Hats
+        6, // Eyes
         // 1, // Skins
     ])
 
@@ -47,7 +47,7 @@ window.addEventListener('load', function () {
     qtyElement.innerText = urls.length.toString()
     qtyElementPercent.innerText = ((urls.length * 100 / 10_000).toFixed(2)).toString()
 
-    for (const url of urls) {
+    for (const url of urls.slice(0, 1_000)) {
         const image = document.createElement('img')
         const link = document.createElement('a')
         link.setAttribute('href', url)
