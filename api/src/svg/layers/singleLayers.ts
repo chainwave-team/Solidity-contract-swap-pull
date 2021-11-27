@@ -6,6 +6,26 @@ export const rainbowBlanket: Accessory = {
 	defs: ["rainbow-vertical"]
 }
 
+export const smallRedMouse: Accessory = {
+	name: "Small red mouse",
+	value: (
+		`<g id="small-red-mouse" transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#small-mouse-filter)">
+			<path d="M-138.23-1099.759a.68.68,0,0,1,1.23,0A.7.7,0,0,1-138.23-1099.759Z" transform="translate(186 1139.87)" fill="none" stroke="#de2b2b" stroke-width="2"/>
+		</g>`
+	),
+	defs: ["small-mouse-filter"]
+}
+
+export const redMouse: Accessory = {
+	name: "Red mouse",
+	value: (
+		`<g id="red-mouse" transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#mouse-filter)">
+			<path d="M-138.23-1098.9s1.8-2.852,3.82,0C-136.295-1096.178-138.23-1098.9-138.23-1098.9Z" transform="translate(185 1139.2)" fill="none" stroke="#de2b2b" stroke-width="2"/>
+		</g>`
+	),
+	defs: ["mouse-filter"]
+}
+
 export const vampireTeeth: Accessory = {
 	name: "Vampire teeth",
 	value: (
@@ -56,3 +76,9 @@ export const indianGodArms: Accessory = {
 	)
 }
 
+export const unHappyMouse: Accessory = {
+	name: "unhappy mouse",
+	value: (
+		`<path id="unhappy-mouse" d="M.005,3.5A3.275,3.275,0,0,1,1.292.583,2.7,2.7,0,0,1,3.5.047" transform="matrix(0.719, 0.695, -0.695, 0.719, 48.98, 36.798)" fill="none" stroke="#000000" stroke-linecap="round" stroke-width="0.5"/>`
+	)
+}

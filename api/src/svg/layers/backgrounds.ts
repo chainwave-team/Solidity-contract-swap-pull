@@ -1,6 +1,5 @@
 import { buildSize } from "../../config"
 import { Accessory } from "../types"
-import { getAccessory } from "../utils"
 
 export const backgroundStars: Accessory = {
 	name: "Background stars",
@@ -21,7 +20,9 @@ export const backgroundStars: Accessory = {
 }
 
 export const backgrounds: Accessory[] = [
+	{ name: "transparent", value: "transparent" },
 	{ name: "light-pink", value: "#ffc6ff" },
+	{ name: "rainbow-circle-transparent", value: "url(#rainbow-circle-transparent)" },
 	{ name: "light-purple", value: "#bdb2ff" },
 	{ name: "light-blue", value: "#a0c4ff" },
 	{ name: "light-cyan", value: "#9bf6ff" },

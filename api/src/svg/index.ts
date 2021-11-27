@@ -50,8 +50,8 @@ export default function generateSVG (options: AttributesObject): string {
 				${revolveValue(egyptianArms, skin.value)}
 				${createDick(skin)}
 				${revolveValue(eye)}
-				${!isBelow(hat) ? hatSVG : ""}
 				${printAccessoryList(aboveDick)}
+				${!isBelow(hat) ? hatSVG : ""}
 			</g>
 		</svg>`
 	)

@@ -127,10 +127,12 @@ const dickWavesSkin: Accessory = {
 }
 
 export const skins: Accessory[] = [
-	{ name: "pink", value: "#C78AD9", attr: ["pink-balls"], children: [ballsHairs] },
 	{ name: "green", value: "#55D6BE", attr: ["red-balls"] },
 	{ name: "red", value: "#FC6471" },
+	{ name: "blue-green-yellow-vertical", value: "url(#blue-green-yellow-vertical)" },
+	{ name: "pink", value: "#C78AD9", attr: ["pink-balls"], children: [ballsHairs] },
 	{ name: "light-purple", value: "#ADA7FF" },
+	{ name: "rainbow-circle", value: "url(#rainbow-circle)" },
 	{ name: "cyan-to-green-vertical", value: "url(#cyan-to-green-vertical)" },
 	{ name: "purple-to-green-45", value: "url(#purple-to-green-45)" },
 	{ name: "red-to-pink-vertical", value: "url(#red-to-pink-vertical)" },

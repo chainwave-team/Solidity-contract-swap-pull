@@ -31,10 +31,10 @@ function getCombinations(quantities) {
 
 window.addEventListener('load', function () {
     const results = getCombinations([
-        12, // Backgrounds
-        14, // Skins
-        11, // Hats
-        6, // Eyes
+        14, // Backgrounds
+        16, // Skins
+        16, // Hats
+        11, // Eyes
         // 1, // Skins
     ])
 

@@ -40,6 +40,32 @@ export const defs: Record<string, string> = {
 			<stop offset="1" stop-color="#ffadad"/>
 		</linearGradient>`
 	),
+	"url(#rainbow-circle)": (
+		`<radialGradient id="rainbow-circle" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#ffc6ff"/>
+			<stop offset="0.099" stop-color="#fdffb6" stop-opacity="0.988"/>
+			<stop offset="0.217" stop-color="#bdb2ff"/>
+			<stop offset="0.335" stop-color="#adbcff"/>
+			<stop offset="0.458" stop-color="#a0c4ff"/>
+			<stop offset="0.596" stop-color="#9bf6ff"/>
+			<stop offset="0.729" stop-color="#caffbf"/>
+			<stop offset="0.857" stop-color="#ffd6a5"/>
+			<stop offset="1" stop-color="#ffadad"/>
+		</radialGradient>`
+	),
+	"url(#rainbow-circle-transparent)": (
+		`<radialGradient id="rainbow-circle-transparent" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#ffc6ff" stop-opacity="0.82"/>
+			<stop offset="0.099" stop-color="#fdffb6" stop-opacity="0.565"/>
+			<stop offset="0.148" stop-color="#bdb2ff" stop-opacity="0.678"/>
+			<stop offset="0.153" stop-color="#adbcff" stop-opacity="0.718"/>
+			<stop offset="0.276" stop-color="#a0c4ff" stop-opacity="0.749"/>
+			<stop offset="0.435" stop-color="#9bf6ff" stop-opacity="0.745"/>
+			<stop offset="0.567" stop-color="#caffbf" stop-opacity="0.765"/>
+			<stop offset="0.857" stop-color="#ffd6a5" stop-opacity="0.745"/>
+			<stop offset="1" stop-color="#ffadad" stop-opacity="0.82"/>
+		</radialGradient>`
+	),
 	"url(#cyan-to-green-vertical)": (
 		`<linearGradient id="cyan-to-green-vertical" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
 			<stop offset="0" stop-color="#67f8fd"/>
@@ -64,6 +90,15 @@ export const defs: Record<string, string> = {
             <feComposite in="SourceGraphic"/>
         </filter>`
     ),
+	"url(#male-cycloid-top-filter)": (
+        `<filter id="male-cycloid-top-filter" x="35.643" y="19.577" width="24.964" height="23.268" filterUnits="userSpaceOnUse">
+			<feOffset dy="3" input="SourceAlpha"/>
+			<feGaussianBlur stdDeviation="3" result="blur"/>
+			<feFlood flood-opacity="0.161"/>
+			<feComposite operator="in" in2="blur"/>
+			<feComposite in="SourceGraphic"/>
+		</filter>`
+    ),
 	"url(#small-male-cycloid-filter)": (
         `<filter id="small-male-cycloid-filter" x="34.643" y="20.586" width="26.284" height="24.26" filterUnits="userSpaceOnUse">
             <feOffset dy="3" input="SourceAlpha"/>
@@ -72,6 +107,33 @@ export const defs: Record<string, string> = {
             <feComposite operator="in" in2="blur"/>
             <feComposite in="SourceGraphic"/>
         </filter>`
+    ),
+	"url(#black-male-cycloid-filter)": (
+        `<filter id="black-male-cycloid-filter" x="35.566" y="22.915" width="25.906" height="23.623" filterUnits="userSpaceOnUse">
+			<feOffset dy="3" input="SourceAlpha"/>
+			<feGaussianBlur stdDeviation="3" result="blur"/>
+			<feFlood flood-opacity="0.161"/>
+			<feComposite operator="in" in2="blur"/>
+			<feComposite in="SourceGraphic"/>
+		</filter>`
+    ),
+	"url(#picasso-big-eye-filter)": (
+        `<filter id="picasso-big-eye-filter" x="37.643" y="21.577" width="24.964" height="23.268" filterUnits="userSpaceOnUse">
+			<feOffset dy="3" input="SourceAlpha"/>
+			<feGaussianBlur stdDeviation="3" result="blur"/>
+			<feFlood flood-opacity="0.161"/>
+			<feComposite operator="in" in2="blur"/>
+			<feComposite in="SourceGraphic"/>
+		</filter>`
+    ),
+	"url(#picasso-small-eye-filter)": (
+        `<filter id="picasso-small-eye-filter" x="34.462" y="26.542" width="21.656" height="20.781" filterUnits="userSpaceOnUse">
+			<feOffset dy="3" input="SourceAlpha"/>
+			<feGaussianBlur stdDeviation="3" result="blur-2"/>
+			<feFlood flood-opacity="0.161"/>
+			<feComposite operator="in" in2="blur-2"/>
+			<feComposite in="SourceGraphic"/>
+		</filter>`
     ),
 	"url(#blue-pink-purple-45)": (
         `<linearGradient id="blue-pink-purple-45" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
@@ -117,6 +179,24 @@ export const defs: Record<string, string> = {
 			<feComposite in="SourceGraphic"/>
 		</filter>`
     ),
+	"url(#mouse-filter)": (
+        `<filter id="mouse-filter" x="33.642" y="27.524" width="21.683" height="20.087" filterUnits="userSpaceOnUse">
+			<feOffset dy="3" input="SourceAlpha"/>
+			<feGaussianBlur stdDeviation="3" result="blur"/>
+			<feFlood flood-opacity="0.161"/>
+			<feComposite operator="in" in2="blur"/>
+			<feComposite in="SourceGraphic"/>
+		</filter>`
+    ),
+	"url(#small-mouse-filter)": (
+        `<filter id="small-mouse-filter" x="37.566" y="32.676" width="21.655" height="20.857" filterUnits="userSpaceOnUse">
+			<feOffset dy="3" input="SourceAlpha"/>
+			<feGaussianBlur stdDeviation="3" result="blur-2"/>
+			<feFlood flood-opacity="0.161"/>
+			<feComposite operator="in" in2="blur-2"/>
+			<feComposite in="SourceGraphic"/>
+		</filter>`
+    ),
 	"url(#green-yellow-orange-vertical)": (
         `<linearGradient id="green-yellow-orange-vertical" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
 			<stop offset="0" stop-color="#c6ffdd"/>
@@ -148,5 +228,18 @@ export const defs: Record<string, string> = {
 			<stop offset="0" stop-color="#eeaeca" stop-opacity="0.451"/>
 			<stop offset="1" stop-color="#94bbe9" stop-opacity="0.451"/>
 		</radialGradient>`
+    ),
+	"url(#blue-green-yellow-vertical)": (
+        `<linearGradient id="blue-green-yellow-vertical" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#67f8fd"/>
+			<stop offset="0.537" stop-color="#a0fad3"/>
+			<stop offset="1" stop-color="#d2fcaf"/>
+		</linearGradient>`
+    ),
+	"url(#purple-green-vertical)": (
+        `<linearGradient id="purple-green-vertical" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#74ebd5"/>
+			<stop offset="1" stop-color="#acb6e5"/>
+		</linearGradient>`
     ),
 }
