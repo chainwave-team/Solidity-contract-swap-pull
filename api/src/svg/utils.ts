@@ -1,12 +1,33 @@
 import { Accessory } from "./types";
 import { defs as defList } from "./defs"
+import { backgrounds } from "./layers/backgrounds";
+import { skins } from "./layers/skins";
+import { hats } from "./layers/hats";
+import { eyes } from "./layers/eyes";
+import { buildSize, displaySize } from "../config";
 
-export function getAccessory(index: number, list: Accessory[], name: string): Accessory {
+function getAccessory(index: number, list: Accessory[], name: string): Accessory {
     if (index >= list.length) {
 		throw new Error(`${name} not found. Index too high`);
 	}
 
     return list[index];
+}
+
+export function getBackground(index: number): Accessory {
+	return getAccessory(index, backgrounds, "background")
+}
+
+export function getSkin(index: number): Accessory {
+	return getAccessory(index, skins, "skin")
+}
+
+export function getHat(index: number): Accessory {
+	return getAccessory(index, hats, "hat")
+}
+
+export function getEye(index: number): Accessory {
+	return getAccessory(index, eyes, "eye")
 }
 
 export function deduplicateByName(accessories: Accessory[]): Accessory[] {
@@ -70,4 +91,20 @@ export function getTitle(tokenId: number): string {
 	const titlePrefix = "CryptoDick #"
 	
 	return titlePrefix + idPrefix + stringId
+}
+
+interface SVGProps {
+	title?: string
+	defs: string
+	body: string
+}
+
+export function SVG({ title = "", defs, body }: SVGProps): string {
+	return (
+		`<svg width="${displaySize}" height="${displaySize}" viewBox="0 0 ${buildSize} ${buildSize}" xmlns="http://www.w3.org/2000/svg">
+			<title>${title}</title>	
+			<defs>${defs}</defs>
+			${body}
+		</svg>`
+	)
 }

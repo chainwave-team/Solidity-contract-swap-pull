@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 
 import generateSVG, { AttributesObject } from '../svg'
+import { isNumeric } from './utils'
 
 export function getSVG(req: Request, res: Response) {
     try {
@@ -30,9 +31,4 @@ export function getSVG(req: Request, res: Response) {
     catch {
         res.sendStatus(404)
     }
-}
-
-// Ensure is a string numerical
-function isNumeric(str: unknown): boolean {
-    return typeof str === "string" && !isNaN(parseFloat(str))
 }

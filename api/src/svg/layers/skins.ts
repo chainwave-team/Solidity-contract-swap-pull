@@ -127,11 +127,11 @@ const dickWavesSkin: Accessory = {
 }
 
 export const skins: Accessory[] = [
-	{ name: "green", value: "#55D6BE", attr: ["red-balls"] },
-	{ name: "red", value: "#FC6471" },
-	{ name: "blue-green-yellow-vertical", value: "url(#blue-green-yellow-vertical)" },
-	{ name: "pink", value: "#C78AD9", attr: ["pink-balls"], children: [ballsHairs] },
 	{ name: "light-purple", value: "#ADA7FF" },
+	{ name: "red", value: "#FC6471" },
+	{ name: "green", value: "#55D6BE", attr: ["red-balls"] },
+	{ name: "pink", value: "#C78AD9", attr: ["pink-balls"], children: [ballsHairs] },
+	{ name: "blue-green-yellow-vertical", value: "url(#blue-green-yellow-vertical)" },
 	{ name: "rainbow-circle", value: "url(#rainbow-circle)" },
 	{ name: "cyan-to-green-vertical", value: "url(#cyan-to-green-vertical)" },
 	{ name: "purple-to-green-45", value: "url(#purple-to-green-45)" },
@@ -148,6 +148,10 @@ export const skins: Accessory[] = [
 export function createDick(dick: Accessory): string {
 	const dickColor = dick.value
 	let ballsColor = dickColor
+
+	if (dick.value === '') {
+		return ''
+	}
 
 	if (dick?.attr?.includes("pink-balls")) {
 		ballsColor = "#ff83bc"

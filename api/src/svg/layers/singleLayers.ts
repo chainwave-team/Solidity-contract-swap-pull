@@ -12,6 +12,13 @@ export const rainbowDress: Accessory = {
 	defs: ["rainbow-vertical"]
 }
 
+export const rainbowCape: Accessory = {
+	name: "Rainbow cape",
+	value: `<path id="rainbow-cape" d="M206.511,148.726l-19.329,29.2,10.6,2.564h31.268l9.353-2.564-16.91-29.2Z" transform="translate(-166 -114)" fill="url(#rainbow-vertical)"/>`,
+	defs: ["rainbow-vertical"],
+	attr: ['below-dick']
+}
+
 export const smallRedMouse: Accessory = {
 	name: "Small red mouse",
 	value: (
@@ -43,7 +50,7 @@ export const vampireTeeth: Accessory = {
 }
 
 export const catMustache: Accessory = {
-	name: "Vampire teeth",
+	name: "Cat mustache",
 	value: (
 		`<g id="cat-mustache">
 			<path d="M.006,5.488A5.778,5.778,0,0,1,1.587.914,2.759,2.759,0,0,1,4.3.073" transform="translate(36.745 33.207) rotate(-88)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
@@ -54,12 +61,6 @@ export const catMustache: Accessory = {
 			<path d="M.006,0a5.778,5.778,0,0,0,1.58,4.574,2.759,2.759,0,0,0,2.71.841" transform="translate(52.818 31.304) rotate(-90)" fill="none" stroke="#5fdd9d" stroke-linecap="round" stroke-width="0.5"/>
 		</g>`
 	),
-}
-
-export const rainbowCape: Accessory = {
-	name: "Rainbow cape",
-	value: `<path id="rainbow-cape" d="M206.511,148.726l-19.329,29.2,10.6,2.564h31.268l9.353-2.564-16.91-29.2Z" transform="translate(-166 -114)" fill="url(#rainbow-vertical)"/>`,
-	defs: ["rainbow-vertical"]
 }
 
 export const egyptianArms: Accessory = {
@@ -83,14 +84,14 @@ export const indianGodArms: Accessory = {
 }
 
 export const unHappyMouse: Accessory = {
-	name: "unhappy mouse",
+	name: "Unhappy mouse",
 	value: (
 		`<path id="unhappy-mouse" d="M.005,3.5A3.275,3.275,0,0,1,1.292.583,2.7,2.7,0,0,1,3.5.047" transform="matrix(0.719, 0.695, -0.695, 0.719, 48.98, 36.798)" fill="none" stroke="#000000" stroke-linecap="round" stroke-width="0.5"/>`
 	)
 }
 
 export const ghostCape: Accessory = {
-	name: "ghost cape",
+	name: "Ghost cape",
 	value: (
 		`<g id="ghost-cape" transform="translate(0 -1)">
 			<path fill="#fff" d="M321,244.085a28.971,28.971,0,0,0-2.952,0s-3.162,2.024-3.686,3.331-2.106,4.559-2.106,4.559l-9.3,29.677s35.257-1.314,36.375,0-11.79-34.236-11.79-34.236l-2.629-2.147S321.048,244.186,321,244.085Z" transform="translate(-273 -220)"/>
@@ -102,4 +103,18 @@ export const ghostCape: Accessory = {
 export const prepuce: Accessory = {
 	name: "Prepuce",
 	value: `<ellipse id="prepuce" cx="1" cy="3" rx="1" ry="3" transform="translate(47 26)" fill="#8259d1"/>`
+}
+
+export const specialTraits: Record<string, Accessory> = {
+	rainbowBlanket,
+	rainbowDress,
+	rainbowCape,
+	redMouse,
+	vampireTeeth,
+	catMustache,
+	egyptianArms,
+	indianGodArms,
+	unHappyMouse,
+	ghostCape,
+	prepuce
 }

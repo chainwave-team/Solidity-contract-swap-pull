@@ -1,5 +1,17 @@
 "use-strict";
 
+const API_URL = "http://localhost:3000"
+
+window.addEventListener('load', function () {
+    window.fetch(API_URL + "/stats")
+        .then(res => res.json())
+        .then(({ metadata, quantities, ...rest }) => {
+            printVariants(rest)
+            printAll(metadata)
+        })
+        .catch(console.log)
+})
+
 // Create all possible combinations
 function getCombinations(quantities) {
     const results = []
@@ -29,15 +41,40 @@ function getCombinations(quantities) {
     return results
 }
 
-window.addEventListener('load', function () {
-    const results = getCombinations([
-        13, // Backgrounds
-        16, // Skins
-        17, // Hats
-        10, // Eyes
-    ])
+// return. a > img + span
+function createImage(url, name = '') {
+    const image = document.createElement('img')
+    const link = document.createElement('a')
+    link.setAttribute('href', url)
+    image.setAttribute("src", url)
+    link.classList = "p-1 block pointer w-1/2 sm:w-1/3 md:w-1/6"
+    link.appendChild(image)
+    if (name) {
+        const span = document.createElement('span')
+        span.innerText = name
+        link.appendChild(span)
+    }
+    return link
+}
 
-    const baseUrl = "http://localhost:3000/svg"
+function printVariants(metadata) {
+    const baseUrl = API_URL + "/svg-trait"
+
+    for (const [traitName, choices] of Object.entries(metadata)) {
+        const resultsElement = document.getElementById(traitName)
+
+        for (let i = 0; i < choices.length; i++) {
+            const name = choices[i];
+            const url = baseUrl + "/" + traitName.slice(0, traitName.length - 1) + "/" + i
+            const image = createImage(url, name)
+            resultsElement.appendChild(image)
+        }
+    }
+}
+
+function printAll(metadata) {
+    const results = getCombinations(Object.values(metadata))
+    const baseUrl = API_URL + "/svg"
     const urls = results.map((pathname, index) => baseUrl + "/" + index + pathname)
     const resultsElement = document.getElementById("results")
     const qtyElement = document.getElementById("quantity")
@@ -47,12 +84,7 @@ window.addEventListener('load', function () {
     qtyElementPercent.innerText = ((urls.length * 100 / 10_000).toFixed(2)).toString()
 
     for (const url of urls.slice(0, 1_000)) {
-        const image = document.createElement('img')
-        const link = document.createElement('a')
-        link.setAttribute('href', url)
-        image.setAttribute("src", url)
-        link.classList = "p-1 block pointer w-1/2 sm:w-1/3 md:w-1/6"
-        link.appendChild(image)
-        resultsElement.appendChild(link)
+        const image = createImage(url)
+        resultsElement.appendChild(image)
     }
-})
+}

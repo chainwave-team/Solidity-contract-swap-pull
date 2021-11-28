@@ -19,10 +19,11 @@ export const backgroundStars: Accessory = {
 	 attr: ["below-dick"]
 }
 
+// Only for the frontend
+export const transparentBackground: Accessory = { name: "transparent", value: "transparent" }
+
 export const backgrounds: Accessory[] = [
-	// { name: "transparent", value: "transparent" },
 	{ name: "light-pink", value: "#ffc6ff" },
-	{ name: "rainbow-circle-transparent", value: "url(#rainbow-circle-transparent)" },
 	{ name: "light-purple", value: "#bdb2ff" },
 	{ name: "light-blue", value: "#a0c4ff" },
 	{ name: "light-cyan", value: "#9bf6ff" },
@@ -32,6 +33,7 @@ export const backgrounds: Accessory[] = [
 	{ name: "light-orange-red", value: "#ffadad" },
 	{ name: "green", value: "#136F63" },
 	{ name: "purple", value: "rgba(117,42,219,0.89)" },
+	{ name: "rainbow-circle-transparent", value: "url(#rainbow-circle-transparent)" },
 	{ name: "linear-gradient-4", value: "url(#rainbow-vertical)" },
 	{ name: "black", value: "#000000", children: [backgroundStars] },
 ]
