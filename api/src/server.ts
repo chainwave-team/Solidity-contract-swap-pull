@@ -15,7 +15,7 @@ app.use(express.static(path.resolve('api', 'public')))
 app.get('/token/:tokenId', getTokenMetadata)
 
 // Returns an SVG image
-app.get('/svg/:background/:skin/:hat/:eye', getSVG)
+app.get('/svg/:id/:background/:skin/:hat/:eye', getSVG)
 
 // Returns some statistics about the collection
 app.get('/stats', getStats)

@@ -31,15 +31,14 @@ function getCombinations(quantities) {
 
 window.addEventListener('load', function () {
     const results = getCombinations([
-        14, // Backgrounds
+        13, // Backgrounds
         16, // Skins
-        16, // Hats
-        11, // Eyes
-        // 1, // Skins
+        17, // Hats
+        10, // Eyes
     ])
 
     const baseUrl = "http://localhost:3000/svg"
-    const urls = results.map(pathname => baseUrl + pathname)
+    const urls = results.map((pathname, index) => baseUrl + "/" + index + pathname)
     const resultsElement = document.getElementById("results")
     const qtyElement = document.getElementById("quantity")
     const qtyElementPercent = document.getElementById("quantity_percent")

@@ -1,13 +1,13 @@
 import { buildSize, displaySize } from "../config"
-import { deduplicateByName, extractChildren, extractDefs, getAccessory, isBelow, printAccessoryList, revolveValue } from "./utils"
+import { deduplicateByName, extractChildren, extractDefs, getAccessory, getTitle, isBelow, printAccessoryList, revolveValue } from "./utils"
 import { hats } from "./layers/hats"
-import { egyptianArms, indianGodArms, rainbowBlanket, rainbowCape } from "./layers/singleLayers"
+import { catMustache, egyptianArms, ghostCape, indianGodArms, prepuce, rainbowBlanket, rainbowCape, rainbowDress, unHappyMouse, vampireTeeth } from "./layers/singleLayers"
 import { eyes } from "./layers/eyes"
 import { backgrounds, createBackground } from "./layers/backgrounds"
 import { createDick, skins } from "./layers/skins"
 
 export type AttributesObject = { 
-	[key in "background" | "skin" | "hat" | "eye"]: number 
+	[key in "background" | "skin" | "hat" | "eye" | "id"]: number 
 }
 
 export default function generateSVG (options: AttributesObject): string {
@@ -36,28 +36,32 @@ export default function generateSVG (options: AttributesObject): string {
 	const belowDick = extraAccessories.filter(isBelow)
 	const aboveDick = extraAccessories.filter(a => !isBelow(a))
 
+	// Order matters
+	const body = [
+		createBackground(background),
+		printAccessoryList(belowDick),
+		isBelow(hat) ? hatSVG : "",
+		// rainbowCape.value,
+		revolveValue(egyptianArms, skin.value),
+		createDick(skin),
+		revolveValue(eye),
+		printAccessoryList(aboveDick),
+		!isBelow(hat) ? hatSVG : "",
+		// unHappyMouse.value,
+		// ghostCape.value,
+		// rainbowBlanket.value,
+		// rainbowDress.value,
+		// vampireTeeth.value,
+		// catMustache.value,
+		// prepuce.value,
+	]
+
 	// Build final SVG
 	return (
 		`<svg width="${displaySize}" height="${displaySize}" viewBox="0 0 ${buildSize} ${buildSize}" xmlns="http://www.w3.org/2000/svg">
-			<defs>
-				${defsSVG}
-			</defs>
-
-			<g id="main">
-				${createBackground(background)}
-				${printAccessoryList(belowDick)}
-				${isBelow(hat) ? hatSVG : ""}
-				${revolveValue(egyptianArms, skin.value)}
-				${createDick(skin)}
-				${revolveValue(eye)}
-				${printAccessoryList(aboveDick)}
-				${!isBelow(hat) ? hatSVG : ""}
-			</g>
+			<title>${getTitle(options.id)}</title>	
+			<defs>${defsSVG}</defs>
+			${body.join("")}
 		</svg>`
 	)
 }
-
-// ${rainbowCape.value}
-// ${rainbowBlanket.value}
-// ${vampireTeeth.value}
-// ${catMustache.value}

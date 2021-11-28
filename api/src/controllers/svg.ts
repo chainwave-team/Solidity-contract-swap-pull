@@ -4,7 +4,7 @@ import generateSVG, { AttributesObject } from '../svg'
 
 export function getSVG(req: Request, res: Response) {
     try {
-        const { background, skin, hat, eye } = req.params
+        const { id, background, skin, hat, eye } = req.params
 
         // Required fields
         if (
@@ -17,6 +17,7 @@ export function getSVG(req: Request, res: Response) {
         }
 
         const options: AttributesObject = {
+            id: Number(id), 
             background: Number(background), 
             skin: Number(skin), 
             hat: Number(hat),

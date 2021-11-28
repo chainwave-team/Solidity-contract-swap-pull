@@ -72,6 +72,12 @@ export const defs: Record<string, string> = {
 			<stop offset="1" stop-color="#d2fcaf"/>
 		</linearGradient>`
 	),
+	"url(#white-to-yellow-vertical)": (
+		`<linearGradient id="white-to-yellow-vertical" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+		<stop offset="0" stop-color="#fff"/>
+		<stop offset="1" stop-color="#e8eb88"/>
+	  </linearGradient>`
+	),
     "url(#female-cycloid-filter)": (
         `<filter id="female-cycloid-filter" x="34.642" y="20.887" width="26.488" height="22.729" filterUnits="userSpaceOnUse">
             <feOffset dy="3" input="SourceAlpha"/>

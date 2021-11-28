@@ -6,6 +6,12 @@ export const rainbowBlanket: Accessory = {
 	defs: ["rainbow-vertical"]
 }
 
+export const rainbowDress: Accessory = {
+	name: 'Rainbow dress',
+	value: `<path id="rainbow-dress" d="M13.585,39.351c6.959-5.029,15.782.708,15.782.708s-15.427-1.027-1.921-4.292c.822-2.165,7.814-8.86,9.928-9.331h0l3.157,2.26,1.534,14.6S45.682,55.386,43.642,58.3c-.822,1.181.342,3.817-1.361,4.976-2.991,2.035-3.712-1.455-6.209-3.687-3.337-1.7-5.188-2.164-6.471-3.325-1.8-1.586-6.737-2.5-6.737-2.5l-9.316.979s.557.437,4.185-5.343-.844-8.027-.844-8.027Z" transform="matrix(-0.105, 0.995, -0.995, -0.105, 96.129, 36.141)" fill="url(#rainbow-vertical)"/>`,
+	defs: ["rainbow-vertical"]
+}
+
 export const smallRedMouse: Accessory = {
 	name: "Small red mouse",
 	value: (
@@ -81,4 +87,19 @@ export const unHappyMouse: Accessory = {
 	value: (
 		`<path id="unhappy-mouse" d="M.005,3.5A3.275,3.275,0,0,1,1.292.583,2.7,2.7,0,0,1,3.5.047" transform="matrix(0.719, 0.695, -0.695, 0.719, 48.98, 36.798)" fill="none" stroke="#000000" stroke-linecap="round" stroke-width="0.5"/>`
 	)
+}
+
+export const ghostCape: Accessory = {
+	name: "ghost cape",
+	value: (
+		`<g id="ghost-cape" transform="translate(0 -1)">
+			<path fill="#fff" d="M321,244.085a28.971,28.971,0,0,0-2.952,0s-3.162,2.024-3.686,3.331-2.106,4.559-2.106,4.559l-9.3,29.677s35.257-1.314,36.375,0-11.79-34.236-11.79-34.236l-2.629-2.147S321.048,244.186,321,244.085Z" transform="translate(-273 -220)"/>
+			<ellipse fill="#101515" cx="2.5" cy="1" rx="2.5" ry="1" transform="translate(40 34)"/>
+    		<ellipse fill="#101515" cx="2.5" cy="1" rx="2.5" ry="1" transform="translate(49 34)"/>
+		</g>`
+	)
+}
+export const prepuce: Accessory = {
+	name: "Prepuce",
+	value: `<ellipse id="prepuce" cx="1" cy="3" rx="1" ry="3" transform="translate(47 26)" fill="#8259d1"/>`
 }

@@ -62,3 +62,12 @@ export function extractDefs(props: { fromRegex: Accessory[], fromDefs: Accessory
 
 		return Array.from(defs.values()).join("")
 }
+
+export function getTitle(tokenId: number): string {
+	const stringId = tokenId.toString()
+	const digitCount = stringId.split("").length
+	const idPrefix = "00000".split("").slice(0, 5 - digitCount).join("")
+	const titlePrefix = "CryptoDick #"
+	
+	return titlePrefix + idPrefix + stringId
+}

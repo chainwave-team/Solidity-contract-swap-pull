@@ -1,11 +1,6 @@
 import { Accessory } from '../types'
 import { redMouse, smallRedMouse } from './singleLayers'
 
-const prepuce: Accessory = {
-	name: "Prepuce",
-	value: `<ellipse id="prepuce" cx="1" cy="3" rx="1" ry="3" transform="translate(47 26)" fill="#8259d1"/>`
-}
-
 const femaleCycloid: Accessory = {
 	name: "Female Cycloid",
 	value: (
@@ -159,7 +154,6 @@ export const eyes: Accessory[] = [
 		name: "Empty",
 		value: ""
 	},
-	prepuce,
 	onlySmallPicassoEye,
 	picassoEyes,
 	femaleCycloid,
