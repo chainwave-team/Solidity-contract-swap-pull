@@ -47,7 +47,7 @@ contract('CryptoDicksNFT', accounts => {
         })
 
         it("gifts the owner the 10 first NFTs", async () => {
-            const propertyNames = ["bgColor", "dickColor", "hat", "clothe", "skin"];
+            const propertyNames = ["background", "skin", "hat", "eye"];
 
             const tokens = new Map()
             // For each 10 first tokens

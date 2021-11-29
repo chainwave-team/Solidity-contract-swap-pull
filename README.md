@@ -33,9 +33,7 @@ truffle console
 
 To begin, we start with only one kind of penis.
 Then with have attributes:
-- Background color
-- Special effect
+- Background
+- Skin
 - Hat
-- Clothes
-- Dick color
-- Balls color
+- Eyes

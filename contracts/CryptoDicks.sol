@@ -29,11 +29,10 @@ contract CryptoDicks is Ownable, ERC721 {
 
     // NFT properties
     struct Metadata {
-        uint8 bgColor;
-        uint8 dickColor;
-        uint8 hat;
-        uint8 clothe;
+        uint8 background;
         uint8 skin;
+        uint8 hat;
+        uint8 eye;
     }
 
     // Mapping token ID to Metadata
@@ -88,21 +87,19 @@ contract CryptoDicks is Ownable, ERC721 {
         external
         view
         returns (
-            uint8 bgColor,
-            uint8 dickColor,
+            uint8 background,
+            uint8 skin,
             uint8 hat,
-            uint8 clothe,
-            uint8 skin
+            uint8 eye
         )
     {
         require(_exists(_tokenId), "Token not minted yet");
         Metadata memory metadata = idToMetadata[_tokenId];
 
-        bgColor = metadata.bgColor;
-        dickColor = metadata.dickColor;
-        hat = metadata.hat;
-        clothe = metadata.clothe;
+        background = metadata.background;
         skin = metadata.skin;
+        hat = metadata.hat;
+        eye = metadata.eye;
     }
 
     /// @return the current supply
@@ -122,21 +119,18 @@ contract CryptoDicks is Ownable, ERC721 {
     /// @return Metadata
     function _createUniqueNFT() internal returns (Metadata memory) {
         uint256 dna;
-        uint8 bgColor;
-        uint8 dickColor;
-        uint8 hat;
-        uint8 clothe;
+        uint8 background;
         uint8 skin;
+        uint8 hat;
+        uint8 eye;
 
         while (true) {
             // Generate random metadata
-            (bgColor, dickColor, hat, clothe, skin) = _generateRandomMetadata();
+            (background, skin, hat, eye) = _generateRandomMetadata();
 
             // Calc the dna
             dna = uint256(
-                keccak256(
-                    abi.encodePacked(bgColor, dickColor, hat, clothe, skin)
-                )
+                keccak256(abi.encodePacked(background, skin, hat, eye))
             );
 
             // If the new dna is unique, save it and leave the loop
@@ -146,7 +140,7 @@ contract CryptoDicks is Ownable, ERC721 {
             }
         }
 
-        return Metadata(bgColor, dickColor, hat, clothe, skin);
+        return Metadata(background, skin, hat, eye);
     }
 
     /// Generate a random number
@@ -171,21 +165,19 @@ contract CryptoDicks is Ownable, ERC721 {
     function _generateRandomMetadata()
         internal
         returns (
-            uint8 bgColor,
-            uint8 dickColor,
+            uint8 background,
+            uint8 skin,
             uint8 hat,
-            uint8 clothe,
-            uint8 skin
+            uint8 eye
         )
     {
-        bgColor = _randomWithRarety();
-        dickColor = _randomWithRarety();
+        background = _randomWithRarety();
+        skin = _randomWithRarety();
         hat = _randomUntil(3);
-        clothe = _randomUntil(3);
-        skin = _randomUntil(3);
+        eye = _randomUntil(3);
     }
 
-    /// @return random uint8 between 0-7 with rarety level
+    /// @return random uint8 between 0-n with rarety level
     function _randomUntil(uint8 _optionsCount) internal returns (uint8) {
         return (_getRandomNumber() % _optionsCount).toUint8();
     }
@@ -198,17 +190,17 @@ contract CryptoDicks is Ownable, ERC721 {
         if (rand < 1_000) {
             result = 7; // 0.1%
         } else if (rand < 6_000) {
-            result = 6;
+            result = 6; // 0.5%
         } else if (rand < 16_000) {
-            result = 5;
+            result = 5; // 1%
         } else if (rand < 66_000) {
-            result = 4;
+            result = 4; // 5%
         } else if (rand < 166_000) {
-            result = 3;
+            result = 3; // 10%
         } else if (rand < 366_000) {
-            result = 2;
+            result = 2; // 20%
         } else if (rand < 666_000) {
-            result = 1;
+            result = 1; // 30%
         } else {
             result = 0;
         }
