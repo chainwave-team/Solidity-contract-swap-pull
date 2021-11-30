@@ -7,8 +7,9 @@
     "node": "16.13.0"
   },
   "scripts": {
-    "heroku-postbuild": "cd api && tsc",
-    "start:api": "node api/dist/server.js",
+    "build:api": "cd api && tsc -p ./tsconfig.json",
+    "heroku-postbuild": "npm run build:api",
+    "start:api": "node api/dist/api/src/server.js",
     "dev:api": "nodemon api/src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
