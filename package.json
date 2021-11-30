@@ -4,7 +4,7 @@
   "description": "",
   "main": "truffle-config.js",
   "engines": {
-    "node": "12.16.3"
+    "node": "16.13.0"
   },
   "scripts": {
     "postinstall": "cd api && tsc",
@@ -13,11 +13,19 @@
     "dev:api": "nodemon api/src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "NFT",
+    "Typescript",
+    "Rest",
+    "Express",
+    "dapp",
+    "solidity"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@openzeppelin/contracts": "^4.3.2",
+    "@truffle/hdwallet-provider": "^1.7.0",
     "await-to-js": "^3.0.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",

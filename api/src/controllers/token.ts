@@ -3,7 +3,7 @@ import to from "await-to-js"
 import Web3 from 'web3'
 import { AbiItem } from 'web3-utils'
 
-import token from '../../../abis/CryptoDicksNFT.json'
+import token from '../../../abis/CryptoDicks.json'
 import { api_base_url, contractAddress, networkUrl } from '../config'
 
 const web3Provider = new Web3.providers.HttpProvider(networkUrl)
@@ -17,18 +17,12 @@ const contract = new web3.eth.Contract(
 export async function getTokenMetadata(req: Request, res: Response) {
     // Get the token data from the blockchain
     const tokenId = req.params?.tokenId
-    const [err, metadata] = await to<any, any | null>(
-        contract.methods.get(tokenId).call()
-    )
 
-    if (err) {
-        console.log(err?.data);
-        res.status(404).json({
-            error: err?.data?.reason || "Token not found"
-        })
-    }
+    try {
+        const metadata = await contract.methods.get(Number(tokenId)).call()
+        console.log(metadata);
 
-    const { bgColor, dickColor, hat, clothe, skin } = metadata
+        const { background, skin, hat, eye } = metadata
 
     // https://docs.opensea.io/docs/metadata-standards
     res.json({
@@ -43,7 +37,7 @@ export async function getTokenMetadata(req: Request, res: Response) {
          * and can be IPFS URLs or paths. 
          * We recommend using a 350 x 350 image.
          */
-        image: `${api_base_url}/${tokenId}`,
+        image: `${api_base_url}/svg/${tokenId}/${background}/${skin}/${hat}/${eye}`,
 
         /**
          * This is the URL that will appear below the asset's image
@@ -59,23 +53,19 @@ export async function getTokenMetadata(req: Request, res: Response) {
         attributes: [
             {
                 "trait_type": "Background color",
-                "value": bgColor
+                "value": background
             },
             {
-                "trait_type": "Dick color",
-                "value": dickColor
+                "trait_type": "Dick skin",
+                "value": skin
             },
             {
                 "trait_type": "Hat",
                 "value": hat
             },
             {
-                "trait_type": "Clothe",
-                "value": clothe
-            },
-            {
-                "trait_type": "skin",
-                "value": skin
+                "trait_type": "Eye",
+                "value": eye
             },
             // {
             //     "display_type": "boost_number",
@@ -94,4 +84,15 @@ export async function getTokenMetadata(req: Request, res: Response) {
             // }
         ]
     })
+        
+    } catch (error: any) {
+        console.log(error?.data);
+        res.status(404).json({
+            error: error?.data?.reason || "Token not found"
+        })
+    }
+  
+    
+
+    
 }

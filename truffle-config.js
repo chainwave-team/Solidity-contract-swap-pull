@@ -17,11 +17,11 @@
  * phrase from a file you've .gitignored so it doesn't accidentally become public.
  *
  */
-
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
-//
+require('dotenv/config')
+const HDWalletProvider = require('@truffle/hdwallet-provider');
 const path = require('path');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
+
+const RPC_URL = `https://${process.env.NETWORK}.infura.io/v3/${process.env.INFURA_TOKEN}`
 
 module.exports = {
   /**
@@ -48,6 +48,14 @@ module.exports = {
       port: 8545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
     },
+    rinkeby: {
+      provider: () => {
+        return new HDWalletProvider(process.env.MNEMONIC, RPC_URL)
+      },
+      network_id: '4',
+      skipDryRun: true,     // Skip dry run before migrations? (default: false for public nets )
+      from: process.env.OWNER_WALLET // Test MetaMask
+    }
     // Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port
