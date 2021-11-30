@@ -9,7 +9,7 @@
   "scripts": {
     "postinstall": "cd api && tsc",
     "build:api": "cd api && tsc",
-    "start:api": "node dist/server.js",
+    "start:api": "node api/dist/server.js",
     "dev:api": "nodemon api/src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
