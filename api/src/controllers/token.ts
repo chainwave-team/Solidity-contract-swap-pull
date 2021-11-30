@@ -6,7 +6,12 @@ import { AbiItem } from 'web3-utils'
 import token from '../../../abis/CryptoDicks.json'
 import { api_base_url, contractAddress, networkUrl } from '../config'
 
-const web3Provider = new Web3.providers.HttpProvider(networkUrl)
+
+
+const web3Provider = new Web3.providers.HttpProvider(
+    `https://${process.env.NETWORK}.infura.io/v3/${process.env.INFURA_TOKEN}`
+)
+
 const web3 = new Web3(web3Provider)
 
 const contract = new web3.eth.Contract(
