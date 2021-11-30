@@ -1,5 +1,5 @@
-const NFT = artifacts.require("CryptoDicksNFT");
+const CryptoDicks = artifacts.require("CryptoDicks");
 
 module.exports = function (deployer) {
-  deployer.deploy(NFT);
+  deployer.deploy(CryptoDicks);
 };
