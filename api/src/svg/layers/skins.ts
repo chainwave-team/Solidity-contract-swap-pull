@@ -127,21 +127,19 @@ const dickWavesSkin: Accessory = {
 }
 
 export const skins: Accessory[] = [
-	{ name: "light-purple", value: "#ADA7FF" },
-	{ name: "red", value: "#FC6471" },
-	{ name: "green", value: "#55D6BE", attr: ["red-balls"] },
-	{ name: "pink", value: "#C78AD9", attr: ["pink-balls"], children: [ballsHairs] },
-	{ name: "blue-green-yellow-vertical", value: "url(#blue-green-yellow-vertical)" },
-	{ name: "rainbow-circle", value: "url(#rainbow-circle)" },
-	{ name: "cyan-to-green-vertical", value: "url(#cyan-to-green-vertical)" },
-	{ name: "purple-to-green-45", value: "url(#purple-to-green-45)" },
-	{ name: "red-to-pink-vertical", value: "url(#red-to-pink-vertical)" },
-	{ name: "yellow-to-pink-45", value: "url(#yellow-to-pink-45)" },
-	{ name: "blue-to-pink-vertical", value: "url(#blue-to-pink-vertical)" },
-	{ name: "fade-pink-to-green-vertical", value: "url(#fade-pink-to-green-vertical)" },
-	{ name: "blue-purple-red-vertical", value: "url(#blue-purple-red-vertical)" },
+	// { name: "light-purple", value: "#ADA7FF" },
+	// { name: "green", value: "#55D6BE", attr: ["red-balls"] },
+	// { name: "pink", value: "#C78AD9", attr: ["pink-balls"], children: [ballsHairs] },
+	// { name: "cyan-to-green-45", value: "url(#cyan-to-green-45)" },
+	{ name: "shades-of-purple-45", value: "url(#shades-of-purple-45)" },
 	{ name: "blue-to-blue-45", value: "url(#blue-to-blue-45)" },
-	{ name: "purple-to-salmon-45", value: "url(#purple-to-salmon-45)", children: [iceSkin] },
+	{ name: "yellow-to-pink-45", value: "url(#yellow-to-pink-45)" },
+	{ name: "purple-to-salmon-45", value: "url(#purple-to-salmon-45)" },
+	{ name: "pink-to-purple-45", value: "url(#pink-to-purple-45)" },
+	{ name: "pink-to-green-45", value: "url(#pink-to-green-45)" },
+	{ name: "purple-to-green-45", value: "url(#purple-to-green-45)" },
+	{ name: "pink-to-yellow-45", value: "url(#pink-to-yellow-45)" },
+	{ name: "red-purple-green-45", value: "url(#red-purple-green-45)" },
 	{ name: "blue-green", value: "#40B5C1", children: [dickWavesSkin] },
 ]
 

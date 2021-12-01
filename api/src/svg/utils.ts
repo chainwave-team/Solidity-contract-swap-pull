@@ -5,6 +5,10 @@ import { skins } from "./layers/skins";
 import { hats } from "./layers/hats";
 import { eyes } from "./layers/eyes";
 import { buildSize, displaySize } from "../config";
+import { mouses } from "./layers/mouses";
+import { clothes } from "./layers/clothes";
+import { specials } from "./layers/specials";
+import { arms } from "./layers/arms";
 
 function getAccessory(index: number, list: Accessory[], name: string): Accessory {
     if (index >= list.length) {
@@ -28,6 +32,22 @@ export function getHat(index: number): Accessory {
 
 export function getEye(index: number): Accessory {
 	return getAccessory(index, eyes, "eye")
+}
+
+export function getMouse(index: number): Accessory {
+	return getAccessory(index, mouses, "mouse")
+}
+
+export function getClothe(index: number): Accessory {
+	return getAccessory(index, clothes, "clothe")
+}
+
+export function getArm(index: number): Accessory {
+	return getAccessory(index, arms, "arm")
+}
+
+export function getSpecial(index: number): Accessory {
+	return getAccessory(index, specials, "special")
 }
 
 export function deduplicateByName(accessories: Accessory[]): Accessory[] {

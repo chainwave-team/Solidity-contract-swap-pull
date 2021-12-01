@@ -1,5 +1,4 @@
 import { Accessory } from '../types'
-import { redMouse, smallRedMouse } from './singleLayers'
 
 const femaleCycloid: Accessory = {
 	name: "Female Cycloid",
@@ -63,7 +62,7 @@ const picassoEyes: Accessory = {
 		</g>`
  	),
 	 defs: ["picasso-big-eye-filter", "picasso-small-eye-filter"],
-	 children: [redMouse]
+	//  children: [redMouse]
 }
 
 const onlySmallPicassoEye: Accessory = {
@@ -80,21 +79,21 @@ const onlySmallPicassoEye: Accessory = {
 		</g>`
 	),
 	defs: ["picasso-small-eye-filter"],
-	children: [smallRedMouse]
+	// children: [smallRedMouse]
 }
 
-const blackCycloid: Accessory = {
-	name: "Black male Cycloid",
-	value: (
-		`<g id="black-male-cycloid" transform="translate(0 1)">
-			<g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#black-male-cycloid-filter)">
-				<path d="M-138.23-1098.348s2.583-4.093,5.482,0C-135.453-1094.443-138.23-1098.348-138.23-1098.348Z" transform="translate(184 1130.12)" fill="none" stroke="#000" stroke-width="2"/>
-			</g>
-			<ellipse cx="1" cy="1.5" rx="1" ry="1.5" transform="translate(47.672 29.198)"/>
-		</g>`
- 	),
-	 defs: ["black-male-cycloid-filter"]
-}
+// const blackCycloid: Accessory = {
+// 	name: "Black male Cycloid",
+// 	value: (
+// 		`<g id="black-male-cycloid" transform="translate(0 1)">
+// 			<g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#black-male-cycloid-filter)">
+// 				<path d="M-138.23-1098.348s2.583-4.093,5.482,0C-135.453-1094.443-138.23-1098.348-138.23-1098.348Z" transform="translate(184 1130.12)" fill="none" stroke="#000" stroke-width="2"/>
+// 			</g>
+// 			<ellipse cx="1" cy="1.5" rx="1" ry="1.5" transform="translate(47.672 29.198)"/>
+// 		</g>`
+//  	),
+// 	 defs: ["black-male-cycloid-filter"]
+// }
 
 const smallMaleCycloid: Accessory = {
 	name: "Small Male Cycloid",
@@ -109,7 +108,7 @@ const smallMaleCycloid: Accessory = {
 	 defs: ["small-male-cycloid-filter"]
 }
 
-const smallEyes: Accessory = {
+export const smallEyes: Accessory = {
 	name: "Small eyes",
 	value: (
 		`<g id="small-eyes" transform="translate(0 0)">
@@ -154,13 +153,13 @@ export const eyes: Accessory[] = [
 		name: "Empty",
 		value: ""
 	},
-	onlySmallPicassoEye,
-	picassoEyes,
-	femaleCycloid,
 	maleCycloid,
 	maleCycloidTop,
-	blackCycloid,
-	smallMaleCycloid,
 	smallEyes,
+	// blackCycloid,
+	// smallMaleCycloid,
+	onlySmallPicassoEye,
+	femaleCycloid,
+	picassoEyes,
 	smallEyesMakeup
 ]

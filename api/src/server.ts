@@ -16,7 +16,7 @@ app.use(express.static(path.resolve('api', 'public')))
 app.get('/token/:tokenId', getTokenMetadata)
 
 // Returns an SVG image
-app.get('/svg/:id/:background/:skin/:hat/:eye', getSVG)
+app.get('/svg/:id/:background/:skin/:hat/:eye/:mouse/:clothe/:arm/:special', getSVG)
 
 // Return an part of svg to show an attribute in the frontend
 app.get('/svg-trait/:trait/:value', getTrait)

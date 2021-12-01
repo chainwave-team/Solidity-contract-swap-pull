@@ -31,10 +31,13 @@ export const backgrounds: Accessory[] = [
 	{ name: "light-yellow", value: "#fdffb6" },
 	{ name: "light-orange", value: "#ffd6a5" },
 	{ name: "light-orange-red", value: "#ffadad" },
+	{ name: "green2", value: "#20d09a" },
 	{ name: "green", value: "#136F63" },
 	{ name: "purple", value: "rgba(117,42,219,0.89)" },
-	{ name: "rainbow-circle-transparent", value: "url(#rainbow-circle-transparent)" },
-	{ name: "linear-gradient-4", value: "url(#rainbow-vertical)" },
+	{ name: "rainbow-vertical", value: "url(#rainbow-vertical)" },
+	// { name: "rainbow-circle-transparent", value: "url(#rainbow-circle-transparent)" },
+	{ name: "yellow-to-pink-circle", value: "url(#yellow-to-pink-circle)" },
+	{ name: "shades-of-grey-vertical", value: "url(#shades-of-grey-vertical)" },
 	{ name: "black", value: "#000000", children: [backgroundStars] },
 ]
 

@@ -1,17 +1,19 @@
 "use-strict";
 
-const API_URL = "http://localhost:3000"
+// http://localhost:3000
+// https://cryptodicks-api.herokuapp.com/
+const API_URL = ""
 
 const backgroundItems15 = [90000, 80000, 70000, 60000, 50000, 38000, 30000, 23000, 16000, 11000, 7000, 4000, 2000, 1000, 0]
 const skinItems10 = [80000, 63000, 48000, 36000, 27000, 19000, 12000, 5000, 1000, 0]
-const hatItems16 = [82000, 76000, 70000, 64000, 58000, 52000, 46000, 40000, 34000, 28000, 22000, 16000, 10000, 5000, 1000, 0]
+const hatItems17 = [82000, 76000, 70000, 64000, 58000, 52000, 46000, 40000, 34000, 28000, 22000, 16000, 10000, 5000, 3000, 1000, 0]
 const eyeItems8 = [35000, 18000, 10000, 5000, 3000, 1000, 500, 0]
 const mouseItems8 = [15000, 10000, 6000, 3500, 2000, 1000, 500, 0]
 const clotheItems3 = [12000, 5000, 0]
 const armItems2 = [8000, 0]
 const specialItems3 = [2000, 1000, 0]
 
-const intervals = [backgroundItems15, skinItems10, hatItems16, eyeItems8, mouseItems8, clotheItems3, armItems2, specialItems3]
+const intervals = [backgroundItems15, skinItems10, hatItems17, eyeItems8, mouseItems8, clotheItems3, armItems2, specialItems3]
 
 window.addEventListener('load', function () {
     window.fetch(API_URL + "/stats")

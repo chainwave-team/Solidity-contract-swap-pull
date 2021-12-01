@@ -72,6 +72,12 @@ export const defs: Record<string, string> = {
 			<stop offset="1" stop-color="#d2fcaf"/>
 		</linearGradient>`
 	),
+	"url(#cyan-to-green-45)": (
+		`<linearGradient id="cyan-to-green-45" x1="1" x2="0" y2="1" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#67f8fd"/>
+			<stop offset="1" stop-color="#d2fcaf"/>
+		</linearGradient>`
+	),
 	"url(#white-to-yellow-vertical)": (
 		`<linearGradient id="white-to-yellow-vertical" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
 		<stop offset="0" stop-color="#fff"/>
@@ -167,6 +173,37 @@ export const defs: Record<string, string> = {
 			<stop offset="1" stop-color="#63f6b4"/>
 		</linearGradient>`
     ),
+	"url(#pink-to-purple-45)": (
+        `<linearGradient id="pink-to-purple-45" x1="1" x2="0" y2="1" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#6f23e0"/>
+			<stop offset="1" stop-color="#e347bf"/>
+		</linearGradient>`
+    ),
+	"url(#shades-of-purple-45)": (
+        `<linearGradient id="shades-of-purple-45" x1="1" x2="0" y2="1" gradientUnits="objectBoundingBox">
+		<stop offset="0" stop-color="#c4b5fd"/>
+		<stop offset="1" stop-color="#a78bfa"/>
+	  </linearGradient>`
+    ),
+	"url(#pink-to-yellow-45)": (
+        `<linearGradient id="pink-to-yellow-45" x1="1" x2="0" y2="1" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#e34dc6"/>
+			<stop offset="1" stop-color="#ffff5d"/>
+		</linearGradient>`
+    ),
+	"url(#pink-to-green-45)": (
+        `<linearGradient id="pink-to-green-45" x1="1" x2="0" y2="1" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#f0a0f3"/>
+			<stop offset="1" stop-color="#50ffb1"/>
+		</linearGradient>`
+    ),
+	"url(#red-purple-green-45)": (
+        `<linearGradient id="red-purple-green-45" x1="1" x2="0" y2="1" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#fb7185"/>
+			<stop offset="0.512" stop-color="#d946ef"/>
+			<stop offset="1" stop-color="#50ffb1"/>
+		</linearGradient>`
+    ),
 	"url(#small-eyes-filter)": (
         `<filter id="small-eyes-filter" x="33.642" y="27.524" width="21.683" height="20.087" filterUnits="userSpaceOnUse">
 			<feOffset dy="3" input="SourceAlpha"/>
@@ -247,5 +284,50 @@ export const defs: Record<string, string> = {
 			<stop offset="0" stop-color="#74ebd5"/>
 			<stop offset="1" stop-color="#acb6e5"/>
 		</linearGradient>`
+    ),
+
+	"url(#yellow-to-pink-circle)": (
+        `<radialGradient id="yellow-to-pink-circle" cx="0.5" cy="0.5" r="0.716" gradientTransform="matrix(0.999, -0.034, 0.034, 0.999, -0.017, 0.017)" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#ff80ff"/>
+			<stop offset="1" stop-color="#ffff80"/>
+		</radialGradient>`
+    ),
+	"url(#orange-to-red-circle)": (
+        `<radialGradient id="orange-to-red-circle" cx="0.5" cy="0.5" r="0.716" gradientTransform="matrix(0.999, -0.034, 0.034, 0.999, -0.017, 0.017)" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#f96"/>
+			<stop offset="1" stop-color="#ff5e62"/>
+		</radialGradient>`
+    ),
+	"url(#shades-of-grey-vertical)": (
+        `<linearGradient id="shades-of-grey-vertical" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#0f0c29"/>
+			<stop offset="0.488" stop-color="#302b63"/>
+			<stop offset="1" stop-color="#24242e"/>
+		</linearGradient>`
+    ),
+	"url(#shades-of-black-hair-vertical)": (
+        `<linearGradient id="shades-of-black-hair-vertical" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+			<stop offset="0" stop-color="#29312d"/>
+			<stop offset="0.498" stop-color="#3b3527"/>
+			<stop offset="1"/>
+		</linearGradient>`
+    ),
+	"url(#cape-small-eyes-filter-1)": (
+        `<filter id="cape-small-eyes-filter-1" x="32.462" y="26.542" width="21.656" height="20.781" filterUnits="userSpaceOnUse">
+			<feOffset dy="3" input="SourceAlpha"/>
+			<feGaussianBlur stdDeviation="3" result="blur"/>
+			<feFlood flood-opacity="0.161"/>
+			<feComposite operator="in" in2="blur"/>
+			<feComposite in="SourceGraphic"/>
+		</filter>`
+    ),
+	"url(#cape-small-eyes-filter-2)": (
+        `<filter id="cape-small-eyes-filter-2" x="40.462" y="26.542" width="21.656" height="20.781" filterUnits="userSpaceOnUse">
+			<feOffset dy="3" input="SourceAlpha"/>
+			<feGaussianBlur stdDeviation="3" result="blur-2"/>
+			<feFlood flood-opacity="0.161"/>
+			<feComposite operator="in" in2="blur-2"/>
+			<feComposite in="SourceGraphic"/>
+		</filter>`
     ),
 }

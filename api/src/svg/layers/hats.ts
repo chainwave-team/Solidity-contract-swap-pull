@@ -30,33 +30,6 @@ const squareHairAbove: Accessory = {
 	defs: ["purple-green-vertical"],
 }
 
-// TODO: Stars are not well aligned
-const starsAroundTheHead: Accessory = {
-	name: "starsAroundTheHead",
-	value: (
-		`<g id="starsAroundTheHead">
-			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(48.172 11.708)" fill="#ff0"/>
-			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(44.172 10.708)" fill="#ff0"/>
-			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(40.172 10.708)" fill="#ff0"/>
-			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(36.172 12.708)" fill="#ff0"/>
-			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(33.172 15.708)" fill="#ff0"/>
-			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(32.172 18.708)" fill="#ff0"/>
-			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(31.172 22.708)" fill="#ff0"/>
-			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(32.172 28.708)" fill="#ff0"/>
-			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(36.172 31.708)" fill="#ff0"/>
-			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(39.172 33.708)" fill="#ff0"/>
-			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(43.172 34.708)" fill="#ff0"/>
-			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(48.172 33.708)" fill="#ff0"/>
-			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(52.172 31.708)" fill="#ff0"/>
-			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(54.172 27.708)" fill="#ff0"/>
-			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(55.172 23.708)" fill="#ff0"/>
-			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(55.172 19.708)" fill="#ff0"/>
-			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(54.172 16.708)" fill="#ff0"/>
-			<path d="M4.477,5.539l.42.253-.111-.478.371-.321-.489-.042L4.477,4.5l-.191.451L3.8,4.993l.371.321-.111.478Z" transform="translate(52.172 13.708)" fill="#ff0"/>
-		</g>`
-	),
-}
-
 const angelRing: Accessory = {
 	name: "Angel ring",
 		value: (
@@ -95,13 +68,11 @@ const alienEyes: Accessory = {
 				<ellipse cx="1.5" cy="2" rx="1.5" ry="2" stroke="none"/>
 				<ellipse cx="1.5" cy="2" rx="1" ry="1.5" fill="none"/>
 			</g>
-			<g id="left-pupil" transform="translate(33 21)" fill="#fff" stroke="#000" stroke-width="1">
-				<circle cx="0.5" cy="0.5" r="0.5" stroke="none"/>
-				<circle cx="0.5" cy="0.5" fill="none"/>
+			<g id="left-pupil" transform="translate(33 21)" fill="#000">
+				<circle cx="0.5" cy="0.5" r="0.5"/>
 			</g>
-			<g id="right-pupil" transform="translate(60 19)" fill="#fff" stroke="#000" stroke-width="1">
-				<circle cx="0.5" cy="0.5" r="0.5" stroke="none"/>
-				<circle cx="0.5" cy="0.5" fill="none"/>
+			<g id="right-pupil" transform="translate(60 19)" fill="#000">
+				<circle cx="0.5" cy="0.5" r="0.5"/>
 			</g>
 		</g>`
 	)
@@ -119,13 +90,13 @@ const monsterEars: Accessory = {
 	),
 }
 
-const illuminatiTriangle: Accessory = {
-	name: "Illuminati triangle",
-	value: (color: string) => (
-		`<path id="illuminati-triangle" d="M9.352,2.4a2,2,0,0,1,3.3,0l7.2,10.47A2,2,0,0,1,18.2,16H3.8a2,2,0,0,1-1.648-3.133Z" transform="translate(37 18)" fill="${color}"/>`
-	),
-	children: [starsAroundTheHead],
-}
+// const illuminatiTriangle: Accessory = {
+// 	name: "Illuminati triangle",
+// 	value: (color: string) => (
+// 		`<path id="illuminati-triangle" d="M9.352,2.4a2,2,0,0,1,3.3,0l7.2,10.47A2,2,0,0,1,18.2,16H3.8a2,2,0,0,1-1.648-3.133Z" transform="translate(37 18)" fill="${color}"/>`
+// 	),
+// 	children: [starsAroundTheHead],
+// }
 
 const cuteHair: Accessory = {
 	name: "Cute hair",
@@ -141,14 +112,24 @@ const cuteHairCorn: Accessory = {
 	defs: ["blue-pink-purple-45"]
 }
 
-const fireHair: Accessory = {
-	name: "Fire hair",
+// const fireHair: Accessory = {
+// 	name: "Fire hair",
+// 	value: (
+// 		`<g id="fire-hair" transform="translate(0 -1)">
+// 			<path d="M849.438,66.63s-5.191-1.7-1.925-5.976,4.107-4.122,4.107-4.122l4.089-2.042s3.38-2.6,3.468,0,5.2-1.065,2.689-1.546c-.593-.888,4.15-2.04,3.568,3.588s5.3,4.576,3.055,5.049-3.487,6.042-4.168,5.734-.77-6.113-1.951-6.3-1.083-1.524-3.193-.361-1.468,4.774-4.157.927-4.322,2.307-4.322,2.307Z" transform="translate(-809 -33)" fill="url(#green-yellow-orange-vertical)"/>
+// 		</g>`
+// 	),
+// 	defs: ["green-yellow-orange-vertical"]
+// }
+
+const blackFireHair: Accessory = {
+	name: "Black fire hair",
 	value: (
-		`<g id="fire-hair" transform="translate(0 -1)">
-			<path d="M849.438,66.63s-5.191-1.7-1.925-5.976,4.107-4.122,4.107-4.122l4.089-2.042s3.38-2.6,3.468,0,5.2-1.065,2.689-1.546c-.593-.888,4.15-2.04,3.568,3.588s5.3,4.576,3.055,5.049-3.487,6.042-4.168,5.734-.77-6.113-1.951-6.3-1.083-1.524-3.193-.361-1.468,4.774-4.157.927-4.322,2.307-4.322,2.307Z" transform="translate(-809 -33)" fill="url(#green-yellow-orange-vertical)"/>
+		`<g id="black-fire-hair" transform="translate(0 -1)">
+			<path d="M849.438,66.63s-5.191-1.7-1.925-5.976,4.107-4.122,4.107-4.122l4.089-2.042s3.38-2.6,3.468,0,5.2-1.065,2.689-1.546c-.593-.888,4.15-2.04,3.568,3.588s5.3,4.576,3.055,5.049-3.487,6.042-4.168,5.734-.77-6.113-1.951-6.3-1.083-1.524-3.193-.361-1.468,4.774-4.157.927-4.322,2.307-4.322,2.307Z" transform="translate(-809 -33)" fill="url(#shades-of-black-hair-vertical)"/>
 		</g>`
 	),
-	defs: ["green-yellow-orange-vertical"]
+	defs: ["shades-of-black-hair-vertical"]
 }
 
 const witchHat: Accessory = {
@@ -211,17 +192,17 @@ const sunHair: Accessory = {
 	attr: ["below-dick"]
 }
 
-const pigEars: Accessory = {
-	name: "Pig ears",
-	value: (color: string) => (
-		`<g id="pig-earns">
-			<path d="M1228.1,502.067s6.25.72,4.385,3.79-4.385,2.168-4.385,2.168Z" transform="translate(-1173 -473)" fill="${color}"/>
-			<path d="M1232.831,502.067s-6.25.72-4.385,3.79,4.385,2.168,4.385,2.168Z" transform="translate(-1192 -473)" fill="${color}"/>
-		</g>`
-	),
-	// attr: ["below-dick"],
-	// children: [pinkCorn]
-}
+// const pigEars: Accessory = {
+// 	name: "Pig ears",
+// 	value: (color: string) => (
+// 		`<g id="pig-earns">
+// 			<path d="M1228.1,502.067s6.25.72,4.385,3.79-4.385,2.168-4.385,2.168Z" transform="translate(-1173 -473)" fill="${color}"/>
+// 			<path d="M1232.831,502.067s-6.25.72-4.385,3.79,4.385,2.168,4.385,2.168Z" transform="translate(-1192 -473)" fill="${color}"/>
+// 		</g>`
+// 	),
+// 	// attr: ["below-dick"],
+// 	// children: [pinkCorn]
+// }
 
 const kingCrown: Accessory = {
 	name: "King crown",
@@ -244,26 +225,37 @@ const squareHair: Accessory = {
 	children: [squareHairAbove]
 }
 
+const vision: Accessory = {
+	name: "Vision",
+	value: `<ellipse id="vision" cx="22.5" cy="13" rx="22.5" ry="13" transform="translate(26 15)" fill="url(#rainbow-circle-transparent)"/>`,
+	defs: ["rainbow-circle-transparent"],
+	attr: ['below-dick']
+}
+
+
+
 export const hats: Accessory[] = [
 	{
 		name: "Empty",
 		value: ""
 	},
-	angelRing,
+	blackFireHair,
 	sunHair,
 	squareHair,
-	rainbowCorn,
-	kingCrown,
-	pigEars,
-	angelHalo,
-	redHat,
-	alienEyes,
 	monsterEars,
-	// illuminatiTriangle,
+	alienEyes,
+	kingCrown,
+	// pigEars,
+	redHat,
 	cuteHair,
+	angelHalo,
+	// illuminatiTriangle,
+	rainbowCorn,
+	rainbowHairCorn,
 	cuteHairCorn,
-	fireHair,
+	angelRing,
+	// fireHair,
 	witchHat,
+	vision,
 	cosmonautHelmet,
-	rainbowHairCorn
 ]
