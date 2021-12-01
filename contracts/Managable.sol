@@ -6,7 +6,8 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Managable is Ownable {
     // Mutable variables
-    string internal _currentBaseURI = "http://localhost:5000/";
+    string internal _currentBaseURI =
+        "https://cryptodicks-api.herokuapp.com/token/";
     uint256 public claimFee = 0.01 ether;
 
     /// Allow owner to set new baseURI

@@ -83,6 +83,14 @@ module.exports = {
     // }
   },
 
+  plugins: [
+    "truffle-plugin-verify"
+  ],
+
+  api_keys: {
+    etherscan: process.env.ETHERSCAN_API_KEY
+  },
+
   // Set default mocha options here, use special reporters etc.
   mocha: {
     // timeout: 100000,
