@@ -2,6 +2,17 @@
 
 const API_URL = "http://localhost:3000"
 
+const backgroundItems15 = [90000, 80000, 70000, 60000, 50000, 38000, 30000, 23000, 16000, 11000, 7000, 4000, 2000, 1000, 0]
+const skinItems10 = [80000, 63000, 48000, 36000, 27000, 19000, 12000, 5000, 1000, 0]
+const hatItems16 = [82000, 76000, 70000, 64000, 58000, 52000, 46000, 40000, 34000, 28000, 22000, 16000, 10000, 5000, 1000, 0]
+const eyeItems8 = [35000, 18000, 10000, 5000, 3000, 1000, 500, 0]
+const mouseItems8 = [15000, 10000, 6000, 3500, 2000, 1000, 500, 0]
+const clotheItems3 = [12000, 5000, 0]
+const armItems2 = [8000, 0]
+const specialItems3 = [2000, 1000, 0]
+
+const intervals = [backgroundItems15, skinItems10, hatItems16, eyeItems8, mouseItems8, clotheItems3, armItems2, specialItems3]
+
 window.addEventListener('load', function () {
     window.fetch(API_URL + "/stats")
         .then(res => res.json())
@@ -41,8 +52,32 @@ function getCombinations(quantities) {
     return results
 }
 
+function get10KWithRarity() {
+    function randomSelect(interval) {
+        const random = Math.random() * 1e7 % 1e5
+        for (let i = 0; i < interval.length; i++) {
+            if (random >= interval[i]) {
+                return i
+            }
+        }
+    }
+
+    function getRandomSelection() {
+        // If with have a special element, we have to remove some properties.
+        const special = randomSelect(specialItems3)
+        if (special !== 0) {
+            return "/" + intervals.slice(0, 2).map(randomSelect).join("/") + "/0/0/0/0/0/" + special
+        }
+
+        // Else fully random except the special who must not change
+        return "/" + intervals.slice(0, intervals.length - 1).map(randomSelect).join("/") + "/0"
+    }
+
+    return Array(10e3).fill(0).map(() => getRandomSelection())
+}
+
 // return. a > img + span
-function createImage(url, name = '') {
+function createImage(url, name = '', rarityPercent = 0) {
     const image = document.createElement('img')
     const link = document.createElement('a')
     link.setAttribute('href', url)
@@ -53,34 +88,59 @@ function createImage(url, name = '') {
         const span = document.createElement('span')
         span.innerText = name
         link.appendChild(span)
+
+        if (rarityPercent) {
+            const rarity = document.createElement('span')
+            rarity.innerText = ` (${rarityPercent.toFixed(2)}%)`
+            link.appendChild(rarity)
+        }
     }
     return link
 }
 
 function printVariants(metadata) {
     const baseUrl = API_URL + "/svg-trait"
+    const resultsElement = document.getElementById("variants")
 
+    let i = 0
     for (const [traitName, choices] of Object.entries(metadata)) {
-        const resultsElement = document.getElementById(traitName)
+        const currentInterval = intervals[i]
+        i++
+        const title = document.createElement('code')
+        title.classList = "text-lg sm:text-2xl font-medium"
+        title.innerText = traitName
+        resultsElement.appendChild(title)
 
-        for (let i = 0; i < choices.length; i++) {
-            const name = choices[i];
-            const url = baseUrl + "/" + traitName.slice(0, traitName.length - 1) + "/" + i
-            const image = createImage(url, name)
-            resultsElement.appendChild(image)
+        const variantsDiv = document.createElement("div")
+        variantsDiv.classList = "flex flex-wrap mx-auto -mx-1 mb-8"
+
+        for (let j = 0; j < choices.length; j++) {
+            const size = j === 0
+                ? 1e5 - currentInterval[j]
+                : currentInterval[j - 1] - currentInterval[j]
+            const rarityPercent = 100 * size / 1e5
+            const name = choices[j];
+            const url = baseUrl + "/" + traitName.slice(0, traitName.length - 1) + "/" + j
+            const image = createImage(url, name, rarityPercent)
+            variantsDiv.appendChild(image)
         }
+
+        resultsElement.appendChild(variantsDiv)
     }
 }
 
 function printAll(metadata) {
-    const results = getCombinations(Object.values(metadata))
+    const all = getCombinations(Object.values(metadata))
+    const results = get10KWithRarity()
     const baseUrl = API_URL + "/svg"
     const urls = results.map((pathname, index) => baseUrl + "/" + index + pathname)
     const resultsElement = document.getElementById("results")
     const qtyElement = document.getElementById("quantity")
+    const capElement = document.getElementById("capacity")
     const qtyElementPercent = document.getElementById("quantity_percent")
 
     qtyElement.innerText = urls.length.toString()
+    capElement.innerText = all.length.toString()
     qtyElementPercent.innerText = ((urls.length * 100 / 10_000).toFixed(2)).toString()
 
     for (const url of urls.slice(0, 1_000)) {
