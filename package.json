@@ -8,9 +8,12 @@
   },
   "scripts": {
     "build:api": "cd api && tsc -p ./tsconfig.json",
+    "build:site": "cd website && npm run build",
     "heroku-postbuild": "npm run build:api",
     "start:api": "node api/dist/api/src/server.js",
+    "dev": "concurrently --kill-others \"npm run dev:api\" \"npm run dev:site\"",
     "dev:api": "nodemon api/src/server.ts",
+    "dev:site": "cd website && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -27,6 +30,7 @@
     "@openzeppelin/contracts": "^4.3.2",
     "@truffle/hdwallet-provider": "^1.7.0",
     "await-to-js": "^3.0.0",
+    "concurrently": "^6.4.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "web3": "^1.6.0",
