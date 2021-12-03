@@ -1,22 +1,16 @@
 import { Request, Response } from 'express'
-import to from "await-to-js"
 import Web3 from 'web3'
 import { AbiItem } from 'web3-utils'
 
 import token from '../../../abis/CryptoDicks.json'
-import { api_base_url, contractAddress, networkUrl } from '../config'
+import { API_URL, CONTRACT_ADDRESS, RPC_URL, SITE_URL } from '../config'
 
-
-
-const web3Provider = new Web3.providers.HttpProvider(
-    `https://${process.env.NETWORK}.infura.io/v3/${process.env.INFURA_TOKEN}`
-)
-
+const web3Provider = new Web3.providers.HttpProvider(RPC_URL)
 const web3 = new Web3(web3Provider)
 
 const contract = new web3.eth.Contract(
     token.abi as AbiItem | AbiItem[],
-    contractAddress
+    CONTRACT_ADDRESS
 )
 
 export async function getTokenMetadata(req: Request, res: Response) {
@@ -25,69 +19,30 @@ export async function getTokenMetadata(req: Request, res: Response) {
 
     try {
         const metadata = await contract.methods.get(Number(tokenId)).call()
-        console.log(metadata);
 
-        const { background, skin, hat, eye } = metadata
+        const { background, skin, hat, eye, mouse, clothe, arm, special } = metadata
+
+        const pathname = `/${background}/${skin}/${hat}/${eye}/${mouse}/${clothe}/${arm}/${special}`
+
+        const attributes = [
+            ["Background color", background],
+            ["Dick skin", skin],
+            ["Hat", hat],
+            ["Eyes", eye],
+            ["Mouse", mouse],
+            ["Clothe", clothe],
+            ["Arms", arm],
+            ["Special", special],
+        ]
+            .filter(([, value]) => !!value)
+            .map(([trait_type, value]) => ({ trait_type, value }))
 
     // https://docs.opensea.io/docs/metadata-standards
     res.json({
         name: `CryptoDicks #${tokenId}`,
-
-        // description: "My first **NFT collection**.",
-
-        /**
-         * This is the URL to the image of the item. 
-         * Can be just about any type of image 
-         * (including SVGs, which will be cached into PNGs by OpenSea), 
-         * and can be IPFS URLs or paths. 
-         * We recommend using a 350 x 350 image.
-         */
-        image: `${api_base_url}/svg/${tokenId}/${background}/${skin}/${hat}/${eye}`,
-
-        /**
-         * This is the URL that will appear below the asset's image
-         * on OpenSea and will allow users to leave OpenSea 
-         * and view the item on your site.
-         */
-        // external_url: `http://localhost:8000`,
-
-        /**
-         * These are the attributes for the item, 
-         * which will show up on the OpenSea page for the item.
-         */
-        attributes: [
-            {
-                "trait_type": "Background color",
-                "value": background
-            },
-            {
-                "trait_type": "Dick skin",
-                "value": skin
-            },
-            {
-                "trait_type": "Hat",
-                "value": hat
-            },
-            {
-                "trait_type": "Eye",
-                "value": eye
-            },
-            // {
-            //     "display_type": "boost_number",
-            //     "trait_type": "Aqua Power",
-            //     "value": 40
-            // },
-            // {
-            //     "display_type": "boost_percentage",
-            //     "trait_type": "Stamina Increase",
-            //     "value": 10
-            // },
-            // {
-            //     "display_type": "number",
-            //     "trait_type": "Generation",
-            //     "value": 2
-            // }
-        ]
+        image: `${API_URL}/svg/${tokenId}${pathname}`,
+        external_url: SITE_URL,
+        attributes
     })
         
     } catch (error: any) {

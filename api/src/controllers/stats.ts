@@ -13,26 +13,7 @@ import { specials } from '../svg/layers/specials'
 const getName = (a: Accessory): string => a.name
 
 export function getStats(req: Request, res: Response) {
-    const quantities = {
-        target: 10_000,
-        current: backgrounds.length * skins.length * hats.length * eyes.length,
-    }
-    const calcProgress = quantities.current * 100 / quantities.target
-    const progress = `${calcProgress.toFixed(2)}%`
-
     res.json({
-        quantities: {...quantities, progress },
-        metadata: {
-            background: backgrounds.length,
-            skin: skins.length,
-            hat: hats.length,
-            eye: eyes.length,
-            mouse: mouses.length,
-            clothe: clothes.length,
-            arm: arms.length,
-            special: specials.length,
-        },
-        
         backgrounds: backgrounds.map(getName),
         skins: skins.map(getName),
         hats: hats.map(getName),

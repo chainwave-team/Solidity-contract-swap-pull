@@ -82,13 +82,10 @@ export const mouses: Accessory[] = [
 		name: "Empty",
 		value: ""
 	},
-	// smallRedMouse,
+	smallRedMouse,
 	catMustache,
-	redMouse,
 	catMustacheAndTeeth,
 	catMustacheAndUnhappyMouse,
-	// vampireTeeth,
-	catMustacheAndGreenUnhappyMouse,
 	unHappyMouse,
 	greenUnHappyMouse
 ]

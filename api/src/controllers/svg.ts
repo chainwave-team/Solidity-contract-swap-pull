@@ -32,10 +32,7 @@ export function getSVG(req: Request, res: Response) {
             arm: Number(arm),
             special: Number(special),
         }
-
-        console.log(options);
         
-
         res.setHeader('Content-Type', 'image/svg+xml')
         res.send(generateSVG(options))
     }

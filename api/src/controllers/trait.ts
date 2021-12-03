@@ -23,4 +23,3 @@ export function getTrait(req: Request, res: Response) {
         res.sendStatus(404)
     }
 }
-

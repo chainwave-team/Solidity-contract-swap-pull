@@ -13,12 +13,6 @@ const cuteHairCornBelow: Accessory = {
 	attr: ["below-dick"]
 }
 
-const pinkCorn: Accessory = {
-	name: "Pink corn",
-	value: `<path id="pink-corn" d="M1084.992,261.7l-1.922,18.676s1.961,1.413,3.608,0C1086.688,278,1084.992,261.7,1084.992,261.7Z" transform="translate(-1037 -254)" fill="url(#red-to-pink-vertical)"/>`,
-	defs: ["red-to-pink-vertical"]
-}
-
 const squareHairAbove: Accessory = {
 	name: "Square Hair above",
 	value: (
@@ -90,14 +84,6 @@ const monsterEars: Accessory = {
 	),
 }
 
-// const illuminatiTriangle: Accessory = {
-// 	name: "Illuminati triangle",
-// 	value: (color: string) => (
-// 		`<path id="illuminati-triangle" d="M9.352,2.4a2,2,0,0,1,3.3,0l7.2,10.47A2,2,0,0,1,18.2,16H3.8a2,2,0,0,1-1.648-3.133Z" transform="translate(37 18)" fill="${color}"/>`
-// 	),
-// 	children: [starsAroundTheHead],
-// }
-
 const cuteHair: Accessory = {
 	name: "Cute hair",
 	value: `<path id="cute-hair" transform="translate(-708 -138)" d="M756,162.085c-.159,1.351,1.1,4.9,4.149,5.081s4.534,15.231,8.744,14.522,7.99,2.723,9.936,1.289-9.936-17.357-9.936-17.357l-6.613-4.246S756.159,160.734,756,162.085Z" fill="url(#green-pink-purple-45)"/>`,
@@ -111,16 +97,6 @@ const cuteHairCorn: Accessory = {
 	children: [cuteHairCornBelow],
 	defs: ["blue-pink-purple-45"]
 }
-
-// const fireHair: Accessory = {
-// 	name: "Fire hair",
-// 	value: (
-// 		`<g id="fire-hair" transform="translate(0 -1)">
-// 			<path d="M849.438,66.63s-5.191-1.7-1.925-5.976,4.107-4.122,4.107-4.122l4.089-2.042s3.38-2.6,3.468,0,5.2-1.065,2.689-1.546c-.593-.888,4.15-2.04,3.568,3.588s5.3,4.576,3.055,5.049-3.487,6.042-4.168,5.734-.77-6.113-1.951-6.3-1.083-1.524-3.193-.361-1.468,4.774-4.157.927-4.322,2.307-4.322,2.307Z" transform="translate(-809 -33)" fill="url(#green-yellow-orange-vertical)"/>
-// 		</g>`
-// 	),
-// 	defs: ["green-yellow-orange-vertical"]
-// }
 
 const blackFireHair: Accessory = {
 	name: "Black fire hair",
@@ -164,16 +140,6 @@ const cosmonautHelmet: Accessory = {
 	defs: ["pink-to-purple-rounded"],
 }
 
-const rainbowHairCorn: Accessory = {
-	name: "Rainbow hair corn",
-	value: (
-		`<path id="rainbow-hair-corn" d="M979.39,379.791s-2.98,5.91-1.5,6.436,10.331,3.131,10.331,3.131l12.624,1.651s5.851-1.034,3.156-6.334-9.612-9.875-9.612-9.875l-6.168,3.647s-5.951.608-6.151-2.858S979.39,379.791,979.39,379.791Z" transform="translate(824.828 752.793) rotate(-158)" fill="url(#rainbow-vertical)"/>`
-	),
-	defs: ["rainbow-vertical"],
-	attr: ["below-dick"],
-	children: [pinkCorn]
-}
-
 const rainbowCorn: Accessory = {
 	name: "Rainbow corn",
 	value: (
@@ -191,18 +157,6 @@ const sunHair: Accessory = {
 	defs: ["white-to-yellow-vertical"],
 	attr: ["below-dick"]
 }
-
-// const pigEars: Accessory = {
-// 	name: "Pig ears",
-// 	value: (color: string) => (
-// 		`<g id="pig-earns">
-// 			<path d="M1228.1,502.067s6.25.72,4.385,3.79-4.385,2.168-4.385,2.168Z" transform="translate(-1173 -473)" fill="${color}"/>
-// 			<path d="M1232.831,502.067s-6.25.72-4.385,3.79,4.385,2.168,4.385,2.168Z" transform="translate(-1192 -473)" fill="${color}"/>
-// 		</g>`
-// 	),
-// 	// attr: ["below-dick"],
-// 	// children: [pinkCorn]
-// }
 
 const kingCrown: Accessory = {
 	name: "King crown",
@@ -232,8 +186,6 @@ const vision: Accessory = {
 	attr: ['below-dick']
 }
 
-
-
 export const hats: Accessory[] = [
 	{
 		name: "Empty",
@@ -245,16 +197,12 @@ export const hats: Accessory[] = [
 	monsterEars,
 	alienEyes,
 	kingCrown,
-	// pigEars,
 	redHat,
 	cuteHair,
 	angelHalo,
-	// illuminatiTriangle,
 	rainbowCorn,
-	rainbowHairCorn,
 	cuteHairCorn,
 	angelRing,
-	// fireHair,
 	witchHat,
 	vision,
 	cosmonautHelmet,

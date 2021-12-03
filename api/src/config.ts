@@ -1,13 +1,25 @@
 require('dotenv').config()
 
+const NODE_ENV = process.env.NODE_ENV || "development"
+const isDev = NODE_ENV === "development"
+
+// Website
+export const SITE_URL = isDev
+    ? "http://localhost:3000"
+    : "https://cryptodicks.netlify.com"
+
 // SVG gen. config
 export const buildSize = 96;
 export const displaySize = 600;
 
 // API config
-export const port = process.env.PORT || 3000;
-export const api_base_url = process.env.BASE_URI || "http://localhost:3000";
+export const PORT = process.env.PORT || 3001;
+export const API_URL = isDev
+    ? `http://localhost:${PORT}`
+    : "https://cryptodicks-api.herokuapp.com/"
 
 // Web3 config
-export const networkUrl = "http://localhost:8545";
-export const contractAddress = process.env.CONTRACT_ADDRESS || ""
+export const RPC_URL = isDev
+    ?  "http://localhost:8545"
+    :  `https://${process.env.NETWORK}.infura.io/v3/${process.env.INFURA_TOKEN}`
+export const CONTRACT_ADDRESS = process.env.CONTRACT_ADDRESS || ""

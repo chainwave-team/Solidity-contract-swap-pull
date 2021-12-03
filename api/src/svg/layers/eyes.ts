@@ -42,70 +42,27 @@ const maleCycloidTop: Accessory = {
 	 defs: ["male-cycloid-top-filter"]
 }
 
-const picassoEyes: Accessory = {
-	name: "Male Cycloid top",
+const cryingEyes: Accessory = {
+	name: "Crying eyes",
 	value: (
-		`<g id="picasso-eyes" transform="translate(0 1)">
-			<g id="big-eye" transform="translate(20.989 39.405)">
-				<g transform="matrix(1, 0, 0, 1, -20.99, -39.41)" filter="url(#picasso-big-eye-filter)">
-					<path d="M-138.23-1097.589s3.171-5.8,6.731,0C-134.82-1092.053-138.23-1097.589-138.23-1097.589Z" transform="translate(184.99 1127.86)" fill="rgba(255,255,255,0.90)" stroke="#000" stroke-width="0.2"/>
-				</g>
-				<circle cx="0.983" cy="0.983" r="0.983" transform="translate(27.956 -11.001) rotate(-16)"/>
-			</g>
-			<g id="small-eye" transform="translate(24.808 13.364)">
+		`<g id="crying-eyes" transform="translate(0 1)">
+			<g transform="translate(24.808 13.364)">
 				<g transform="matrix(1, 0, 0, 1, -24.81, -13.36)" filter="url(#picasso-small-eye-filter)">
-					<path d="M-138.23-1098.856s1.613-2.95,3.424,0C-136.5-1096.041-138.23-1098.856-138.23-1098.856Z" transform="translate(181.81 1132.82)" fill="rgba(255,255,255,0.90)" stroke="#000" stroke-width="0.2"/>
+					<path d="M-138.23-1098.856s1.613-2.95,3.424,0C-136.5-1096.041-138.23-1098.856-138.23-1098.856Z" transform="translate(181.81 1132.82)" fill="rgba(255,255,255,0.9)" stroke="#000" stroke-width="0.2"/>
 				</g>
 				<circle cx="0.5" cy="0.5" r="0.5" transform="translate(20 20)"/>
 			</g>
-			<path id="tear" d="M1014.946,626.706c.043-.147.018-.037-.135.341s.135.493.135.493.089.108.3,0,.152-.4.152-.4l-.267-1.183-.057.35S1014.9,626.853,1014.946,626.706Z" transform="translate(-970 -590.604)" fill="#fff"/>
-		</g>`
- 	),
-	 defs: ["picasso-big-eye-filter", "picasso-small-eye-filter"],
-	//  children: [redMouse]
-}
-
-const onlySmallPicassoEye: Accessory = {
-	name: "Only small Picasso eye",
-	value: (
-		`<g id="only-small-picasso-eyes" transform="translate(0 1)">
-			<g id="small-eye" transform="translate(24.808 13.364)">
-				<g transform="matrix(1, 0, 0, 1, -24.81, -13.36)" filter="url(#picasso-small-eye-filter)">
-					<path d="M-138.23-1098.856s1.613-2.95,3.424,0C-136.5-1096.041-138.23-1098.856-138.23-1098.856Z" transform="translate(181.81 1132.82)" fill="rgba(255,255,255,0.90)" stroke="#000" stroke-width="0.2"/>
+			<g transform="translate(30.808 13.364)">
+				<g transform="matrix(1, 0, 0, 1, -30.81, -13.36)" filter="url(#picasso-small-eye-filter)">
+					<path d="M-138.23-1098.856s1.613-2.95,3.424,0C-136.5-1096.041-138.23-1098.856-138.23-1098.856Z" transform="translate(187.81 1132.82)" fill="rgba(255,255,255,0.9)" stroke="#000" stroke-width="0.2"/>
 				</g>
 				<circle cx="0.5" cy="0.5" r="0.5" transform="translate(20 20)"/>
 			</g>
-			<path id="tear" d="M1014.946,626.706c.043-.147.018-.037-.135.341s.135.493.135.493.089.108.3,0,.152-.4.152-.4l-.267-1.183-.057.35S1014.9,626.853,1014.946,626.706Z" transform="translate(-970 -590.604)" fill="#fff"/>
+			<path d="M1014.946,626.706c.043-.147.018-.037-.135.341s.135.493.135.493.089.108.3,0,.152-.4.152-.4l-.267-1.183-.057.35S1014.9,626.853,1014.946,626.706Z" transform="translate(-970 -590.604)" fill="#fff"/>
+			<path d="M1014.946,626.706c.043-.147.018-.037-.135.341s.135.493.135.493.089.108.3,0,.152-.4.152-.4l-.267-1.183-.057.35S1014.9,626.853,1014.946,626.706Z" transform="translate(-964 -590.604)" fill="#fff"/>
 		</g>`
 	),
 	defs: ["picasso-small-eye-filter"],
-	// children: [smallRedMouse]
-}
-
-// const blackCycloid: Accessory = {
-// 	name: "Black male Cycloid",
-// 	value: (
-// 		`<g id="black-male-cycloid" transform="translate(0 1)">
-// 			<g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#black-male-cycloid-filter)">
-// 				<path d="M-138.23-1098.348s2.583-4.093,5.482,0C-135.453-1094.443-138.23-1098.348-138.23-1098.348Z" transform="translate(184 1130.12)" fill="none" stroke="#000" stroke-width="2"/>
-// 			</g>
-// 			<ellipse cx="1" cy="1.5" rx="1" ry="1.5" transform="translate(47.672 29.198)"/>
-// 		</g>`
-//  	),
-// 	 defs: ["black-male-cycloid-filter"]
-// }
-
-const smallMaleCycloid: Accessory = {
-	name: "Small Male Cycloid",
-	value: (
-		`<g id="small-male-cycloid" transform="translate(25.921 11.697)">
-			<g transform="matrix(1, 0, 0, 1, -25.92, -7.7)" filter="url(#small-male-cycloid-filter)">
-				<path d="M-138.23-1098.856a4.734,4.734,0,0,1,6.484,0C-134.945-1096.041-138.23-1098.856-138.23-1098.856Z" transform="translate(182.92 1127.15)" fill="rgba(255,255,255,0.9)" stroke="#000" stroke-width="0.2"/>
-			</g>
-			<circle cx="0.5" cy="0.5" r="0.5" transform="translate(21.554 20)"/>
-		</g>`
- 	),
-	 defs: ["small-male-cycloid-filter"]
 }
 
 export const smallEyes: Accessory = {
@@ -156,10 +113,7 @@ export const eyes: Accessory[] = [
 	maleCycloid,
 	maleCycloidTop,
 	smallEyes,
-	// blackCycloid,
-	// smallMaleCycloid,
-	onlySmallPicassoEye,
+	cryingEyes,
 	femaleCycloid,
-	picassoEyes,
 	smallEyesMakeup
 ]

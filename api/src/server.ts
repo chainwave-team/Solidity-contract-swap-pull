@@ -1,7 +1,7 @@
 import express from 'express'
 import path from 'path'
 
-import { api_base_url, port } from './config'
+import { API_URL, PORT } from './config'
 import { getStats } from './controllers/stats'
 import { getSVG } from './controllers/svg'
 import { getTokenMetadata } from './controllers/token'
@@ -24,12 +24,12 @@ app.get('/svg-trait/:trait/:value', getTrait)
 // Returns some statistics about the collection
 app.get('/stats', getStats)
 
-// Frontend
-app.get('/', (req, res) => {
+// Development page
+app.get('/', (_, res) => {
     res.sendFile(path.resolve('api', 'public', 'index.html'))
 })
 
 // Start
-app.listen(port, () => {
-    console.log(`App listening at ${api_base_url} 🎉`)
+app.listen(PORT, () => {
+    console.log(`App listening at ${API_URL} 🎉`)
 })

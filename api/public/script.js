@@ -4,22 +4,22 @@
 // https://cryptodicks-api.herokuapp.com/
 const API_URL = ""
 
-const backgroundItems15 = [90000, 80000, 70000, 60000, 50000, 38000, 30000, 23000, 16000, 11000, 7000, 4000, 2000, 1000, 0]
-const skinItems10 = [80000, 63000, 48000, 36000, 27000, 19000, 12000, 5000, 1000, 0]
-const hatItems17 = [82000, 76000, 70000, 64000, 58000, 52000, 46000, 40000, 34000, 28000, 22000, 16000, 10000, 5000, 3000, 1000, 0]
-const eyeItems8 = [35000, 18000, 10000, 5000, 3000, 1000, 500, 0]
-const mouseItems8 = [15000, 10000, 6000, 3500, 2000, 1000, 500, 0]
-const clotheItems3 = [12000, 5000, 0]
-const armItems2 = [8000, 0]
-const specialItems3 = [2000, 1000, 0]
+const backgroundItems = [90000, 80000, 70000, 60000, 50000, 40000, 30000, 23000, 16000, 11000, 7000, 4000, 3000, 2000, 1000, 0]
+const skinItems = [90000, 80000, 70000, 60000, 50000, 40000, 30000, 20000, 15000, 10000, 5000, 1000, 0]
+const hatItems = [70000, 64000, 58000, 52000, 46000, 40000, 34000, 28000, 22000, 16000, 10000, 5000, 3000, 1500, 500, 0]
+const eyeItems = [35000, 22000, 10000, 6000, 3000, 1000, 0]
+const mouseItems = [10000, 6000, 3500, 2000, 1000, 1000, 0]
+const clotheItems = [12000, 5000, 0]
+const armItems = [8000, 0]
+const specialItems = [2000, 1000, 0]
 
-const intervals = [backgroundItems15, skinItems10, hatItems17, eyeItems8, mouseItems8, clotheItems3, armItems2, specialItems3]
+const intervals = [backgroundItems, skinItems, hatItems, eyeItems, mouseItems, clotheItems, armItems, specialItems]
 
 window.addEventListener('load', function () {
     window.fetch(API_URL + "/stats")
         .then(res => res.json())
-        .then(({ metadata, quantities, ...rest }) => {
-            printVariants(rest)
+        .then((metadata) => {
+            printVariants(metadata)
             printAll(metadata)
         })
         .catch(console.log)
@@ -65,14 +65,26 @@ function get10KWithRarity() {
     }
 
     function getRandomSelection() {
-        // If with have a special element, we have to remove some properties.
-        const special = randomSelect(specialItems3)
+        // If we have a special element, we have to remove some properties.
+        const special = randomSelect(specialItems)
         if (special !== 0) {
             return "/" + intervals.slice(0, 2).map(randomSelect).join("/") + "/0/0/0/0/0/" + special
         }
 
+        // If we have the blanket clothe, don't append mouse
+        const clothe = randomSelect(clotheItems)
+        if (clothe === 1) {
+            return "/" + intervals.slice(0, 4).map(randomSelect).join("/") + "/0/" + clothe + "/" + randomSelect(armItems) + "/" + special
+        }
+
+        // If we have the cosmonaut helmet clothe, don't append mouse
+        const hat = randomSelect(hatItems)
+        if (hat === 14) {
+            return "/" + intervals.slice(0, 2).map(randomSelect).join("/") + "/" + hat + "/" + randomSelect(eyeItems) + "/0/" + clothe + "/" + randomSelect(armItems) + "/" + special
+        }
+
         // Else fully random except the special who must not change
-        return "/" + intervals.slice(0, intervals.length - 1).map(randomSelect).join("/") + "/0"
+        return "/" + intervals.slice(0, 2).map(randomSelect).join("/") + "/" + hat + "/" + randomSelect(eyeItems) + "/" + randomSelect(mouseItems) + "/" + clothe + "/" + randomSelect(armItems) + "/" + special
     }
 
     return Array(10e3).fill(0).map(() => getRandomSelection())
@@ -132,7 +144,7 @@ function printVariants(metadata) {
 }
 
 function printAll(metadata) {
-    const all = getCombinations(Object.values(metadata))
+    const all = getCombinations(Object.values(metadata).map(values => values.length))
     const results = get10KWithRarity()
     const baseUrl = API_URL + "/svg"
     const urls = results.map((pathname, index) => baseUrl + "/" + index + pathname)

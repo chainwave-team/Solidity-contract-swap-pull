@@ -11,6 +11,7 @@ export type Accessories = {
 	[key in TraitName]: Accessory 
 }
 
+// Return an sorted array of svg ready to print
 function createSVGBody({background, skin, hat, eye, mouse, clothe, arm, special}: Accessories): [string, string[]] {
 	// Get extraAccessories
 	const extraAccessories = deduplicateByName(
@@ -18,7 +19,6 @@ function createSVGBody({background, skin, hat, eye, mouse, clothe, arm, special}
 	)
 
 	// From accessories, fill the deps (filters, linear-gradients...)
-	// TODO: Regex the value help us to remove redundant defs[] property
 	const defsSVG = extractDefs({
 		fromRegex: [background, skin],
 		fromDefs: [hat, eye, mouse, clothe, arm, special, ...extraAccessories]
@@ -55,30 +55,23 @@ function createSVGBody({background, skin, hat, eye, mouse, clothe, arm, special}
 }
 
 export default function generateSVG (options: AttributesObject): string {
-	// Get primary accessories from their indexes
-	const background = getBackground(options.background)
-	const skin = getSkin(options.skin)
-	const hat = getHat(options.hat)
-	const eye = getEye(options.eye)
-	const mouse = getMouse(options.mouse)
-	const clothe = getClothe(options.clothe)
-	const arm = getArm(options.arm)
-	const special = getSpecial(options.special)
-
-	const [defs, body] = createSVGBody({ background, skin, hat, eye, mouse, clothe, arm, special })
+	const title = getTitle(options.id)
+	const [defs, body] = createSVGBody({ 
+		background: getBackground(options.background),
+		skin: getSkin(options.skin),
+		hat: getHat(options.hat),
+		eye: getEye(options.eye),
+		mouse: getMouse(options.mouse),
+		clothe: getClothe(options.clothe),
+		arm: getArm(options.arm),
+		special: getSpecial(options.special),
+	 })
 
 	// Build final SVG
-	return SVG({
-		title: getTitle(options.id),
-		defs,
-		body: body.join("")
-	})
+	return SVG({ title, defs, body: body.join("") })
 }
 
-export function generateTraitSVG(
-	trait: TraitName | "special",
-	value: number
-): string {
+export function generateTraitSVG(trait: TraitName, value: number): string {
 	const emptyElement: Accessory = {
 		name: "Empty",
 		value: ""

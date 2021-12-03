@@ -1,5 +1,4 @@
 import { Accessory } from '../types'
-import { smallEyes } from './eyes'
 
 export const ghostCape: Accessory = {
 	name: "Ghost cape",
