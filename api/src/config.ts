@@ -6,7 +6,7 @@ const isDev = NODE_ENV === "development"
 // Website
 export const SITE_URL = isDev
     ? "http://localhost:3000"
-    : "https://cryptodicks.netlify.com"
+    : "https://cryptodicks.vercel.app"
 
 // SVG gen. config
 export const buildSize = 96;
