@@ -16,7 +16,7 @@ export const displaySize = 600;
 export const PORT = process.env.PORT || 3001;
 export const API_URL = isDev
     ? `http://localhost:${PORT}`
-    : "https://cryptodicks-api.herokuapp.com/"
+    : "https://cryptodicks-api.herokuapp.com"
 
 // Web3 config
 export const RPC_URL = isDev

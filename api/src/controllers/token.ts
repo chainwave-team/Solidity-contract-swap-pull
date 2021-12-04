@@ -22,7 +22,7 @@ export async function getTokenMetadata(req: Request, res: Response) {
 
         const { background, skin, hat, eye, mouse, clothe, arm, special } = metadata
 
-        const pathname = `/${background}/${skin}/${hat}/${eye}/${mouse}/${clothe}/${arm}/${special}`
+        const pathname = `${background}/${skin}/${hat}/${eye}/${mouse}/${clothe}/${arm}/${special}`
 
         const attributes = [
             ["Background color", background],
@@ -40,7 +40,7 @@ export async function getTokenMetadata(req: Request, res: Response) {
     // https://docs.opensea.io/docs/metadata-standards
     res.json({
         name: `CryptoDicks #${tokenId}`,
-        image: `${API_URL}/svg/${tokenId}${pathname}`,
+        image: `${API_URL}/svg/${tokenId}/${pathname}`,
         external_url: SITE_URL,
         attributes
     })
