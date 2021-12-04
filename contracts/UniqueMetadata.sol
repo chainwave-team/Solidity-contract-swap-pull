@@ -98,7 +98,6 @@ contract UniqueMetadata {
     uint256[] internal SPECIALS = [2000, 1000, 0];
 
     /// Create unique metadata combination
-    /// TODO: Test algos part
     /// @dev this function is the algo part entry point
     /// @dev exec a infinite loop
     /// @dev check and mute the _dnaExists mapping
@@ -122,6 +121,8 @@ contract UniqueMetadata {
         return metadata;
     }
 
+    /// Generate Dna by encoding metadata
+    /// @return uint dna
     function _generateDna(Metadata memory metadata)
         internal
         pure
@@ -144,6 +145,10 @@ contract UniqueMetadata {
             );
     }
 
+    /// Randomly generate metadata
+    /// @dev This function doesn't check in the metadata is unique
+    /// @dev This function apply business logic
+    /// @return Metadata
     function _generateMetadata() internal returns (Metadata memory) {
         uint8 bg;
         uint8 skin;
@@ -168,6 +173,9 @@ contract UniqueMetadata {
         return Metadata(bg, skin, hat, eye, mouse, clothe, arm, special);
     }
 
+    /// If the cryptoDick has a cape, it can't have any others accessories
+    /// So, randomly generate the background and the skin
+    /// And returns 0 for the 5 next values (the eighth is the special trait itself)
     function _generateIfSpecial()
         internal
         returns (
@@ -185,6 +193,8 @@ contract UniqueMetadata {
         return (bg, skin, 0, 0, 0, 0, 0);
     }
 
+    /// Generate the seven first values of Metadata
+    /// Including some business logic
     function _generateIfNotSpecial()
         internal
         returns (

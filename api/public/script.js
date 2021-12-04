@@ -23,6 +23,13 @@ window.addEventListener('load', function () {
             printAll(metadata)
         })
         .catch(console.log)
+
+    for (let i = 1; i <= 5; i++) {
+        fetch(API_URL + `/token/${i}`)
+            .then(res => res.json())
+            .then(metadata => metadata.image)
+            .then(console.log)
+    }
 })
 
 // Create all possible combinations
@@ -54,40 +61,36 @@ function getCombinations(quantities) {
     return results
 }
 
-function get10KWithRarity() {
-    function randomSelect(interval) {
-        const random = Math.random() * 1e7 % 1e5
-        for (let i = 0; i < interval.length; i++) {
-            if (random >= interval[i]) {
-                return i
-            }
+function randomSelect(interval) {
+    const random = Math.random() * 1e7 % 1e5
+    for (let i = 0; i < interval.length; i++) {
+        if (random >= interval[i]) {
+            return i
         }
     }
+}
 
-    function getRandomSelection() {
-        // If we have a special element, we have to remove some properties.
-        const special = randomSelect(specialItems)
-        if (special !== 0) {
-            return "/" + intervals.slice(0, 2).map(randomSelect).join("/") + "/0/0/0/0/0/" + special
-        }
-
-        // If we have the blanket clothe, don't append mouse
-        const clothe = randomSelect(clotheItems)
-        if (clothe === 1) {
-            return "/" + intervals.slice(0, 4).map(randomSelect).join("/") + "/0/" + clothe + "/" + randomSelect(armItems) + "/" + special
-        }
-
-        // If we have the cosmonaut helmet clothe, don't append mouse
-        const hat = randomSelect(hatItems)
-        if (hat === 14) {
-            return "/" + intervals.slice(0, 2).map(randomSelect).join("/") + "/" + hat + "/" + randomSelect(eyeItems) + "/0/" + clothe + "/" + randomSelect(armItems) + "/" + special
-        }
-
-        // Else fully random except the special who must not change
-        return "/" + intervals.slice(0, 2).map(randomSelect).join("/") + "/" + hat + "/" + randomSelect(eyeItems) + "/" + randomSelect(mouseItems) + "/" + clothe + "/" + randomSelect(armItems) + "/" + special
+function getRandomSelection() {
+    // If we have a special element, we have to remove some properties.
+    const special = randomSelect(specialItems)
+    if (special !== 0) {
+        return "/" + intervals.slice(0, 2).map(randomSelect).join("/") + "/0/0/0/0/0/" + special
     }
 
-    return Array(10e3).fill(0).map(() => getRandomSelection())
+    // If we have the blanket clothe, don't append mouse
+    const clothe = randomSelect(clotheItems)
+    if (clothe === 1) {
+        return "/" + intervals.slice(0, 4).map(randomSelect).join("/") + "/0/" + clothe + "/" + randomSelect(armItems) + "/" + special
+    }
+
+    // If we have the cosmonaut helmet clothe, don't append mouse
+    const hat = randomSelect(hatItems)
+    if (hat === 14) {
+        return "/" + intervals.slice(0, 2).map(randomSelect).join("/") + "/" + hat + "/" + randomSelect(eyeItems) + "/0/" + clothe + "/" + randomSelect(armItems) + "/" + special
+    }
+
+    // Else fully random except the special who must not change
+    return "/" + intervals.slice(0, 2).map(randomSelect).join("/") + "/" + hat + "/" + randomSelect(eyeItems) + "/" + randomSelect(mouseItems) + "/" + clothe + "/" + randomSelect(armItems) + "/" + special
 }
 
 // return. a > img + span
@@ -145,7 +148,7 @@ function printVariants(metadata) {
 
 function printAll(metadata) {
     const all = getCombinations(Object.values(metadata).map(values => values.length))
-    const results = get10KWithRarity()
+    const results = Array(10e3).fill(0).map(() => getRandomSelection())
     const baseUrl = API_URL + "/svg"
     const urls = results.map((pathname, index) => baseUrl + "/" + index + pathname)
     const resultsElement = document.getElementById("results")

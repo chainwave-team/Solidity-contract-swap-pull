@@ -42,7 +42,7 @@ contract('CryptoDicks', accounts => {
 
         it("has correct claim fee", async () => {
             let claimFee = await nftContract.claimFee()
-            expect(web3.utils.fromWei(claimFee)).to.equal("0.01")
+            expect(web3.utils.fromWei(claimFee)).to.equal("0.001")
         })
 
         it("gifts the owner the 5 first NFTs", async () => {
@@ -84,7 +84,7 @@ contract('CryptoDicks', accounts => {
         })
     })
 
-    let price = web3.utils.toBN(web3.utils.toWei('0.01', 'ether'))
+    let price = web3.utils.toBN(web3.utils.toWei('0.001', 'ether'))
 
     describe("Minting a NFT", () => {
         let ownerBalanceBefore
@@ -120,7 +120,7 @@ contract('CryptoDicks', accounts => {
             expect(owner).to.equal(accounts[1])
         })
 
-        it("costs 0.01 ether plus gas to mint", async () => {
+        it("costs 0.001 ether plus gas to mint", async () => {
             let buyerBalanceAfter = await web3.eth.getBalance(accounts[1])
             buyerBalanceAfter = web3.utils.toBN(buyerBalanceAfter)
             let gasCost = web3.utils.toBN(transaction.gasPrice * receipt.receipt.gasUsed)
@@ -137,11 +137,16 @@ contract('CryptoDicks', accounts => {
     })
 
     describe("Trying to mint a date without paying", async () => {
+
         it("fails", async () => {
             await expectRevert(
-                nftContract.claim(),
+                nftContract.claim({ from: accounts[1] }),
                 "Claiming a NFT costs ether"
             )
+        })
+
+        it("excepts if is the owner claiming", async () => {
+            await nftContract.claim({ from: accounts[0] })
         })
     })
 
