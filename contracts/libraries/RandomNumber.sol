@@ -12,27 +12,23 @@ library RandomNumber {
     /// @param seed Used for the initialization of the number generator
     /// @param intervals the intervals
     /// @param selector Caller selector
-    /// @param tokenId the current tokenId
     function generate(
         uint256 max,
         uint256 seed,
         uint256[] memory intervals,
-        bytes4 selector,
-        uint256 tokenId
+        bytes4 selector
     ) internal view returns (uint8) {
-        uint256 generated = generateRandom(max, seed, tokenId, selector);
+        uint256 generated = generateRandom(max, seed, selector);
         return pickItems(generated, intervals);
     }
 
     /// @notice Generate random number between 1 and max
     /// @param max Maximum value of the random number
     /// @param seed Used for the initialization of the number generator
-    /// @param tokenId Current tokenId used as seed
     /// @param selector Caller selector used as seed
     function generateRandom(
         uint256 max,
         uint256 seed,
-        uint256 tokenId,
         bytes4 selector
     ) private view returns (uint256) {
         return
@@ -44,8 +40,7 @@ library RandomNumber {
                         tx.origin,
                         tx.gasprice,
                         selector,
-                        seed,
-                        tokenId
+                        seed
                     )
                 )
             ) % (max + 1)) + 1;
@@ -54,7 +49,7 @@ library RandomNumber {
     /// @notice Pick an item for the given random value
     /// @param val The random value
     /// @param intervals The intervals for the corresponding items
-    /// @return the item ID where : intervals[] index + 1 = item ID
+    /// @return the item ID where : intervals[] index = item ID
     function pickItems(uint256 val, uint256[] memory intervals)
         internal
         pure
@@ -62,7 +57,7 @@ library RandomNumber {
     {
         for (uint256 i; i < intervals.length; i++) {
             if (val > intervals[i]) {
-                return SafeCast.toUint8(i + 1);
+                return SafeCast.toUint8(i);
             }
         }
         revert("DetailHelper::pickItems: No item");

@@ -21,6 +21,10 @@ contract UniqueMetadata {
         uint8 skin;
         uint8 hat;
         uint8 eye;
+        uint8 mouse;
+        uint8 clothe;
+        uint8 arm;
+        uint8 special;
     }
 
     // Mapping metadata dna to boolean
@@ -29,47 +33,42 @@ contract UniqueMetadata {
     /// @dev Max value for defining probabilities
     uint256 internal constant MAX = 100_000;
 
-    // 12 choices
-    uint256[] internal BACKGROUND = [
+    uint256[] internal BACKGROUNDS = [
+        90000,
         80000,
+        70000,
         60000,
+        50000,
         40000,
-        28000,
-        20000,
-        13000,
-        8000,
-        5000,
-        2900,
-        1000,
-        100,
-        30,
-        0
-    ];
-
-    // 13 choices
-    uint256[] internal SKIN = [
-        80000,
-        63000,
-        48000,
-        36000,
-        27000,
-        19000,
-        12000,
+        30000,
+        23000,
+        16000,
+        11000,
         7000,
         4000,
+        3000,
         2000,
         1000,
-        500,
-        50,
         0
     ];
 
-    // 16 choice
-    uint256[] internal HAT = [
-        94000,
-        88000,
-        82000,
-        76000,
+    uint256[] internal SKINS = [
+        90000,
+        80000,
+        70000,
+        60000,
+        50000,
+        40000,
+        30000,
+        20000,
+        15000,
+        10000,
+        5000,
+        1000,
+        0
+    ];
+
+    uint256[] internal HATS = [
         70000,
         64000,
         58000,
@@ -81,12 +80,22 @@ contract UniqueMetadata {
         22000,
         16000,
         10000,
-        1000,
+        5000,
+        3000,
+        1500,
+        500,
         0
     ];
 
-    // 5 choices
-    uint256[] internal EYE = [65000, 40000, 20000, 10000, 4000, 0];
+    uint256[] internal EYES = [35000, 22000, 10000, 6000, 3000, 1000, 0];
+
+    uint256[] internal MOUSES = [10000, 6000, 3500, 2000, 1000, 1000, 0];
+
+    uint256[] internal CLOTHES = [12000, 5000, 0];
+
+    uint256[] internal ARMS = [8000, 0];
+
+    uint256[] internal SPECIALS = [2000, 1000, 0];
 
     /// Create unique metadata combination
     /// TODO: Test algos part
@@ -94,97 +103,207 @@ contract UniqueMetadata {
     /// @dev exec a infinite loop
     /// @dev check and mute the _dnaExists mapping
     /// @return Metadata
-    function _createUniqueMetadata(uint256 _tokenId)
-        internal
-        returns (Metadata memory)
-    {
+    function _createUniqueMetadata() internal returns (Metadata memory) {
+        Metadata memory metadata;
         uint256 dna;
-        uint8 background;
-        uint8 skin;
-        uint8 hat;
-        uint8 eye;
 
         while (true) {
-            // Generate random metadata
-            (background, skin, hat, eye) = _generateRandomMetadata(_tokenId);
+            metadata = _generateMetadata();
+            dna = _generateDna(metadata);
 
-            // Calc the dna
-            dna = uint256(
-                keccak256(abi.encodePacked(background, skin, hat, eye))
-            );
-
-            // If the new dna is unique, save it and leave the loop
             if (_dnaExists[dna] != true) {
                 _dnaExists[dna] = true;
                 break;
             }
+
+            delete metadata;
         }
 
-        return Metadata(background, skin, hat, eye);
+        return metadata;
     }
 
-    function _generateRandomMetadata(uint256 _tokenId)
+    function _generateDna(Metadata memory metadata)
+        internal
+        pure
+        returns (uint256)
+    {
+        return
+            uint256(
+                keccak256(
+                    abi.encodePacked(
+                        metadata.background,
+                        metadata.skin,
+                        metadata.hat,
+                        metadata.eye,
+                        metadata.mouse,
+                        metadata.clothe,
+                        metadata.arm,
+                        metadata.special
+                    )
+                )
+            );
+    }
+
+    function _generateMetadata() internal returns (Metadata memory) {
+        uint8 bg;
+        uint8 skin;
+        uint8 hat;
+        uint8 eye;
+        uint8 mouse;
+        uint8 clothe;
+        uint8 arm;
+        uint8 special;
+
+        // Generate random metadata
+        special = _generateSpecialId();
+
+        // It's a little tricky.
+        // It's reducing the gas consumption by spliting logic between functions
+        if (special < 1) {
+            (bg, skin, hat, eye, mouse, clothe, arm) = _generateIfNotSpecial();
+        } else {
+            (bg, skin, hat, eye, mouse, clothe, arm) = _generateIfSpecial();
+        }
+
+        return Metadata(bg, skin, hat, eye, mouse, clothe, arm, special);
+    }
+
+    function _generateIfSpecial()
         internal
         returns (
+            uint8,
+            uint8,
+            uint8,
             uint8,
             uint8,
             uint8,
             uint8
         )
     {
-        return (
-            _generateBackgroundId(_tokenId),
-            _generateSkinId(_tokenId),
-            _generateHatId(_tokenId),
-            _generateEyeId(_tokenId)
-        );
+        uint8 bg = _generateBackgroundId();
+        uint8 skin = _generateSkinId();
+        return (bg, skin, 0, 0, 0, 0, 0);
     }
 
-    function _generateBackgroundId(uint256 _tokenId) internal returns (uint8) {
+    function _generateIfNotSpecial()
+        internal
+        returns (
+            uint8,
+            uint8,
+            uint8,
+            uint8,
+            uint8,
+            uint8,
+            uint8
+        )
+    {
+        uint8 bg = _generateBackgroundId();
+        uint8 skin = _generateSkinId();
+        uint8 hat = _generateHatId();
+        uint8 eye = _generateEyeId();
+        uint8 clothe = _generateClotheId();
+        uint8 arm = _generateArmId();
+
+        // If we have the blanket clothe, don't append mouse
+        if (clothe == 1) {
+            return (bg, skin, hat, eye, 0, clothe, arm);
+        }
+
+        // If we have the cosmonaut helmet clothe, don't append mouse
+        if (hat == 15) {
+            return (bg, skin, hat, eye, 0, clothe, arm);
+        }
+
+        uint8 mouse = _generateMouseId();
+
+        return (bg, skin, hat, eye, mouse, clothe, arm);
+    }
+
+    function _generateBackgroundId() internal returns (uint8) {
         _randomNonce.increment();
         return
             RandomNumber.generate(
                 MAX,
                 _randomNonce.current(),
-                BACKGROUND,
-                bytes4("back"),
-                _tokenId
+                BACKGROUNDS,
+                bytes4("back")
             );
     }
 
-    function _generateSkinId(uint256 _tokenId) internal returns (uint8) {
+    function _generateSkinId() internal returns (uint8) {
         _randomNonce.increment();
         return
             RandomNumber.generate(
                 MAX,
                 _randomNonce.current(),
-                SKIN,
-                bytes4("skin"),
-                _tokenId
+                SKINS,
+                bytes4("skin")
             );
     }
 
-    function _generateHatId(uint256 _tokenId) internal returns (uint8) {
+    function _generateHatId() internal returns (uint8) {
         _randomNonce.increment();
         return
             RandomNumber.generate(
                 MAX,
                 _randomNonce.current(),
-                HAT,
-                bytes4("hat"),
-                _tokenId
+                HATS,
+                bytes4("hat")
             );
     }
 
-    function _generateEyeId(uint256 _tokenId) internal returns (uint8) {
+    function _generateEyeId() internal returns (uint8) {
         _randomNonce.increment();
         return
             RandomNumber.generate(
                 MAX,
                 _randomNonce.current(),
-                EYE,
-                bytes4("eye"),
-                _tokenId
+                EYES,
+                bytes4("eye")
+            );
+    }
+
+    function _generateMouseId() internal returns (uint8) {
+        _randomNonce.increment();
+        return
+            RandomNumber.generate(
+                MAX,
+                _randomNonce.current(),
+                MOUSES,
+                bytes4("mous")
+            );
+    }
+
+    function _generateClotheId() internal returns (uint8) {
+        _randomNonce.increment();
+        return
+            RandomNumber.generate(
+                MAX,
+                _randomNonce.current(),
+                CLOTHES,
+                bytes4("clot")
+            );
+    }
+
+    function _generateArmId() internal returns (uint8) {
+        _randomNonce.increment();
+        return
+            RandomNumber.generate(
+                MAX,
+                _randomNonce.current(),
+                ARMS,
+                bytes4("arms")
+            );
+    }
+
+    function _generateSpecialId() internal returns (uint8) {
+        _randomNonce.increment();
+        return
+            RandomNumber.generate(
+                MAX,
+                _randomNonce.current(),
+                SPECIALS,
+                bytes4("spec")
             );
     }
 }

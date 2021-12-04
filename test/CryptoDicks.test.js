@@ -1,5 +1,4 @@
-const assert = require("chai").assert;
-const expect = require("chai").expect;
+const { expect } = require("chai");
 const truffleAssert = require('truffle-assertions');
 
 const CryptoDicks = artifacts.require("CryptoDicks.sol");
@@ -9,13 +8,13 @@ const { expectRevert } = require('@openzeppelin/test-helpers');
 
 const fromBN = bn => web3.utils.toNumber(bn)
 
-contract('CryptoDicksNFT', accounts => {
+contract('CryptoDicks', accounts => {
     let nftContract
     before(async () => {
         nftContract = await CryptoDicks.deployed()
     })
 
-    describe("Deployed CryptoDicksNFT Contract", () => {
+    describe("Deployed CryptoDicks Contract", () => {
         it("has an owner", async () => {
             let owner = await nftContract.owner()
             expect(owner).to.equal(accounts[0])
@@ -33,7 +32,7 @@ contract('CryptoDicksNFT', accounts => {
 
         it("has correct tokenURI", async () => {
             let tokenURI = await nftContract.tokenURI(1)
-            expect(tokenURI).to.equal("http://localhost:5000/1")
+            expect(tokenURI).to.equal("https://cryptodicks-api.herokuapp.com/token/1")
         })
 
         it("has correct total supply", async () => {
@@ -46,12 +45,12 @@ contract('CryptoDicksNFT', accounts => {
             expect(web3.utils.fromWei(claimFee)).to.equal("0.01")
         })
 
-        it("gifts the owner the 10 first NFTs", async () => {
-            const propertyNames = ["background", "skin", "hat", "eye"];
+        it("gifts the owner the 5 first NFTs", async () => {
+            const propertyNames = ["background", "skin", "hat", "eye", "mouse", "clothe", "arm", "special"];
 
             const tokens = new Map()
             // For each 10 first tokens
-            for (let i = 1; i <= 10; i++) {
+            for (let i = 1; i <= 5; i++) {
                 // Check owner
                 let owner = await nftContract.ownerOf(i)
                 expect(owner).to.equal(accounts[0])
@@ -76,12 +75,12 @@ contract('CryptoDicksNFT', accounts => {
             }
 
             // console.log(tokens);
-            expect(tokens.size).to.equal(10)
+            expect(tokens.size).to.equal(5)
         })
 
-        it("the owner balance should have 10 NTFs", async () => {
+        it("the owner balance should have 5 NTFs", async () => {
             const balance = await nftContract.balanceOf(accounts[0])
-            expect(web3.utils.toNumber(balance)).to.equal(10)
+            expect(web3.utils.toNumber(balance)).to.equal(5)
         })
     })
 
@@ -117,7 +116,7 @@ contract('CryptoDicksNFT', accounts => {
         })
 
         it("transfers ownership to the caller", async () => {
-            let owner = await nftContract.ownerOf(11)
+            let owner = await nftContract.ownerOf(6)
             expect(owner).to.equal(accounts[1])
         })
 

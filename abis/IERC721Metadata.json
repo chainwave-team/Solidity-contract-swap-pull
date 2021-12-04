@@ -346,7 +346,7 @@
     "absolutePath": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
     "exportedSymbols": {
       "IERC165": [
-        1638
+        1712
       ],
       "IERC721": [
         1035
@@ -412,7 +412,7 @@
         "linearizedBaseContracts": [
           1080,
           1035,
-          1638
+          1712
         ],
         "name": "IERC721Metadata",
         "nameLocation": "228:15:4",
@@ -641,7 +641,7 @@
     "absolutePath": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
     "exportedSymbols": {
       "IERC165": [
-        1638
+        1712
       ],
       "IERC721": [
         1035
@@ -707,7 +707,7 @@
         "linearizedBaseContracts": [
           1080,
           1035,
-          1638
+          1712
         ],
         "name": "IERC721Metadata",
         "nameLocation": "228:15:4",
@@ -938,7 +938,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-11-12T03:27:56.706Z",
+  "updatedAt": "2021-12-04T01:03:39.540Z",
   "devdoc": {
     "details": "See https://eips.ethereum.org/EIPS/eip-721",
     "kind": "dev",

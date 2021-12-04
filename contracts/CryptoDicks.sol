@@ -23,7 +23,7 @@ contract CryptoDicks is ERC721, UniqueMetadata, Managable {
 
     constructor() ERC721("CryptoDicks", "DICK") {
         // Mint my own NFT tokens.
-        for (uint256 i = 0; i < 10; i++) {
+        for (uint256 i = 0; i < 5; i++) {
             mint();
         }
     }
@@ -40,23 +40,9 @@ contract CryptoDicks is ERC721, UniqueMetadata, Managable {
     }
 
     /// For a a given token ID, returns its metadata
-    function get(uint256 _tokenId)
-        external
-        view
-        returns (
-            uint8 background,
-            uint8 skin,
-            uint8 hat,
-            uint8 eye
-        )
-    {
+    function get(uint256 _tokenId) external view returns (Metadata memory) {
         require(_exists(_tokenId), "Token not minted yet");
-        return (
-            idToMetadata[_tokenId].background,
-            idToMetadata[_tokenId].skin,
-            idToMetadata[_tokenId].hat,
-            idToMetadata[_tokenId].eye
-        );
+        return idToMetadata[_tokenId];
     }
 
     /// @return the current supply
@@ -74,7 +60,7 @@ contract CryptoDicks is ERC721, UniqueMetadata, Managable {
         uint256 newTokenId = _currentSupply.current();
 
         // Generate and save metadata
-        idToMetadata[newTokenId] = _createUniqueMetadata(newTokenId);
+        idToMetadata[newTokenId] = _createUniqueMetadata();
 
         // Finally, mint!
         _safeMint(msg.sender, newTokenId);
