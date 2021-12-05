@@ -1,4 +1,6 @@
-export const API_URL = "http://localhost:3001"
+const isDev = process.env.NODE_ENV === "development"
+
+export const API_URL = isDev ? "http://localhost:3001" : "https://cryptodicks-api.herokuapp.com"
 export const title = "CryptoDicks"
 export const description = 'The world of art, the crypto world, a beer with friends, a misunderstanding, patriarchy, feminism, geeks and rainbows, you can buy a banana taped to a wall or a cock, because, why not? "The world is just a big esoteric imbroglio."'
 
