@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import gif from "../dicks.gif"
+import gif from "../../dicks.gif"
 import Button from "./button"
 
 interface PropTypes {

@@ -2,6 +2,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost']
+    domains: ['localhost', 'cryptodicks-api.herokuapp.com']
   }
 }
