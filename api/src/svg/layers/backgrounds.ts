@@ -57,6 +57,7 @@ export const backgroundStars: Accessory = {
 }
 
 export const backgrounds: Accessory[] = [
+	// { name: "transparent", value: "transparent"},
 	{ name: "light-pink", value: "#ffc6ff" },
 	{ name: "light-purple", value: "#bdb2ff" },
 	{ name: "light-blue", value: "#a0c4ff" },

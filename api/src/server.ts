@@ -1,5 +1,6 @@
 import express from 'express'
 import path from 'path'
+import cors from 'cors'
 
 import { API_URL, PORT } from './config'
 import { getStats } from './controllers/stats'
@@ -8,6 +9,8 @@ import { getTokenMetadata } from './controllers/token'
 import { getTrait } from './controllers/trait'
 
 const app = express()
+
+app.use(cors())
 
 // Serve static files
 app.use(express.static(path.resolve('api', 'public')))
