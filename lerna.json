@@ -1,0 +1,9 @@
+{
+  "version": "independent",
+  "npmClient": "npm",
+  "useWorkspaces": true,
+  "packages": [
+    "api",
+    "website"
+  ]
+}

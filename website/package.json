@@ -2,6 +2,7 @@
   "name": "website",
   "private": true,
   "scripts": {
+    "clean": "rm -rf ./.next ./out",
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
