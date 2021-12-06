@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/server.js",
+  "engines": {
+    "node": "16.13.0"
+  },
   "scripts": {
     "clean": "rm -rf ./dist ./src/abis",
     "build": "cp -r ../abis ./src/abis && tsc",
