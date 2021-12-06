@@ -2,8 +2,9 @@ import { Request, Response } from 'express'
 import Web3 from 'web3'
 import { AbiItem } from 'web3-utils'
 
-import token from '../abis/CryptoDicks.json'
-import { CONTRACT_ADDRESS, RPC_URL, SITE_URL } from '../config'
+import rinkeby from '../contract-abis/abi.rinkeby.json'
+import development from '../contract-abis/abi.development.json'
+import { CONTRACT_ADDRESS, RPC_URL, SITE_URL, isDev } from '../config'
 import generateSVG, { TraitName } from '../svg'
 import { isNumeric, validateAttributes } from './utils'
 import { uploadSVG } from '../ipfs.storage'
@@ -11,8 +12,10 @@ import { uploadSVG } from '../ipfs.storage'
 const web3Provider = new Web3.providers.HttpProvider(RPC_URL)
 const web3 = new Web3(web3Provider)
 
+const abi = isDev ? development : rinkeby
+
 const contract = new web3.eth.Contract(
-  token.abi as AbiItem | AbiItem[],
+  abi as AbiItem | AbiItem[],
   CONTRACT_ADDRESS
 )
 

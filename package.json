@@ -13,8 +13,8 @@
   "scripts": {
     "clean": "lerna run clean && lerna clean -y",
     "bootstrap": "lerna bootstrap",
-    "build": "lerna run --scope api build",
-    "start": "lerna run --scope api start",
+    "build": "lerna run --scope api build --stream",
+    "start": "lerna run --scope api start --stream",
     "dev": "lerna run dev --stream",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
