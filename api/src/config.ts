@@ -25,3 +25,5 @@ export const RPC_URL = isDev
 export const CONTRACT_ADDRESS = isDev
     ? "0x5d77200b155850243650c32A73F6DCB3981Df388"
     :process.env.CONTRACT_ADDRESS || ""
+
+export const WEB3_STORAGE_TOKEN = process.env.WEB3_STORAGE_TOKEN

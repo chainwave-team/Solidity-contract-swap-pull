@@ -1,40 +1,27 @@
 import { Request, Response } from 'express'
+import { optimize } from "svgo"
 
-import generateSVG, { AttributesObject } from '../svg'
-import { isNumeric } from './utils'
+import generateSVG from '../svg'
+import { isNumeric, validateAttributes } from './utils'
 
 export function getSVG(req: Request, res: Response) {
     try {
-        const { id, background, skin, hat, eye, mouse, clothe, arm, special } = req.params
-
-        // Required fields
-        if (
-            !isNumeric(background) ||
-            !isNumeric(skin) ||
-            !isNumeric(hat) ||
-            !isNumeric(eye) ||
-            !isNumeric(mouse) ||
-            !isNumeric(clothe) ||
-            !isNumeric(arm) ||
-            !isNumeric(special)
-        ) {
-            return res.status(500).json({ error: "Wrong properties" })
+        if(!isNumeric(req.params.id)) {
+            throw new Error("Id is missing");
         }
 
-        const options: AttributesObject = {
-            id: Number(id), 
-            background: Number(background), 
-            skin: Number(skin), 
-            hat: Number(hat),
-            eye: Number(eye),
-            mouse: Number(mouse),
-            clothe: Number(clothe),
-            arm: Number(arm),
-            special: Number(special),
-        }
+        const attributes = validateAttributes(req.params)
         
+        // Generate and optimize the SVG
+        const svgString = generateSVG({
+            id: Number(req.params.id), 
+            ...attributes
+        })
+        const result = optimize(svgString)
+        
+        // Return the SVG file
         res.setHeader('Content-Type', 'image/svg+xml')
-        res.send(generateSVG(options))
+        res.send(result.data)
     }
     catch {
         res.sendStatus(404)

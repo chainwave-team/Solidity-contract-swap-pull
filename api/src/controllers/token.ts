@@ -3,7 +3,10 @@ import Web3 from 'web3'
 import { AbiItem } from 'web3-utils'
 
 import token from '../../../abis/CryptoDicks.json'
-import { API_URL, CONTRACT_ADDRESS, RPC_URL, SITE_URL } from '../config'
+import { CONTRACT_ADDRESS, RPC_URL, SITE_URL } from '../config'
+import generateSVG, { TraitName } from '../svg'
+import { isNumeric, validateAttributes } from './utils'
+import { uploadSVG } from '../ipfs.storage'
 
 const web3Provider = new Web3.providers.HttpProvider(RPC_URL)
 const web3 = new Web3(web3Provider)
@@ -14,45 +17,47 @@ const contract = new web3.eth.Contract(
 )
 
 export async function getTokenMetadata(req: Request, res: Response) {
-    // Get the token data from the blockchain
-    const tokenId = req.params?.tokenId
-
     try {
-        const metadata = await contract.methods.get(Number(tokenId)).call()
-
-        const { background, skin, hat, eye, mouse, clothe, arm, special } = metadata
-
-        const pathname = `${background}/${skin}/${hat}/${eye}/${mouse}/${clothe}/${arm}/${special}`
-
-        const attributes = [
-            ["Background color", background],
-            ["Dick skin", skin],
-            ["Hat", hat],
-            ["Eyes", eye],
-            ["Mouse", mouse],
-            ["Clothe", clothe],
-            ["Arms", arm],
-            ["Special", special],
-        ]
-            .filter(([, value]) => !!value)
-            .map(([trait_type, value]) => ({ trait_type, value }))
-
-    // https://docs.opensea.io/docs/metadata-standards
-    res.json({
-        name: `CryptoDicks #${tokenId}`,
-        image: `${API_URL}/svg/${tokenId}/${pathname}`,
-        external_url: SITE_URL,
-        attributes
-    })
+        if(!isNumeric(req.params.tokenId)) {
+            throw new Error("Token id is missing");
+        }
         
-    } catch (error: any) {
-        console.log(error?.data);
-        res.status(404).json({
-            error: error?.data?.reason || "Token not found"
-        })
-    }
-  
-    
+        // Extract metadata from the blockchain
+        const tokenId = Number(req.params.tokenId)
+        const metadata = await contract.methods.get(tokenId).call()
+        const attributes = validateAttributes(metadata)
+        
+        // Generate the SVG string and upload it
+        const svgString = generateSVG({ id: tokenId, ...attributes })
+        const imageUrl = await uploadSVG(svgString, `cryptoDicks-${tokenId}.svg`)
 
-    
+        // https://docs.opensea.io/docs/metadata-standards
+        res.json({
+            name: `CryptoDicks #${tokenId}`,
+            image: imageUrl,
+            external_url: SITE_URL,
+            attributes: formatAttributes(attributes)
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(404)
+    }
+}
+
+type OpenSeaAttribute = { trait_type: string; value: number }
+
+function formatAttributes(attributes: Record<TraitName, number>): OpenSeaAttribute[] {
+    const mapTitleToAttributes: [string, number][] = [
+        ["Background color", attributes.background],
+        ["Dick skin", attributes.skin],
+        ["Hat", attributes.hat],
+        ["Eyes", attributes.eye],
+        ["Mouse", attributes.mouse],
+        ["Clothe", attributes.clothe],
+        ["Arms", attributes.arm],
+        ["Special", attributes.special],
+    ]
+    return mapTitleToAttributes
+        .filter(([, value]) => !!value)
+        .map(([trait_type, value]) => ({ trait_type, value }))
 }
