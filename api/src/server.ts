@@ -13,7 +13,7 @@ const app = express()
 app.use(cors())
 
 // Serve static files
-app.use(express.static(path.resolve('api', 'public')))
+app.use(express.static(path.resolve('public')))
 
 // Returns OpenSea NFT Properties
 app.get('/token/:tokenId', getTokenMetadata)
@@ -29,7 +29,7 @@ app.get('/stats', getStats)
 
 // Development page
 app.get('/', (_, res) => {
-  res.sendFile(path.resolve('api', 'public', 'index.html'))
+  res.sendFile(path.resolve('public', 'index.html'))
 })
 
 // Start
