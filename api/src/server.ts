@@ -29,10 +29,10 @@ app.get('/stats', getStats)
 
 // Development page
 app.get('/', (_, res) => {
-    res.sendFile(path.resolve('api', 'public', 'index.html'))
+  res.sendFile(path.resolve('api', 'public', 'index.html'))
 })
 
 // Start
 app.listen(PORT, () => {
-    console.log(`App listening at ${API_URL} 🎉`)
+  console.log(`App listening at ${API_URL} 🎉`)
 })

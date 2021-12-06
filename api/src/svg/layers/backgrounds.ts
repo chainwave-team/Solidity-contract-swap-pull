@@ -2,9 +2,9 @@ import { buildSize } from "../../config"
 import { Accessory } from "../types"
 
 export const backgroundStars: Accessory = {
-	name: "Background stars",
-	value: (
-		`<g id="background-stars">
+  name: "Background stars",
+  value: (
+    `<g id="background-stars">
 			<path d="M4.3,5.264l.309.186L4.524,5.1,4.8,4.862l-.36-.031L4.3,4.5l-.14.332-.36.031L4.07,5.1l-.082.352Z" transform="translate(40.826 72.601) rotate(20)" fill="#edcb0f" opacity="0.846"/>
 			<path d="M4.3,5.264l.309.186L4.524,5.1,4.8,4.862l-.36-.031L4.3,4.5l-.14.332-.36.031L4.07,5.1l-.082.352Z" transform="matrix(-0.951, 0.309, -0.309, -0.951, 66.056, 55.985)" fill="#f20ce9" opacity="0.886"/>
 			<path d="M4.3,5.264l.309.186L4.524,5.1,4.8,4.862l-.36-.031L4.3,4.5l-.14.332-.36.031L4.07,5.1l-.082.352Z" transform="matrix(-0.839, 0.545, -0.545, -0.839, 68.112, 66.187)" fill="#535aff" opacity="0.902"/>
@@ -52,33 +52,33 @@ export const backgroundStars: Accessory = {
 			<path d="M4.3,5.264l.309.186L4.524,5.1,4.8,4.862l-.36-.031L4.3,4.5l-.14.332-.36.031L4.07,5.1l-.082.352Z" transform="translate(96.975 18.94) rotate(48)" fill="#f20ce9" opacity="0.833"/>
 			<path d="M4.3,5.264l.309.186L4.524,5.1,4.8,4.862l-.36-.031L4.3,4.5l-.14.332-.36.031L4.07,5.1l-.082.352Z" transform="matrix(-0.995, -0.105, 0.105, -0.995, 96.419, 26.161)" fill="#f20ce9" opacity="0.806"/>
 		</g>`
- 	),
-	 attr: ["below-dick"]
+  ),
+  attr: ["below-dick"]
 }
 
 export const backgrounds: Accessory[] = [
-	// { name: "transparent", value: "transparent"},
-	{ name: "light-pink", value: "#ffc6ff" },
-	{ name: "light-purple", value: "#bdb2ff" },
-	{ name: "light-blue", value: "#a0c4ff" },
-	{ name: "light-cyan", value: "#9bf6ff" },
-	{ name: "light-green", value: "#caffbf" },
-	{ name: "light-yellow", value: "#fdffb6" },
-	{ name: "light-orange", value: "#ffd6a5" },
-	{ name: "light-orange-red", value: "#ffadad" },
-	{ name: "green2", value: "#20d09a" },
-	{ name: "green", value: "#136F63" },
-	{ name: "purple", value: "rgba(117,42,219,0.89)" },
-	{ name: "rainbow-vertical", value: "url(#rainbow-vertical)" },
-	{ name: "yellow-to-pink-circle", value: "url(#yellow-to-pink-circle)" },
-	{ name: "purple-to-green-circle", value: "url(#purple-to-green-circle)" },
-	{ name: "shades-of-grey-vertical", value: "url(#shades-of-grey-vertical)" },
-	{ name: "galaxy", value: "rgba(0,0,0,0.89)", children: [backgroundStars] },
+  // { name: "transparent", value: "transparent"},
+  { name: "light-pink", value: "#ffc6ff" },
+  { name: "light-purple", value: "#bdb2ff" },
+  { name: "light-blue", value: "#a0c4ff" },
+  { name: "light-cyan", value: "#9bf6ff" },
+  { name: "light-green", value: "#caffbf" },
+  { name: "light-yellow", value: "#fdffb6" },
+  { name: "light-orange", value: "#ffd6a5" },
+  { name: "light-orange-red", value: "#ffadad" },
+  { name: "green2", value: "#20d09a" },
+  { name: "green", value: "#136F63" },
+  { name: "purple", value: "rgba(117,42,219,0.89)" },
+  { name: "rainbow-vertical", value: "url(#rainbow-vertical)" },
+  { name: "yellow-to-pink-circle", value: "url(#yellow-to-pink-circle)" },
+  { name: "purple-to-green-circle", value: "url(#purple-to-green-circle)" },
+  { name: "shades-of-grey-vertical", value: "url(#shades-of-grey-vertical)" },
+  { name: "galaxy", value: "rgba(0,0,0,0.89)", children: [backgroundStars] },
 ]
 
 
 export const createBackground = (background: Accessory) => {
-	const color = background.value
-    
-	return `<rect width="${buildSize}" height="${buildSize}" fill="${color}"/>`
+  const color = background.value
+
+  return `<rect width="${buildSize}" height="${buildSize}" fill="${color}"/>`
 }

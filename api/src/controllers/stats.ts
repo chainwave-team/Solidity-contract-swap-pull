@@ -13,14 +13,14 @@ import { specials } from '../svg/layers/specials'
 const getName = (a: Accessory): string => a.name
 
 export function getStats(req: Request, res: Response) {
-    res.json({
-        backgrounds: backgrounds.map(getName),
-        skins: skins.map(getName),
-        hats: hats.map(getName),
-        eyes: eyes.map(getName),
-        mouses: mouses.map(getName),
-        clothes: clothes.map(getName),
-        arms: arms.map(getName),
-        specials: specials.map(getName)
-    })
+  res.json({
+    backgrounds: backgrounds.map(getName),
+    skins: skins.map(getName),
+    hats: hats.map(getName),
+    eyes: eyes.map(getName),
+    mouses: mouses.map(getName),
+    clothes: clothes.map(getName),
+    arms: arms.map(getName),
+    specials: specials.map(getName)
+  })
 }
