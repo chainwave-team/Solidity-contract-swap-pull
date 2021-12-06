@@ -11,16 +11,11 @@
     "./website"
   ],
   "scripts": {
-    "clean": "lerna run clean",
-    "hard-clean": "npm run clean && lerna clean -y",
+    "clean": "lerna run clean && lerna clean -y",
     "bootstrap": "lerna bootstrap",
-    "build": "lerna run build",
-    "build:api": "lerna run --scope api build",
-    "heroku-postbuild": "npm run build:api",
-    "start:api": "lerna run --scope api start",
-    "dev": "concurrently --kill-others \"npm run dev:api\" \"npm run dev:site\"",
-    "dev:api": "cd api && npm run dev --stream",
-    "dev:site": "cd website && npm run dev --stream",
+    "build": "lerna run --scope api build",
+    "start": "lerna run --scope api start",
+    "dev": "lerna run dev --stream",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -29,14 +24,18 @@
     "Rest",
     "Express",
     "dapp",
-    "solidity"
+    "solidity",
+    "web3",
+    "IPFS",
+    "React",
+    "Next.js",
+    "svg"
   ],
   "author": "",
   "license": "MIT",
   "dependencies": {
     "@openzeppelin/contracts": "^4.3.2",
     "@truffle/hdwallet-provider": "^1.7.0",
-    "concurrently": "^6.4.0",
     "dotenv": "^10.0.0",
     "web3": "^1.6.0"
   },
