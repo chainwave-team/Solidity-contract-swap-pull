@@ -1,20 +1,25 @@
 import { FC } from 'react'
-import Navbar from './navbar'
+
+import NavigationBar from './NavigationBar'
 
 const Layout: FC =({ children }) => {
   return (
     <>
-      <Navbar />
-      <main>
-          {children}
-      </main>
-      <footer className="my-16 md:my-24">
-        <p className="text-xl tracking-tight text-pink-400 my-4 font-mono text-center">
-          kiss
-        </p>
-      </footer>
+      <NavigationBar />
+      <main>{children}</main>
+      <Footer />
     </>
   )
 }
 
 export default Layout
+
+function Footer() {
+  return (
+    <footer className="my-16 md:my-24">
+      <p className="text-xl tracking-tight text-pink-500 my-4 font-mono text-center">
+        kiss 😘
+      </p>
+    </footer>
+  )
+}

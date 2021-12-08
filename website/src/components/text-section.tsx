@@ -13,8 +13,8 @@ const TextSection = ({ title, text }: PropTypes) => {
         text += "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore odit repudiandae nesciunt. Unde, sed culpa hic labore a voluptas repellat. Quidem est quis ratione corporis, culpa modi optio numquam sint?"
     }
     return (
-        <section className="max-w-5xl mx-auto my-10 sm:my-20 md:my-24 px-6">
-            <h2 className="text-xl tracking-tight text-pink-400 my-4 font-mono">
+        <section className="max-w-5xl mx-auto my-10 sm:my-20 md:my-24 px-6 text-justify	">
+            <h2 className="text-xl tracking-tight text-pink-500 my-4 font-mono">
                 {title}
             </h2>
             {text.split("\n").map((line, i) => (

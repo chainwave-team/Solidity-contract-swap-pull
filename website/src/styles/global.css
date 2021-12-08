@@ -7,7 +7,7 @@ body {
 }
 
 a {
-  @apply text-purple-400 hover:text-purple-300 transition-colors;
+  @apply text-purple-400 hover:text-purple-300 transition-colors duration-200;
 }
 
 .headroom {

@@ -1,10 +1,9 @@
 import type { NextPage } from 'next'
 import { AppContext } from 'next/app'
 import Head from 'next/head'
-import image from 'next/image'
 import { getRandomImages } from '../api/getRandomImages'
 import Features from '../components/features'
-import HomeHeader from '../components/home-header'
+import HomeHero from '../components/HomeHero'
 import ImageGrid from '../components/image-grid'
 import TextSection, { CenteredTextSection } from '../components/text-section'
 import { description, title } from '../config'
@@ -18,7 +17,7 @@ const Home: NextPage<{ images: string[][] }> = ({ images }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <HomeHeader title={title} description={description} />
+      <HomeHero title={title} description={description} />
       <ImageGrid images={images[0]} disableTopMargin />
       <CenteredTextSection text="An NFT Collection of 10K generated randomly bla bla bla...An NFT Collection of 10K generated randomly bla bla bla...An NFT Collection of 10K generated randomly bla bla bla..." />
       <Features />
