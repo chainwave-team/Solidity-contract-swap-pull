@@ -22,8 +22,5 @@ export const API_URL = isDev
 export const RPC_URL = isDev
   ? "http://localhost:8545"
   : `https://${process.env.NETWORK}.infura.io/v3/${process.env.INFURA_TOKEN}`
-export const CONTRACT_ADDRESS = isDev
-  ? "0x5d77200b155850243650c32A73F6DCB3981Df388"
-  : process.env.CONTRACT_ADDRESS || ""
 
 export const WEB3_STORAGE_TOKEN = process.env.WEB3_STORAGE_TOKEN
