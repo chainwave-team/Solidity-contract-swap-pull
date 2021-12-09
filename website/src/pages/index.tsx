@@ -1,25 +1,25 @@
 import type { NextPage } from 'next'
 import { AppContext } from 'next/app'
 import { getRandomImages } from '../api/getRandomImages'
-import Features from '../components/features'
-import HomeHero from '../components/HomeHero'
-import ImageGrid from '../components/image-grid'
-import TextSection, { CenteredTextSection } from '../components/text-section'
+import FeaturesSection from '../components/Home/FeaturesSection'
+import HomeHero from '../components/Home/HomeHero'
+import GridSection from '../components/Home/GridSection'
+import TextSection, { CenteredTextSection } from '../components/TextSection'
 import { description, title } from '../config'
 
 const Home: NextPage<{ images: string[][] }> = ({ images }) => {
   return (
     <>
       <HomeHero title={title} description={description} />
-      <ImageGrid images={images[0]} disableTopMargin />
+      <GridSection images={images[0]} disableTopMargin />
       <CenteredTextSection text="An NFT Collection of 10K generated randomly bla bla bla...An NFT Collection of 10K generated randomly bla bla bla...An NFT Collection of 10K generated randomly bla bla bla..." />
-      <Features />
-      <ImageGrid images={images[1]} />
+      <FeaturesSection />
+      <GridSection images={images[1]} />
       <TextSection title="what is CryptoDicks?" text=""/>
       <TextSection title="how I can mint my CryptoDick?" text=""/>
       <TextSection title="how I can buy-sell CryptoDicks?" text=""/>
       <TextSection title="why?" text=""/>
-      <ImageGrid images={images[2]} />
+      <GridSection images={images[2]} />
     </>
   )
 }

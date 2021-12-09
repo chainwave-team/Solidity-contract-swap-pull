@@ -3,10 +3,8 @@ import { useRef, useState } from 'react'
 import Headroom from 'react-headroom'
 import { useEventListener, useMediaQuery, useOnClickOutside } from 'usehooks-ts'
 
-import { title, mediaQueries } from '../config'
-import useWeb3 from '../hooks/useWeb3'
-import Button from './button'
-import Modal, { useModal } from './Modal'
+import { title, mediaQueries } from '../../config'
+import ConnectButton from './ConnectButton'
 
 const NavigationBar =() => {
   const menuRef = useRef<HTMLDivElement>(null)
@@ -46,7 +44,7 @@ const NavigationBar =() => {
             <a className="" href="#">Link</a>
           </li>
           <li className="my-auto py-2">
-            <ConnectWalletButton />
+            <ConnectButton />
           </li>
         </ul>
       </div>
@@ -61,29 +59,3 @@ const BurgerIcon = () => (
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
   </svg>
 )
-
-const ConnectWalletButton = () => {
-  const { active, account, connect, disconnect } = useWeb3()
-  const [open, { openModal, closeModal }] = useModal()
-
-  return active && account 
-    ? (
-      <>
-        <a onClick={openModal}>
-          {`${account.slice(0, 5)}...${account.slice(account.length - 4, account.length)}`}
-        </a>
-
-        <Modal 
-          open={open && active} 
-          onClose={closeModal} 
-          title="Account" 
-          content={account} 
-          footer={(
-            <a role="button" className="text-sm" onClick={disconnect}>Disconnect</a>
-          )}
-        />
-      </>
-    ) : (
-      <Button variant="primary" onClick={connect}>Connect</Button>
-    )
-}

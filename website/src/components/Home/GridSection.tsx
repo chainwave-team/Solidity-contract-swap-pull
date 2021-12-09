@@ -6,7 +6,7 @@ interface PropTypes {
   disableTopMargin?: boolean
 }
 
-const ImageGrid = ({ disableTopMargin, images }: PropTypes) => {
+const GridSection = ({ disableTopMargin, images }: PropTypes) => {
   return (
     <section className={cn(
         "flex flex-wrap", 
@@ -27,4 +27,4 @@ const ImageGrid = ({ disableTopMargin, images }: PropTypes) => {
   )
 }
 
-export default ImageGrid
+export default GridSection

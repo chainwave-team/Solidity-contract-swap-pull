@@ -1,9 +1,9 @@
 import Image from 'next/image'
 
-import gif from "../../dicks.gif"
-import { openSeaCollectionUrl } from '../config'
-import useWeb3 from '../hooks/useWeb3'
-import Button, { LinkButton } from "./button"
+import gif from "../../../dicks.gif"
+import { openSeaCollectionUrl } from '../../config'
+import useWeb3 from '../../hooks/useWeb3'
+import Button from "../Button"
 
 interface PropTypes {
     title: string
@@ -11,7 +11,7 @@ interface PropTypes {
 }
 
 function HomeHero({ title, description}: PropTypes) {
-  const { active, connect, mint } = useWeb3()
+  const { active, connect, mint, mintedId } = useWeb3()
 
   return (
     <header className="lg:min-h-screen lg:-mt-20 px-6 max-w-6xl mx-auto flex">
@@ -31,13 +31,15 @@ function HomeHero({ title, description}: PropTypes) {
 
           <div className="flex flex-wrap mt-6">
             {active 
-              ? <Button variant="primary" className="mb-6" onClick={mint}>Mint your NFT</Button>
-              : <Button variant="primary" className="mb-6" onClick={connect}>Connect wallet</Button>
+              ? <Button variant="primary" onClick={mint}>Mint your NFT</Button>
+              : <Button variant="primary" onClick={connect}>Connect wallet</Button>
             }
-            <LinkButton href={openSeaCollectionUrl} target="_blank" variant="secondary" className="sm:ml-6 mb-6">
+            
+            <a href={openSeaCollectionUrl} target="_blank" className="sm:ml-6 font-mono my-auto" rel="noreferrer">
               See on OpenSea
-            </LinkButton>
+            </a>
           </div>
+          <MinedSuccessMessage tokenId={mintedId} />
         </div>
       </div>
     </header>
@@ -45,3 +47,15 @@ function HomeHero({ title, description}: PropTypes) {
 }
 
 export default HomeHero
+
+function MinedSuccessMessage({ tokenId }: { tokenId?: string }) {
+  if (!tokenId) {
+    return null
+  }
+  const fancyId = "#00000".slice(0, 6 - tokenId.length) + tokenId
+  return (
+    <span className="my-4">
+      {`CryptoDicks token ${fancyId} mined! 🎉`}
+    </span>
+  )
+}

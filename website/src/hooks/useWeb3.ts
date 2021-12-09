@@ -1,5 +1,6 @@
 import { useWeb3React } from "@web3-react/core"
 import { InjectedConnector } from '@web3-react/injected-connector'
+import { useCallback, useEffect, useState } from "react"
 import { useEffectOnce } from "usehooks-ts"
 import { AbiItem } from "web3-utils"
 
@@ -20,6 +21,7 @@ export const injected = new InjectedConnector({
 
 function useWeb3() {
   const web3React = useWeb3React()
+  const [mintedId, setMintedId] = useState("")
   const { active, account, library: web3, connector, activate, deactivate } = web3React
 
   async function connect() {
@@ -47,33 +49,53 @@ function useWeb3() {
     })
   })
 
+  const getContract = useCallback(async () => {
+    const networkId = await web3.eth.net.getId();
+    const networkData = (CryptoDicks.networks as Record<string, { address: string }>)[networkId];
+    return new web3.eth.Contract(
+      CryptoDicks.abi as AbiItem | AbiItem[],
+      networkData.address
+    )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active])
+
   async function mint() {
     try {
-      // Instantiate the contract
-      const networkId = await web3.eth.net.getId();
-      const networkData = (CryptoDicks.networks as Record<string, { address: string }>)[networkId];
-      const contract = new web3.eth.Contract(
-        CryptoDicks.abi as AbiItem | AbiItem[],
-        networkData.address
-      )
-
-      // Claim NFT
-      let tx = await contract.methods.claim().send({
+      const contract = await getContract()
+      await contract.methods.claim().send({
         from: account,
         value: web3.utils.toWei('0.001', 'ether')
       })
-
-      console.log("New NFT minted!", { tx });
     } catch (error) {
       console.log(error)
     }
   }
+
+  useEffect(() => {
+    (async () => {
+      if (active) {
+        const contract = await getContract()
+        const zeroAddress = "0x0000000000000000000000000000000000000000"
+        const filter = { from: zeroAddress, to: account }
+        contract.events.Transfer({ filter })
+          .on("data", (tx: any) => {
+            if (tx?.type === "mined") {
+              setMintedId(tx?.returnValues.tokenId)
+            }
+          })
+          .on("error", console.log)
+      }
+    })()
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active])
 
   return {
     ...web3React,
     connect,
     disconnect,
     mint,
+    mintedId
   }
 }
 

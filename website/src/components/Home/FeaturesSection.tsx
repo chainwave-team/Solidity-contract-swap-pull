@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
-import { features } from "../config"
+import { features } from "../../config"
 
-const Features = () => {
+const FeaturesSection = () => {
     return (
         <section className="max-w-2xl mx-auto my-10 sm:my-20 md:my-24 px-6">
             <ul>
@@ -29,4 +29,4 @@ const Features = () => {
     )
 }
 
-export default Features
+export default FeaturesSection
