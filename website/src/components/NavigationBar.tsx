@@ -6,6 +6,7 @@ import { useEventListener, useMediaQuery, useOnClickOutside } from 'usehooks-ts'
 import { title, mediaQueries } from '../config'
 import useWeb3 from '../hooks/useWeb3'
 import Button from './button'
+import Modal, { useModal } from './Modal'
 
 const NavigationBar =() => {
   const menuRef = useRef<HTMLDivElement>(null)
@@ -62,12 +63,27 @@ const BurgerIcon = () => (
 )
 
 const ConnectWalletButton = () => {
-  const { active, account, connect } = useWeb3()
-  return active && account
-  ? (
-      <p className="text-purple-400">
-        {`${account.slice(0, 5)}...${account.slice(account.length - 4, account.length)}`}
-      </p>
-  )
-  : <Button variant="primary" onClick={connect}>Connect</Button>
+  const { active, account, connect, disconnect } = useWeb3()
+  const [open, { openModal, closeModal }] = useModal()
+
+  return active && account 
+    ? (
+      <>
+        <a onClick={openModal}>
+          {`${account.slice(0, 5)}...${account.slice(account.length - 4, account.length)}`}
+        </a>
+
+        <Modal 
+          open={open && active} 
+          onClose={closeModal} 
+          title="Account" 
+          content={account} 
+          footer={(
+            <a role="button" className="text-sm" onClick={disconnect}>Disconnect</a>
+          )}
+        />
+      </>
+    ) : (
+      <Button variant="primary" onClick={connect}>Connect</Button>
+    )
 }
