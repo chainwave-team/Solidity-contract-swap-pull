@@ -29,6 +29,11 @@ truffle console
 > migrate --reset
 ```
 
+## Notes for testing
+
+The real pre-sale is for the 1000 first CryptoDicks.
+But for testing simplicity purpose, we set it manually to 10
+
 ## Collection attributes
 
 To begin, we start with only one kind of penis.
