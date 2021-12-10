@@ -13,3 +13,7 @@ a {
 .headroom {
   @apply bg-gray-900;
 }
+
+*::-webkit-scrollbar {
+  display: none;
+}

@@ -32,7 +32,7 @@ function Modal({ open, title, content, footer, onClose }: ModalProps) {
 
   return (
     <div
-      className="fixed top-0 left-0 w-screen h-screen z-10 inset-0 overflow-y-auto"
+      className="fixed top-0 left-0 w-screen h-screen z-10 inset-0"
       role="dialog"
       aria-modal="true"
     >
@@ -50,15 +50,6 @@ function Modal({ open, title, content, footer, onClose }: ModalProps) {
           className="fixed top-0 left-0 w-screen h-screen inset-0 bg-black bg-opacity-75 transition-opacity"
           aria-hidden="true"
         />
-
-        {/* This element is to trick the browser into centering the modal contents. */}
-        <span
-          className="hidden sm:inline-block sm:align-middle sm:h-screen"
-          aria-hidden="true"
-        >
-          &#8203;
-        </span>
-
         {/*
           Modal panel, show/hide based on modal state.
           Entering: "ease-out duration-300"
@@ -70,20 +61,20 @@ function Modal({ open, title, content, footer, onClose }: ModalProps) {
         */}
         <div
           ref={modalContentRef}
-          className="relative inline-block top-20 bg-gray-900 rounded-lg text-left overflow-hidden shadow-6xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full"
+          className="relative inline-block top-20 bg-gray-900 rounded-lg text-left overflow-hidden shadow-6xl transform transition-all sm:my-8 sm:max-w-lg w-full"
         >
           <button
             onClick={onClose}
-            className="absolute top-0 right-0 h-8 w-8 flex items-center justify-center m-4"
+            className="absolute top-0 right-0 h-6 w-6 hover:text-gray-300 flex items-center justify-center m-6"
           >
             <CloseIcon />
           </button>
 
           <div className="p-4 sm:p-6">
             <div className="sm:flex sm:items-start">
-              <div className="w-full mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+              <div className="w-full text-center sm:mt-0 sm:text-left">
                 <h3
-                  className="text-lg leading-6 font-medium text-gray-50 mb-4"
+                  className="text-base leading-6 font-medium text-gray-50 mb-6 font-mono"
                   id="modal-title"
                 >
                   {title}
@@ -96,7 +87,7 @@ function Modal({ open, title, content, footer, onClose }: ModalProps) {
           </div>
 
           {footer && (
-            <div className="px-4 py-4 sm:px-6 sm:flex sm:flex-row sm:justify-end">
+            <div className="px-6 py-6 sm:px-6 sm:flex sm:flex-row sm:justify-end">
               {footer}
             </div>
           )}

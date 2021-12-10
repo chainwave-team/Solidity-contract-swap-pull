@@ -19,7 +19,7 @@ const Home: NextPage<{ images: string[][] }> = ({ images }) => {
         </p>
       </section>
 
-      <GridSection images={images[0]} disableTopMargin />
+      <GridSection images={images[0]} />
       <FeaturesSection />
       <GridSection images={images[1]} />
       
@@ -107,7 +107,7 @@ const Home: NextPage<{ images: string[][] }> = ({ images }) => {
           <p>Be unique and be part of a different communities, which of Doomer, Wokist, geek, unicorn, witch, space adventurer.</p>
         </>
       )}/>
-      <GridSection images={images[2]} />
+      <GridSection disableMarginBottom images={images[2]} />
     </>
   )
 }

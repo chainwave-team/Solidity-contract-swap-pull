@@ -39,10 +39,9 @@ const NavigationBar =() => {
         
         <ul className={`${showMobileMenu ? "px-6 py-2 w-full absolute top-20 left-0" : "hidden"} md:flex font-mono text-sm sm:text-base font-medium bg-gray-900`}>
           <li className="mr-6 my-auto py-2">
-            <a className="" href="#">Link</a>
-          </li>
-          <li className="mr-6 my-auto py-2">
-            <a className="" href="#">Link</a>
+            <Link href="/traits">
+              <a className="/traits" href="#">Traits</a>
+            </Link>
           </li>
           <li className="my-auto py-2">
             <ConnectButton />

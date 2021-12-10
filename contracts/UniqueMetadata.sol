@@ -89,7 +89,7 @@ contract UniqueMetadata {
 
     uint256[] internal EYES = [35000, 22000, 10000, 6000, 3000, 1000, 0];
 
-    uint256[] internal MOUSES = [10000, 6000, 3500, 2000, 1000, 1000, 0];
+    uint256[] internal MOUSES = [10000, 6000, 3500, 2000, 1000, 500, 0];
 
     uint256[] internal CLOTHES = [12000, 5000, 0];
 
