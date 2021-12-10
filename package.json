@@ -41,8 +41,7 @@
   "dependencies": {
     "@openzeppelin/contracts": "^4.3.2",
     "@truffle/hdwallet-provider": "^1.7.0",
-    "dotenv": "^10.0.0",
-    "postcss-import": "^14.0.2"
+    "dotenv": "^10.0.0"
   },
   "devDependencies": {
     "@openzeppelin/test-helpers": "^0.5.15",

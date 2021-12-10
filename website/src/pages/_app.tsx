@@ -38,7 +38,7 @@ const FontLinks = () => (
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
     {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400,500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap" rel="stylesheet" />
   </>
 )
 
