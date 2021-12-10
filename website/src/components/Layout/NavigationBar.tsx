@@ -4,6 +4,7 @@ import Headroom from 'react-headroom'
 import { useEventListener, useMediaQuery, useOnClickOutside } from 'usehooks-ts'
 
 import { title, mediaQueries } from '../../config'
+import { BurgerIcon } from '../Icons'
 import ConnectButton from './ConnectButton'
 
 const NavigationBar =() => {
@@ -26,7 +27,7 @@ const NavigationBar =() => {
       <div ref={menuRef} className={`${showMobileMenu ? "flex-wrap" : ""} w-full max-w-7xl mx-auto flex justify-between px-6 relative`}>
         <div className="h-20 flex">
           <Link href="/">
-            <a className="my-auto font-mono font-medium text-md sm:text-xl tracking-tight text-gray-50">
+            <a className="my-auto text-md sm:text-xl font-extrabold tracking-tight text-gray-50">
               {title}
             </a>
           </Link>
@@ -53,9 +54,3 @@ const NavigationBar =() => {
 }
 
 export default NavigationBar
-
-const BurgerIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-  </svg>
-)

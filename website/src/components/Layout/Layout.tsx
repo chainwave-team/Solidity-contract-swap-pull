@@ -17,8 +17,8 @@ export default Layout
 function Footer() {
   return (
     <footer className="my-16 md:my-24">
-      <p className="text-xl tracking-tight text-pink-500 my-4 font-mono text-center">
-        kiss 😘
+      <p className="text-xl sm:text-4xl leading-10 font-extrabold tracking-tight text-gray-50 text-center">
+        Be the different, love.
       </p>
     </footer>
   )

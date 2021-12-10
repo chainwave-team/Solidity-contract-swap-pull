@@ -21,12 +21,13 @@ function HomeHero({ title, description}: PropTypes) {
             <Image src={gif} alt={"CryptoDicks"} layout="fill" />
           </div>
         </div>
-        <div className="w-100 lg:w-1/2 lg:ml-6 mb-6 flex flex-col align-middle">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl leading-none font-extrabold tracking-tight text-gray-50 mt-10 mb-8 sm:mt-14 sm:mb-10">
+        <div className="w-100 lg:w-1/2 lg:ml-6 mb-6 flex flex-col justify-center">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl leading-none font-extrabold tracking-tight text-gray-50 mt-10 sm:mt-0 mb-8 sm:mb-10">
             {title}
           </h1>
           <p className="text-lg sm:text-2xl sm:leading-10 font-medium mb-6 	">
             {description}
+            10,000 unique NTFs with proof of ownership living on the Polygon blockchain and following the ERC-721 standard, but yeah, these are DICKs.
           </p>
 
           <div className="flex flex-wrap mt-6">
