@@ -1,5 +1,4 @@
 import express from 'express'
-import path from 'path'
 import cors from 'cors'
 
 import { API_URL, PORT } from './config'
@@ -12,9 +11,6 @@ const app = express()
 
 app.use(cors())
 
-// Serve static files
-app.use(express.static(path.resolve('public')))
-
 // Returns OpenSea NFT Properties
 app.get('/token/:tokenId', getTokenMetadata)
 
@@ -26,11 +22,6 @@ app.get('/svg-trait/:trait/:value', getTrait)
 
 // Returns some statistics about the collection
 app.get('/stats', getStats)
-
-// Development page
-app.get('/', (_, res) => {
-  res.sendFile(path.resolve('public', 'index.html'))
-})
 
 // Start
 app.listen(PORT, () => {
