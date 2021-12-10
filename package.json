@@ -1,40 +1,19 @@
 {
-  "name": "ntf-collectible",
+  "name": "cryptodicks-contract",
   "version": "1.0.0",
   "description": "",
   "main": "truffle-config.js",
   "engines": {
     "node": "16.13.0"
   },
-  "workspaces": [
-    "./api",
-    "./website"
-  ],
   "scripts": {
-    "clean": "lerna run clean && lerna clean -y",
-    "bootstrap": "lerna bootstrap",
-    "prebuild": "npm run copy-contract",
-    "build": "lerna run --scope api build --stream",
-    "start": "lerna run --scope api start --stream",
-    "predev": "npm run copy-contract",
-    "dev": "lerna run dev --stream",
-    "copy-contract": "npm-run-all --parallel \"copy-contract:*\"",
-    "copy-contract:api": "cp -r ./abis/CryptoDicks.json ./api/src/contracts/CryptoDicks.json",
-    "copy-contract:site": "cp -r ./abis/CryptoDicks.json ./website/src/contracts/CryptoDicks.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "NFT",
-    "Typescript",
-    "Rest",
-    "Express",
     "dapp",
     "solidity",
-    "web3",
-    "IPFS",
-    "React",
-    "Next.js",
-    "svg"
+    "web3"
   ],
   "author": "",
   "license": "MIT",
