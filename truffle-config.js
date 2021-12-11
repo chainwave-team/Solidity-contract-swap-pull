@@ -3,13 +3,15 @@
 require('dotenv/config')
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const path = require('path');
 
-const RPC_URL = `https://${process.env.NETWORK}.infura.io/v3/${process.env.INFURA_TOKEN}`
+const mnemonic = process.env["MNEMONIC"];
+const infuraProjectId = process.env["INFURA_PROJECT_ID"];
+const ownerWalletAddress = process.env["OWNER_WALLET"];
+const polygonScanApiKey = process.env["POLYGON_SCAN_API_KEY"];
+
+// const RPC_URL = `https://${process.env.NETWORK}.infura.io/v3/${process.env.INFURA_TOKEN}`
 
 module.exports = {
-  contracts_build_directory: path.join(__dirname, "abis"),
-
   // truffle test --network <network-name>
   networks: {
     development: {
@@ -17,13 +19,36 @@ module.exports = {
       port: 8545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
     },
-    rinkeby: {
-      provider: () => {
-        return new HDWalletProvider(process.env.MNEMONIC, RPC_URL)
-      },
-      network_id: '4',
-      skipDryRun: true,     // Skip dry run before migrations? (default: false for public nets )
-      from: process.env.OWNER_WALLET // Test MetaMask
+    //polygon Infura mainnet
+    polygon: {
+      provider: () => new HDWalletProvider({
+        mnemonic: {
+          phrase: mnemonic
+        },
+        providerOrUrl:
+          "https://polygon-mainnet.infura.io/v3/" + infuraProjectId
+      }),
+      network_id: 137,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true,
+      chainId: 137
+    },
+    //polygon Infura testnet
+    mumbai: {
+      provider: () => new HDWalletProvider({
+        mnemonic: {
+          phrase: mnemonic
+        },
+        providerOrUrl:
+          "https://polygon-mumbai.infura.io/v3/" + infuraProjectId
+      }),
+      network_id: 80001,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true,
+      chainId: 80001,
+      from: ownerWalletAddress // Test MetaMask
     }
   },
 
@@ -32,7 +57,7 @@ module.exports = {
   ],
 
   api_keys: {
-    etherscan: process.env.ETHERSCAN_API_KEY
+    etherscan: polygonScanApiKey
   },
 
   // Set default mocha options here, use special reporters etc.
@@ -44,15 +69,7 @@ module.exports = {
   // Configure your compilers
   compilers: {
     solc: {
-      version: "^0.8.0",    // Fetch exact version from solc-bin (default: truffle's version)
-      // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
-      // settings: {          // See the solidity docs for advice about optimization and evmVersion
-      //  optimizer: {
-      //    enabled: false,
-      //    runs: 200
-      //  },
-      //  evmVersion: "byzantium"
-      // }
+      version: "^0.8.0",
     }
   },
 
@@ -68,12 +85,5 @@ module.exports = {
   //
   db: {
     enabled: false,
-    // host: "127.0.0.1",
-    // adapter: {
-    //   name: "sqlite",
-    //   settings: {
-    //     directory: ".db"
-    //   }
   }
-  // }
 };

@@ -3,20 +3,32 @@
   "version": "1.0.0",
   "description": "",
   "main": "truffle-config.js",
+  "author": "juliencrn",
+  "license": "MIT",
   "engines": {
     "node": "16.13.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "truffle compile",
+    "compile:testnet": "truffle compile --network mumbai --compile-all",
+    "compile:mainnet": "truffle compile --network polygon --compile-all",
+    "migrate": "truffle migrate --reset",
+    "migrate:testnet": "truffle migrate --reset --network mumbai --compile-all",
+    "migrate:mainnet": "truffle migrate --reset --network polygon --compile-all",
+    "verify:testnet": "truffle run verify CryptoDicks --network mumbai",
+    "verify:mainnet": "truffle run verify CryptoDicks --network polygon",
+    "test": "truffle test"
   },
   "keywords": [
+    "Matic",
+    "Polygon",
+    "Ethereum",
+    "Truffle",
     "NFT",
     "dapp",
     "solidity",
     "web3"
   ],
-  "author": "",
-  "license": "MIT",
   "dependencies": {
     "@openzeppelin/contracts": "^4.3.2",
     "@truffle/hdwallet-provider": "^1.7.0",
