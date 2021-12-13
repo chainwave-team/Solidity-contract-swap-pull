@@ -21,7 +21,7 @@ contract UniqueMetadata {
         uint8 skin;
         uint8 hat;
         uint8 eye;
-        uint8 mouse;
+        uint8 mouth;
         uint8 clothe;
         uint8 arm;
         uint8 special;
@@ -89,7 +89,7 @@ contract UniqueMetadata {
 
     uint256[] internal EYES = [35000, 22000, 10000, 6000, 3000, 1000, 0];
 
-    uint256[] internal MOUSES = [10000, 6000, 3500, 2000, 1000, 500, 0];
+    uint256[] internal MOUTHS = [10000, 6000, 3500, 2000, 1000, 500, 0];
 
     uint256[] internal CLOTHES = [12000, 5000, 0];
 
@@ -136,7 +136,7 @@ contract UniqueMetadata {
                         metadata.skin,
                         metadata.hat,
                         metadata.eye,
-                        metadata.mouse,
+                        metadata.mouth,
                         metadata.clothe,
                         metadata.arm,
                         metadata.special
@@ -154,7 +154,7 @@ contract UniqueMetadata {
         uint8 skin;
         uint8 hat;
         uint8 eye;
-        uint8 mouse;
+        uint8 mouth;
         uint8 clothe;
         uint8 arm;
         uint8 special;
@@ -165,12 +165,12 @@ contract UniqueMetadata {
         // It's a little tricky.
         // It's reducing the gas consumption by spliting logic between functions
         if (special < 1) {
-            (bg, skin, hat, eye, mouse, clothe, arm) = _generateIfNotSpecial();
+            (bg, skin, hat, eye, mouth, clothe, arm) = _generateIfNotSpecial();
         } else {
-            (bg, skin, hat, eye, mouse, clothe, arm) = _generateIfSpecial();
+            (bg, skin, hat, eye, mouth, clothe, arm) = _generateIfSpecial();
         }
 
-        return Metadata(bg, skin, hat, eye, mouse, clothe, arm, special);
+        return Metadata(bg, skin, hat, eye, mouth, clothe, arm, special);
     }
 
     /// If the cryptoDick has a cape, it can't have any others accessories
@@ -224,9 +224,9 @@ contract UniqueMetadata {
             return (bg, skin, hat, eye, 0, clothe, arm);
         }
 
-        uint8 mouse = _generateMouseId();
+        uint8 mouth = _generateMouthId();
 
-        return (bg, skin, hat, eye, mouse, clothe, arm);
+        return (bg, skin, hat, eye, mouth, clothe, arm);
     }
 
     function _generateBackgroundId() internal returns (uint8) {
@@ -273,13 +273,13 @@ contract UniqueMetadata {
             );
     }
 
-    function _generateMouseId() internal returns (uint8) {
+    function _generateMouthId() internal returns (uint8) {
         _randomNonce.increment();
         return
             RandomNumber.generate(
                 MAX,
                 _randomNonce.current(),
-                MOUSES,
+                MOUTHS,
                 bytes4("mous")
             );
     }

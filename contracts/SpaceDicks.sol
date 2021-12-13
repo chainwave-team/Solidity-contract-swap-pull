@@ -8,13 +8,12 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 import "./UniqueMetadata.sol";
 
-/// @title The CryptoDicks ERC721 smart contract.
+/// @title The SpaceDicks ERC721 smart contract.
 /// @author juliencrn
-contract CryptoDicks is ERC721, UniqueMetadata, Ownable {
+contract SpaceDicks is ERC721, UniqueMetadata, Ownable {
     using Counters for Counters.Counter;
 
-    string internal _currentBaseURI =
-        "https://cryptodicks.herokuapp.com/token/";
+    string internal _currentBaseURI = "https://spacedicks.herokuapp.com/token/";
     uint256 public claimFee = 0.01 ether;
 
     /// Supply
@@ -22,8 +21,8 @@ contract CryptoDicks is ERC721, UniqueMetadata, Ownable {
     Counters.Counter internal _currentSupply;
 
     /// Pre-sale (100 for the artist, 1000 for the early adopters)
-    uint256 public preSalesLimit = 1100; // Prod
-    // uint256 public preSalesLimit = 10; // Dev
+    // uint256 public preSalesLimit = 1100; // Prod
+    uint256 public preSalesLimit = 10; // Dev
 
     /// Mint count limit
     /// During the pre-sales only: Each user can mint 3 DICKs maximum
@@ -35,7 +34,7 @@ contract CryptoDicks is ERC721, UniqueMetadata, Ownable {
     /// Map mint count by account
     mapping(address => uint256) mintCountByAddress;
 
-    constructor() ERC721("CryptoDicks", "DICK") {
+    constructor() ERC721("SpaceDicks", "DICK") {
         // Mint my own NFT tokens.
         for (uint256 i = 0; i < 5; i++) {
             mint();

@@ -1,5 +1,5 @@
-const CryptoDicks = artifacts.require("CryptoDicks");
+const SpaceDicks = artifacts.require("SpaceDicks");
 
 module.exports = function (deployer) {
-  deployer.deploy(CryptoDicks);
+  deployer.deploy(SpaceDicks);
 };

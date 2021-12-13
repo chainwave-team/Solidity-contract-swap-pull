@@ -1,5 +1,3 @@
-// trufflesuite.com/docs/advanced/configuration
-
 require('dotenv/config')
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
@@ -8,8 +6,6 @@ const mnemonic = process.env["MNEMONIC"];
 const infuraProjectId = process.env["INFURA_PROJECT_ID"];
 const ownerWalletAddress = process.env["OWNER_WALLET"];
 const polygonScanApiKey = process.env["POLYGON_SCAN_API_KEY"];
-
-// const RPC_URL = `https://${process.env.NETWORK}.infura.io/v3/${process.env.INFURA_TOKEN}`
 
 module.exports = {
   // truffle test --network <network-name>
