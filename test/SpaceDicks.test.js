@@ -30,7 +30,7 @@ contract('SpaceDicks', accounts => {
 
         it("has correct tokenURI", async () => {
             let tokenURI = await contract.tokenURI(1)
-            expect(tokenURI).to.equal("https://spacedicks.herokuapp.com/token/1")
+            expect(tokenURI).to.equal("https://spacedicks-api.herokuapp.com/token/1")
         })
 
         it("has correct total supply", async () => {

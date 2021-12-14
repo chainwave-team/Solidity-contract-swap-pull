@@ -13,7 +13,7 @@ import "./UniqueMetadata.sol";
 contract SpaceDicks is ERC721, UniqueMetadata, Ownable {
     using Counters for Counters.Counter;
 
-    string internal _currentBaseURI = "https://spacedicks.herokuapp.com/token/";
+    string internal _currentBaseURI = "https://spacedicks-api.herokuapp.com/token/";
     uint256 public claimFee = 0.01 ether;
 
     /// Supply
