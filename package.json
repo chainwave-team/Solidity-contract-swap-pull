@@ -15,8 +15,8 @@
     "migrate": "truffle migrate --reset",
     "migrate:testnet": "truffle migrate --reset --network mumbai --compile-all",
     "migrate:mainnet": "truffle migrate --reset --network polygon --compile-all",
-    "verify:testnet": "truffle run verify CryptoDicks --network mumbai",
-    "verify:mainnet": "truffle run verify CryptoDicks --network polygon",
+    "verify:testnet": "truffle run verify SpaceDicks --network mumbai",
+    "verify:mainnet": "truffle run verify SpaceDicks --network polygon",
     "test": "truffle test"
   },
   "keywords": [
