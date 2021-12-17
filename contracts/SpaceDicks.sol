@@ -13,20 +13,22 @@ import "./UniqueMetadata.sol";
 contract SpaceDicks is ERC721, UniqueMetadata, Ownable {
     using Counters for Counters.Counter;
 
-    string internal _currentBaseURI = "https://spacedicks-api.herokuapp.com/token/";
-    uint256 public claimFee = 0.01 ether;
+    string internal _currentBaseURI =
+        "https://spacedicks-api.herokuapp.com/token/";
+    // It's deployed on Polygon, so 1 "ether" = 1 MATIC
+    uint256 public claimFee = 25 ether;
 
     /// Supply
     uint256 public totalSupply = 10_000;
     Counters.Counter internal _currentSupply;
 
     /// Pre-sale (100 for the artist, 1000 for the early adopters)
-    // uint256 public preSalesLimit = 1100; // Prod
-    uint256 public preSalesLimit = 10; // Dev
+    uint256 public preSalesLimit = 1100; // Prod
+    // uint256 public preSalesLimit = 10; // Dev
 
     /// Mint count limit
-    /// During the pre-sales only: Each user can mint 3 DICKs maximum
-    uint256 public mintCountLimit = 3;
+    /// During the pre-sales only: Each user can mint 5 DICKs maximum
+    uint256 public mintCountLimit = 5;
 
     /// Map token ID to Metadata
     mapping(uint256 => Metadata) idToMetadata;
@@ -51,7 +53,7 @@ contract SpaceDicks is ERC721, UniqueMetadata, Ownable {
         else if (_currentSupply.current() < preSalesLimit) {
             require(
                 mintCountByAddress[msg.sender] < mintCountLimit,
-                "During the pre-sales, only 3 mints by account are authorized"
+                "During the pre-sales, only 5 mints by account are authorized"
             );
             mintCountByAddress[msg.sender]++;
             mint();

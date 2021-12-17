@@ -4,7 +4,7 @@ const { expectRevert } = require('@openzeppelin/test-helpers');
 const SpaceDicks = artifacts.require("SpaceDicks.sol");
 
 const fromBN = bn => web3.utils.toNumber(bn)
-let feesPrice = web3.utils.toBN(web3.utils.toWei('0.01', 'ether'))
+let feesPrice = web3.utils.toBN(web3.utils.toWei('25', 'ether'))
 
 contract('SpaceDicks', accounts => {
     let contract
@@ -40,7 +40,7 @@ contract('SpaceDicks', accounts => {
 
         it("has correct claim fee", async () => {
             let claimFee = await contract.claimFee()
-            expect(web3.utils.fromWei(claimFee)).to.equal("0.01")
+            expect(web3.utils.fromWei(claimFee)).to.equal("25")
         })
 
         it("gifts the owner the 5 first NFTs", async () => {
@@ -80,8 +80,6 @@ contract('SpaceDicks', accounts => {
             expect(web3.utils.toNumber(balance)).to.equal(5)
         })
     })
-
-
 
     describe("Minting a NFT", () => {
         let supplyBefore
@@ -160,7 +158,7 @@ contract('SpaceDicks', accounts => {
                 expect(fromBN(supply)).to.be.greaterThanOrEqual(10)
             })
 
-            it("costs 0.01 ether plus gas to mint", async () => {
+            it("costs 25 ether plus gas to mint", async () => {
                 let buyerBalanceAfter = await web3.eth.getBalance(accounts[1])
                 buyerBalanceAfter = web3.utils.toBN(buyerBalanceAfter)
                 let gasCost = web3.utils.toBN(transaction.gasPrice * receipt.receipt.gasUsed)
@@ -168,7 +166,7 @@ contract('SpaceDicks', accounts => {
                 expect(buyerBalanceAfter.toString()).to.equal(expectedBuyerBalance.toString())
             })
 
-            it("0.01 ether are transferred to the owners account", async () => {
+            it("25 ether are transferred to the owners account", async () => {
                 let ownerBalanceAfter = await web3.eth.getBalance(accounts[0])
                 ownerBalanceAfter = web3.utils.toBN(ownerBalanceAfter)
                 let expectedOwnerBalance = ownerBalanceBefore.add(feesPrice)
