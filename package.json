@@ -32,7 +32,8 @@
   "dependencies": {
     "@openzeppelin/contracts": "^4.3.2",
     "@truffle/hdwallet-provider": "^1.7.0",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "web3-utils": "^1.6.1"
   },
   "devDependencies": {
     "@openzeppelin/test-helpers": "^0.5.15",

@@ -19,8 +19,3 @@ cd spacedicks-contract
 ```
 
 Then see the `package.json` in the `script` section, you can `test`, `compile`, `migrate` and `verify` the smart-contracts.
-
-## Notes for testing
-
-The real pre-sale is for the 1000 first SpaceDicks.
-But for testing simplicity purpose, we set it manually to 10

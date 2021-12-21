@@ -4,7 +4,6 @@ const { expectRevert } = require('@openzeppelin/test-helpers');
 const SpaceDicks = artifacts.require("SpaceDicks.sol");
 
 const fromBN = bn => web3.utils.toNumber(bn)
-let feesPrice = web3.utils.toBN(web3.utils.toWei('25', 'ether'))
 
 contract('SpaceDicks', accounts => {
     let contract
@@ -82,12 +81,21 @@ contract('SpaceDicks', accounts => {
     })
 
     describe("Minting a NFT", () => {
+        const feesPrice = web3.utils.toBN(web3.utils.toWei('1', 'ether'))
         let supplyBefore
 
         before(async () => {
             supplyBefore = await contract.currentSupply();
             supplyBefore = fromBN(supplyBefore);
+
+            // Set the pre-sales to 15 first NFTs instead 1000 to be testable easily
+            await contract.setPreSalesLimit(15)
+
+            // We have 100 ether to test, the price is 25 ether, so I cannot buy 5 NFT.
+            // To be able to test, set lower mint price here.
+            await contract.setClaimFee(feesPrice)
         })
+
 
         describe("During the pre-sales", () => {
             it("creates a token for free", async () => {
@@ -104,22 +112,26 @@ contract('SpaceDicks', accounts => {
                 expect(owner).to.equal(accounts[1])
             })
 
-            it("Mints until 3 tokens should works", async () => {
+            it("Mints until 5 tokens should works", async () => {
+                await contract.claim({ from: accounts[1] })
+                await contract.claim({ from: accounts[1] })
                 await contract.claim({ from: accounts[1] })
                 await contract.claim({ from: accounts[1] })
 
                 const balance = await contract.balanceOf(accounts[1])
-                expect(fromBN(balance)).to.equal(3)
+                expect(fromBN(balance)).to.equal(5)
             })
 
-            it("Mints the 4th token should revert", async () => {
+            it("Mints the 6th token should revert", async () => {
                 await expectRevert(
                     contract.claim({ from: accounts[1] }),
-                    "During the pre-sales, only 3 mints by account are authorized"
+                    "During the pre-sales, only 5 mints by account are authorized"
                 )
             })
 
-            it("Mints more than 3 tokens should works for the artist", async () => {
+            it("Mints more than 5 tokens should works for the artist", async () => {
+                await contract.claim({ from: accounts[0] })
+                await contract.claim({ from: accounts[0] })
                 await contract.claim({ from: accounts[0] })
                 await contract.claim({ from: accounts[0] })
                 await contract.claim({ from: accounts[0] })
@@ -128,7 +140,7 @@ contract('SpaceDicks', accounts => {
 
                 const balance = await contract.balanceOf(accounts[0])
                 // 5 are minted at deploy, more 5 just before
-                expect(fromBN(balance)).to.equal(10)
+                expect(fromBN(balance)).to.equal(12)
             })
         })
 
@@ -147,18 +159,18 @@ contract('SpaceDicks', accounts => {
             let receipt
             let transaction
 
-            it("creates a token for free", async () => {
+            it("buy a token", async () => {
                 receipt = await contract.claim({ from: accounts[1], value: feesPrice })
                 transaction = await web3.eth.getTransaction(receipt.tx);
             })
 
-            it("the supply must be greater than 10 to close the pre-sales", async () => {
+            it("the supply must be greater than 15 to close the pre-sales", async () => {
                 const supplyBN = await contract.currentSupply();
                 const supply = fromBN(supplyBN)
-                expect(fromBN(supply)).to.be.greaterThanOrEqual(10)
+                expect(fromBN(supply)).to.be.greaterThanOrEqual(15)
             })
 
-            it("costs 25 ether plus gas to mint", async () => {
+            it("costs n ether plus gas to mint", async () => {
                 let buyerBalanceAfter = await web3.eth.getBalance(accounts[1])
                 buyerBalanceAfter = web3.utils.toBN(buyerBalanceAfter)
                 let gasCost = web3.utils.toBN(transaction.gasPrice * receipt.receipt.gasUsed)
@@ -166,7 +178,7 @@ contract('SpaceDicks', accounts => {
                 expect(buyerBalanceAfter.toString()).to.equal(expectedBuyerBalance.toString())
             })
 
-            it("25 ether are transferred to the owners account", async () => {
+            it("n ether are transferred to the owners account", async () => {
                 let ownerBalanceAfter = await web3.eth.getBalance(accounts[0])
                 ownerBalanceAfter = web3.utils.toBN(ownerBalanceAfter)
                 let expectedOwnerBalance = ownerBalanceBefore.add(feesPrice)

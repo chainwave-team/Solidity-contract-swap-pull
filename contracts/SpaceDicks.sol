@@ -23,8 +23,7 @@ contract SpaceDicks is ERC721, UniqueMetadata, Ownable {
     Counters.Counter internal _currentSupply;
 
     /// Pre-sale (100 for the artist, 1000 for the early adopters)
-    uint256 public preSalesLimit = 1100; // Prod
-    // uint256 public preSalesLimit = 10; // Dev
+    uint256 public preSalesLimit = 1100;
 
     /// Mint count limit
     /// During the pre-sales only: Each user can mint 5 DICKs maximum
