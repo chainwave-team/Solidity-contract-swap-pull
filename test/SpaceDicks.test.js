@@ -3,6 +3,8 @@ const { expectRevert } = require('@openzeppelin/test-helpers');
 
 const SpaceDicks = artifacts.require("SpaceDicks.sol");
 
+
+
 const fromBN = bn => web3.utils.toNumber(bn)
 
 contract('SpaceDicks', accounts => {
